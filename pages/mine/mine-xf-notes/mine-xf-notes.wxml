@@ -1,0 +1,11 @@
+<!--我的-消费记录-->
+<view class='xf-notes'>
+  <view class='item' wx:if='{{showXFnotes}}' wx:for='{{xfNoteLists}}' wx:key='costTime'>
+    <view class='left font14 color51 fontBlod'>{{item.content}}</view>
+    <view class='right font12'>{{item.createTime}}</view>
+  </view>
+  <view class='no-record tc' wx:if='{{!showXFnotes}}'>
+    <image class='nothing' src='http://oss.baoxian.xujinkeji.com/broker/no-xf.png'></image> 
+    <view class='no-text font13 tc'>暂无消费记录</view> 
+  </view>
+</view>

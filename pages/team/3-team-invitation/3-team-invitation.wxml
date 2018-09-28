@@ -1,0 +1,16 @@
+<!--邀请函-->
+<view class='teamIn'>
+  <view class='inHead tc'>
+    <image class='inImg' src='{{headUrls}}'></image>
+    <view class='inName overHide fontBlod'>{{name}}的团队邀请</view>
+    <view class='colorWhite font13 inContent'>hi，小伙伴:</view>
+    <view class='colorWhite font13 inContent'>邀你加入我的团队,一起使用“海豚保管”,打造永久个人IP,为客户提供更专业的保险顾问服务。</view>
+    <view class='colorWhite font13 inContent'>注:海豚保管是百万保险顾问都在用的用户全生命周期管理神器。</view>
+  </view>
+  <!-- <view class='acceptIn colorWhite font13 backColorJu tc' bindtap='acceptInvitation'>接受邀请</view> -->
+  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='acceptIn colorWhite font13 backColorJu tc'>接受邀请</button>
+  <view class='hasIn font12 color102 tc' style='margin-bottom:20px'>已加入成员</view>
+  <view class='hasInList'>
+    <image class='hasInItem' wx:for='{{hasJoin}}' src='{{item}}'></image>
+  </view>
+</view>

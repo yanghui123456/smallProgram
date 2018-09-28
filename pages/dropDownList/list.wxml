@@ -1,0 +1,21 @@
+<!--pages/dropDownList/list.wxml-->
+ <view class='drop-list'>
+  <view class='mask' bindtap='closeMask'></view>
+  <view class='group'>
+    <view class='head'>
+      在职公司
+      <image class='close' src='../commonImgs/mask_close.png' bindtap='closeMask'></image>
+    </view>
+    <view class='list'>
+        <view wx:for='{{listArr}}' wx:key='id' class="{{item.id === catalogSelect ? 'active' : 'item'}}" >
+          {{item.text}}
+          <view class='allBack' data-id="{{item.id}}" data-text="{{item.text}}" bindtap="onTap"></view>
+          <image class='img' src='./images/select.png'  wx:if="{{item.id === catalogSelect}}"></image>
+       </view>
+    </view>
+  </view>
+</view> 
+ <!-- <view class="inner">  -->
+  <!-- {{innerText}} -->
+<!-- </view> -->
+<!-- <slot></slot> -->

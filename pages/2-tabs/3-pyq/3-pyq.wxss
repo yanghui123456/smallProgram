@@ -1,0 +1,264 @@
+/* pages/tab-friends/tab-friends.wxss */
+page,.pyq{
+  width:100%;
+  height:100%;
+  position: relative;
+}
+.qidai{
+  position: absolute;
+  top:50%;
+  left:42%;
+}
+.tabscroll{
+  z-index:100; 
+  position: fixed;      
+  top:0;     
+  left:0;    
+  height:40px; 
+  width:100%;
+  white-space: nowrap;
+  border-bottom:1px solid rgb(245,245,245);
+  box-sizing: border-box;
+}
+.headScroll{
+  width:100%;
+  height:40px;
+  box-sizing: border-box;
+}
+.scrollItem{
+  height:40px;
+  display: inline-block;
+  line-height: 40px;
+  padding: 0px 20px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.colorJuBlod{
+  font-weight: 700;
+  color: rgb(246,161,34);
+}
+.tabbottom{
+  width:20%;
+  height:3px;
+  position: absolute;
+  bottom:0;
+  left:40%;
+}
+.tabContent{
+  width:100%;
+   height:100%; 
+     position: absolute;   
+     top:0px;   
+     left:0;   
+     z-index:99;
+     padding-top:40px; 
+  box-sizing: border-box;
+  background: white; 
+}
+/*内容标题  */
+.title{
+  width:100%;
+  height:48px;
+  line-height: 48px;
+  padding-left:2.6%;
+  box-sizing: border-box;
+  position: relative;
+  text-align: left;
+  color:black;
+}
+.line{
+  width:2px;
+  height:10px;
+  position: absolute;
+  top:19px;
+  left:0;
+  background: black;
+}
+.seeAll{
+  height:100%;
+  position: absolute;
+  top:0;
+  right:2.6%;
+  color:rgb(3,155,254);
+  font-weight: normal;
+}
+/*热门推荐  */
+.imgContent{
+  width:100%;
+  padding-left:3.1%;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: rgb(245,245,245);
+}
+.contentItem{
+  height:218px;
+  width:29.86%;
+  float: left;
+  background: rgb(245,245,245);
+  margin:0 3.4% 10px 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.img{
+  width:100%;
+  height:144px;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.price{
+  height:28px;
+  line-height: 28px;
+  padding:0 10px;
+  position: absolute;
+  top:116px;
+  right:0;
+  border-top-left-radius: 15px;
+}
+.text{
+  width:100%;
+  height:46px;
+  position: absolute;
+  top:144px;
+  left:0;
+  background: white;
+  padding:5px 8px;
+  box-sizing: border-box;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  line-height: 18px;
+}
+.transmit{
+  width:100%;
+  height:30px;
+  line-height: 30px;
+  position: absolute;
+  bottom:0;
+  left:0;
+  color:rgb(159,159,159);
+  display:table-cell;
+  vertical-align: middle; 
+}
+.transmitIcon{
+  width:12px;
+  height:12px;
+  vertical-align: middle;
+  margin-right:4px;
+}
+/*气泡  */
+.paopo{
+  padding:5px 15px;
+  position: fixed;
+  bottom:9%;
+  right:4%;
+  border-radius: 25px;
+  z-index:99;
+}
+.view{
+position: fixed ; /*相对定位*/
+height:60px;
+width:60px;
+border-radius:2rem;
+background:#999999;
+color: white;
+text-align: center;
+line-height: 60px;
+z-index:2000;
+}
+/*增员攻略  */
+.zyglItem{
+  width:100%;
+  padding:25px 2.8%;
+  border-bottom:1px solid rgb(245,245,245);
+  box-sizing: border-box;
+  background: white;
+}
+.zyglText{
+  text-align: left;
+  text-indent: 2em;
+  color:rgb(43,43,43);
+  margin-bottom:20px;
+}
+.zyglImgs,.zyglBot{
+  width:100%;
+  text-align: left;
+}
+.zyglImg{
+  width:100px;
+  height:100px;
+  margin:0 10px 10px 0;
+}
+.zyglBot{
+  color:rgb(102,102,102);
+  margin-top:10px;
+  position: relative;
+}
+.pyqIcon{
+  width:15px;
+  height:15px;
+  vertical-align: middle;
+  margin-right:3px;
+}
+.sendPyq{
+  height:25px;
+  line-height: 25px;
+  position: absolute;
+  top:-8px;
+  right:0;
+  padding:2px 12px;
+  border:1px solid rgb(237,237,237);
+  border-radius: 4px;
+  color:rgb(47,47,47);
+}
+.zyglToast{
+  width:100%;
+  padding:45px 3% 0 3%;
+  height:66%; 
+  position: absolute;
+  bottom:0;
+  right:0;
+  background: white;
+  box-sizing: border-box;
+  overflow: auto;
+  -webkit-overflow-scrolling:touch;
+}
+.ztglImgsGroup{
+  width:100%;
+  overflow: hidden;
+  margin:20px 0;
+}
+.zyglTText{
+  text-align: left;
+  color:black;
+  text-indent: 2em;
+}
+.zyglGroupItem{
+  width:100px;
+  height:100px;
+  float: left;
+  background: red;
+  margin:0 5px 10px 0;
+}
+.zyglTDown{
+  color:rgb(144,144,144);
+  margin-bottom:4px;
+}
+.zyglTShare{
+  color:rgb(43,169,255);
+  margin:4px 0 20px 0;
+}

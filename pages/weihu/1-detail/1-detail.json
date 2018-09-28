@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "客户详情",
+  "navigationBarBackgroundColor": "#f5f5f5",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": true
+}

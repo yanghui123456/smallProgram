@@ -1,0 +1,86 @@
+pae,.has-success{
+  width:100%;
+  height:100%;
+}
+/*红包头部  */
+.single-paket-head{
+  height:228px;
+  position: relative;
+  width:100%;
+  box-sizing: border-box;
+}
+.head-img{
+  width:100%;
+  height:100%;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.who-paket,.bless,.sum{
+  width:100%;
+  position: absolute;
+  left:0;
+}
+.who-paket{
+  top:54px;
+  color:rgb(229,54,35);
+}
+.bless{
+  top:140px;
+  color:rgb(236,163,95);
+}
+.sum{
+  top:98px;
+  font-size:33px;
+  color:rgb(226,54,34);
+}
+/*经纪人信息  */
+.jjr-info{
+  position: relative;
+  background: rgb(245,245,245);
+  padding-bottom:20px;
+}
+.info-img{
+  width:41px;
+  height:41px;
+  border:1px solid white;
+  border-radius: 50%;
+  position: absolute;
+  top:20px;
+  left:4%;
+}
+.jjr-say,.info-name,.say-text{
+  width:100%;
+}
+.jjr-say{
+  padding:0 4% 0 18%;
+  box-sizing: border-box;
+  margin-top:5px;
+  position: relative;
+}
+.info-name{
+  padding:20px 0 0 18%;
+  box-sizing: border-box;
+}
+.info-company{
+  color:rgb(159,159,159);
+}
+.say-text{
+  background: white;
+  border-radius: 10px;
+  padding:15px;
+  border:1px solid rgb(234,234,234);
+  box-sizing: border-box;
+}
+.triangle{
+  width:10px;
+  height:10px;
+  transform: rotate(45deg);
+  background: white;
+  border-left:1px solid rgb(234,234,234);
+  border-bottom:1px solid rgb(234,234,234);
+  position: absolute;
+  top:17px;
+  left:17%;
+  margin-left:-2px;
+}

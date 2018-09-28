@@ -1,0 +1,40 @@
+page,.wh-notes{
+  width:100%;
+  height:100%;
+  background: rgb(245,245,245);
+}
+.wh-notes{
+  overflow: auto;
+  -webkit-overflow-scrolling:touch;
+}
+.nothing{
+  width:140px;
+  height:125px;
+  margin:50% 0 10px 0;
+}
+.no-text{
+  color:rgb(204,204,204);
+  margin-bottom:20px;
+}
+.item{
+  width:100%;
+}
+.item{
+  height:56px;
+  line-height: 56px;
+  padding:0 4%;
+  border-bottom:1px solid rgb(245,245,245);
+  box-sizing: border-box;
+}
+.item-img{
+  width:19px;
+  height:16px;
+  float: left;
+  margin:20px 12px 0 0;
+}
+.item-text{
+  float: left;
+}
+.item-time{
+  float: right;
+}

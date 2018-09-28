@@ -1,0 +1,26 @@
+<!--领取单个红包页面-->
+<view class='single-paket'>
+  <view class='single-paket-head'>
+    <image class='head-img' src='http://oss.baoxian.xujinkeji.com/broker/single-paket.png'></image>
+    <view class='who-paket font14 fontBlod tc' wx:if='{{isSamePerson}}'>来自{{jjrName}}的红包</view>
+    <view class='bless font12 tc' wx:if='{{isSamePerson}}'>专属保险托管服务，专属祝福。</view>
+    <view class='who-paket font14 fontBlod tc' wx:if='{{noSamePerson}}'>抱歉，您无法领取该红包</view>
+    <view class='bless font12 tc' wx:if='{{noSamePerson}}'>您可下载海豚智保APP了解更多哦!</view>
+    <view class='who-paket font14 fontBlod tc' wx:if='{{paketGuoqi}}'>抱歉，红包已过期</view> 
+    <view class='bless font12 tc' wx:if='{{paketGuoqi}}'>您可下载海豚智保APP了解更多哦!</view>
+     <view class='who-paket font14 fontBlod tc' wx:if='{{hasGet}}'>您已经领取该红包了哦</view>  
+     <view class='bless font12 tc' wx:if='{{hasGet}}'>您可下载海豚智保APP了解更多哦!</view>     
+    <image class='from-img' src='{{imageUrl}}'></image>
+  </view>
+  <view class='paket-detail font12 color102' wx:if='{{isSamePerson}}'>1个红包，共{{jjrHtb}}个海豚币</view>
+  <view class='get-detail bgW' wx:if='{{isSamePerson}}'>
+    <image class='detail-img' src='{{imageUrl}}'></image>
+    <view class='detail-name color51 font13 fontBlod'>{{jjrName}}</view>
+    <view class='detail-time color153 font10'>{{time}}</view>
+    <view class='detail-htb font14 fontBlod'>{{jjrHtb}}个<text class='font-c153'>海豚币</text></view>
+  </view>
+  <!--海豚币说明、下载组件  -->
+  <view>
+    <app-download></app-download>
+  </view>
+</view>

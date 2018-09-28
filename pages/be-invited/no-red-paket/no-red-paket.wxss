@@ -1,0 +1,252 @@
+page,.invitation{
+  width:100%;
+  height:100%;
+  background: #0930D5;
+}
+.invitation{
+  padding:15px 4% 25px 4%;
+  box-sizing: border-box;
+  position: fixed;
+  top:0;
+  left:0;
+  overflow: auto;
+  -webkit-overflow-scrolling:touch;
+}
+.jjrText{
+  width:100%;
+  height:100%;
+  padding:10px 5% 35px 5%;
+  box-sizing: border-box;
+  position: absolute;
+  top:0;
+  left:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.invitatin-content{
+  width:100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.content-top{
+  width:100%;
+  height:205px;
+  background: rgb(255,132,0);
+  position: relative;
+}
+.content-wx-img{
+  width:20px;
+  height:20px;
+  vertical-align: middle;
+}
+.content-wxh{
+  width:100%;
+  padding-right:4.3%;
+  position: absolute;
+  bottom:12px;
+  left:0;
+  text-align: right;
+  box-sizing: border-box;
+}
+.agent-info{
+  width:100%;
+  height:18%;
+  position: relative;
+  padding-top:1px;
+}
+.info-head-img{
+  width:60px;
+  height:60px;
+  border:2px solid white;
+  border-radius: 50%;
+  position: absolute;
+  top:0;
+  left:5.7%;
+  margin-top:-30px;
+}
+.call{
+  width:34px;
+  height:34px;
+  position: absolute;
+  top:32.8%;
+  right:7.2%;  
+}
+.info-name,.info-company{
+   width:100%;
+   padding-left:5.7%;
+   box-sizing: border-box;
+}
+.info-name{
+  margin-top:40px;
+}
+.first{
+  margin-right:7px;
+}
+.second{
+  margin-right:18px;
+}
+.color{
+  color:rgb(255,166,1);
+}
+.add-red-paket-img{
+  width:15px;
+  height:15px;
+  vertical-align: middle;
+  margin-top:-2px;
+}
+.open-red-paket-img{
+  width:100%;
+  height:100%;
+}
+.share-text{
+  margin-top:10px;
+}
+.invitation-text{
+  width:100%;
+  margin-top:67px;
+}
+.downloadLJ{
+  width:100%;
+  color:rgb(36,168,253);
+  margin-top:10px;
+}
+.invitation-btn{
+  width:92%;
+  height:45px;
+  line-height: 45px;
+  margin: 10px 4% 15px 4%;
+  border-radius: 5px;
+}
+.invitationNum{
+  width:100%;
+  margin:20px 0 10px 0;
+}
+/*绑定手机号  */
+.bindTel,.mask{
+  width:100%;
+  height:100%;
+  position: fixed;
+  top:0;
+  left:0;
+}
+.mask{
+  background: black;
+  opacity: 0.5;
+}
+.tel-box{
+  width:100%;
+  position: absolute;
+  bottom:0;
+  left:0;
+}
+.box-head{
+  width:100%;
+  height:40px;
+  line-height:40px ;
+  color:black;
+}
+.agree{
+  width:100%;
+  height:50px;
+  line-height: 50px;
+  background: rgb(251,134,27);
+}
+.form-info{
+  width:100%;
+  height:121px;
+}
+.h60{
+  width:100%;
+  height:60px;
+}
+.item{
+  width:100%;
+  height:61px;
+  padding:0 4% 0 4%;
+  border-bottom:1px solid rgb(245, 245, 245);
+  box-sizing: border-box;
+  position:relative;
+}
+.item:last-child{
+  border:none;
+  height:60px;
+}
+.text, .inputVal{
+  height:100%;
+  line-height: 61px;
+  float: left;
+}
+.text{
+  width:26%;
+  line-height: 61px;
+}
+.inputVal{
+  width:48%;
+}
+.get-verification-code{
+  width:26%;
+  height:34px;
+  line-height: 34px;
+  border:1px solid rgb(253, 207, 145);
+  position: absolute;
+  top:13px;
+  right:4%;
+  color:rgb(246, 163, 35);
+  border-radius: 3px;
+  box-sizing:border-box;
+  z-index:99;
+}
+.second{
+  border:none;
+  color:rgb(179,179,179);
+}
+input::-webkit-input-placeholder{
+  color:rgb(203, 203, 203);
+}
+.share{
+  width:100%;
+  height:15%;
+}
+.share-style{
+  width:40.5%;
+  height:35px;
+  line-height: 35px;
+  background: rgb(255,166,1);
+  border-radius: 17px;
+  float: left;
+  margin:8% 4.75% 0 4.75%;
+  position: relative;
+  overflow: hidden;
+  margin-bottom:15px;
+}
+.openShare{
+  width:100%;
+  height:35px;
+  background: transparent;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.share-text{
+  margin-top:10px;
+}
+.share-img{
+  width:16px;
+  height:16px;
+  vertical-align:middle;
+  margin-top:-2px;
+}
+/*被邀请用户头像  */
+.img-list{
+  width:100%;
+  height:100px;
+  padding:0 6.6% 0 8%;
+  box-sizing: border-box;
+}
+.img-item{
+  width:9.5%;
+  height:33px;
+  margin:0 1.4% 5px 0;
+  float: left;
+}

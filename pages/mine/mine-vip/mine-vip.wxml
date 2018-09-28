@@ -1,0 +1,21 @@
+<!--开通vip-->
+<view class='vip'>
+  <image class='vip-head' src='http://oss.baoxian.xujinkeji.com/broker/kt-vip.png'></image>
+  <view class='vip-item forever'>
+    <text class='left font13 color51'>永久<text class='unit'>999元</text></text>
+    <text class='recommend font10 colorWhite'>推荐</text>
+    <text class='right colorJu font12'>开通</text>
+  </view>
+  <view class='vip-item'>
+    <text class='left font13 color51'>半年<text class='unit'>199元</text></text>
+    <text class='right colorJu font12'>开通</text>
+  </view>
+  <view class='vip-item'>
+    <text class='left font13 color51'>一年<text class='unit'>299元</text></text>
+    <text class='right colorJu font12'>开通</text>
+  </view>
+  <view class='vip-item'>
+    <text class='left font13 color51'>一个月<text class='unit'>59元</text></text>
+    <text class='right colorJu font12'>开通</text>
+  </view>
+</view>

@@ -1,0 +1,13 @@
+/* pages/custom-component/head-img-list/head-img-list.wxss */
+.img-list{
+  width:100%;
+  height:100px;
+  padding:0 6.6% 0 8%;
+  box-sizing: border-box;
+}
+.img-item{
+  width:9.5%;
+  height:33px;
+  margin:0 1.4% 5px 0;
+  float: left;
+}

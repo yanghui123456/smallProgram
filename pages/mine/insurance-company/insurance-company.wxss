@@ -1,0 +1,75 @@
+/* pages/mine/insurance-company/insurance-company.wxss */
+page,.drop-list,.mask{
+  width:100%;
+  height:100%;
+}
+.drop-list{
+  position: relative;
+}
+.group{
+  width:100%;
+  z-index:99;
+  position: fixed;
+  bottom:0;
+  left:0;
+}
+.list{
+  width:100%;
+  background: white;
+  height:100%;
+  padding-top:50px;
+  box-sizing:border-box;
+  overflow: auto;
+  -webkit-overflow-scrolling:touch;
+}
+.allBack{
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0;
+  left:0;
+}
+.search{
+  width:100%;
+  height:50px;
+  position: absolute;
+  top:0;
+  left:0;
+  z-index:99;
+  background: white;
+}
+.searchInput{
+  width:92.8%;
+  height:30px;
+  margin-top:10px;
+  margin-left:3.6%;
+  background: rgb(236,236,236);
+  border-radius: 5px;
+  padding:0 10px;
+  box-sizing: border-box;
+}
+.placeHolder{
+  color:rgb(145,145,145);
+  font-size:12px;
+  text-align: center;
+}
+.companyitems,.companyactive{
+  width:100%;
+  padding:10px 10% 10px 4%;
+  border-bottom:1px solid rgb(245,245,245);
+  font-size:14px;
+  color:rgb(51,51,51);
+  box-sizing: border-box;
+  position: relative;
+}
+.companyactive{
+  background: rgb(255,250,244);
+}
+.img{
+  width:20px;
+  height:25px;
+  position:absolute;
+  top:50%;
+  right:4%;
+  margin-top:-13px;
+}

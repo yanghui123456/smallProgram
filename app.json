@@ -1,0 +1,94 @@
+{
+  "pages": [
+    "pages/1-register/0-blank/0-blank",
+    "pages/1-register/1-kaitong/1-kaitong",
+    "pages/1-register/2-telCheck/2-telCheck",
+    "pages/1-register/3-idCheck/3-idCheck",
+    "pages/1-register/4-mutipleVersion/4-mutipleVersion",
+    "pages/2-tabs/1-tuoguan/1-tuoguan",
+    "pages/2-tabs/2-weihu/2-weihu",
+    "pages/2-tabs/3-pyq/3-pyq",
+    "pages/2-tabs/4-mine/4-mine",
+    "pages/2-tabs/0-ipCard/0-ipCard",
+    "pages/dropDownList/list",
+    "pages/logs/logs",
+    "pages/trusteeship/trusteeship-invitation/Invitation",
+    "pages/trusteeship/single-red-paket/single-red-paket",
+    "pages/trusteeship/trusteeship-redpaket/redPaket",
+    "pages/custom-component/app-download/app-download",
+    "pages/custom-component/head-img-list/head-img-list",
+    "pages/be-invited/no-red-paket/no-red-paket",
+    "pages/be-invited/invitation-success/invitation-success",
+    "pages/be-invited/2-has-red-paket/has-red-paket",
+    "pages/be-invited/2-invitation-success/2-invitation-success",
+    "pages/mine/mine-problem/mine-problem",
+    "pages/mine/mine-recharge/mine-recharge",
+    "pages/mine/mine-recharge-notes/mine-recharge-notes",
+    "pages/mine/mine-info/mine-info",
+    "pages/mine/mine-vip/mine-vip",
+    "pages/mine/mine-recharge-success/mine-recharge-success",
+    "pages/mine/mine-xf-notes/mine-xf-notes",
+    "pages/mine/mine-invitation-friends/mine-invitation-friends",
+    "pages/mine/mine-trusteeship-notes/mine-trusteeship-notes",
+    "pages/mine/mine-charts/mine-charts",
+    "pages/mine/mine-modify-headimg/mine-modify-headimg",
+    "pages/mine/insurance-company/insurance-company",
+    "pages/mine/mine-team-no/mine-team-no",
+    "pages/mine/mine-team/mine-team",
+    "pages/mine/team-data/team-data",
+    "pages/mine/IP-card-canvas/IP-card-canvas",
+    "pages/mine/IP-share-card-canvas/IP-share-card-canvas",
+    "pages/mine/setting/setting",
+    "pages/mine/buy-author/buy-author",
+    "pages/mine/team-detail/team-detail",
+    "pages/weihu/1-detail/1-detail",
+    "pages/weihu/2-wh-notes/2-wh-notes",
+    "pages/weihu/3-red-paket/3-red-paket",
+    "pages/weihu/4-insurance-detail/4-insurance-detail",
+    "pages/weihu/5-insurance-upload/5-insurance-upload",
+    "pages/weihu/6-family-member-detail/6-family-member-detail",
+    "pages/weihu/7-confrim-msg/7-confrim-msg",
+    "pages/pyq/buy-success/buy-success",
+    "pages/team/open-team-success/open-team-success",
+    "pages/team/1-kaitong/1-kaitong",
+    "pages/team/2-perfect-msg/2-perfect-msg",
+    "pages/team/3-team-invitation/3-team-invitation"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "海豚保管",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/2-tabs/0-ipCard/0-ipCard",
+        "text": "首页",
+        "iconPath": "pages/2-tabs/0-ipCard/images/no-select.png",
+        "selectedIconPath": "pages/2-tabs/0-ipCard/images/select.png"
+      },
+      {
+        "pagePath": "pages/2-tabs/2-weihu/2-weihu",
+        "text": "客户维护",
+        "iconPath": "pages/2-tabs/2-weihu/images/no-select.png",
+        "selectedIconPath": "pages/2-tabs/2-weihu/images/select.png"
+      },
+      {
+        "pagePath": "pages/2-tabs/3-pyq/3-pyq",
+        "text": "闪耀朋友圈",
+        "iconPath": "pages/2-tabs/3-pyq/images/no-select.png",
+        "selectedIconPath": "pages/2-tabs/3-pyq/images/select.png"
+      },
+      {
+        "pagePath": "pages/2-tabs/4-mine/4-mine",
+        "text": "我的",
+        "iconPath": "pages/2-tabs/4-mine/images/no-select.png",
+        "selectedIconPath": "pages/2-tabs/4-mine/images/select.png"
+      }
+    ],
+    "color": "#656565",
+    "selectedColor": "#F6A122",
+    "backgroundColor": "#ffffff"
+  }
+}

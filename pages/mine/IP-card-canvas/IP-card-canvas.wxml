@@ -1,0 +1,83 @@
+<!--pages/mine/aa/aa.wxml-->
+<view class='bb'>
+  <!-- 画布 -->
+  <canvas class='ipCanvas' canvas-id='ipCanvasid' style='width:100%;height:280px;'></canvas>
+  <!-- 浏览 -->
+  <view class='browse'>
+    <image class='browseDetail' wx:for='{{browseImgList}}' wx:key='{{index}}' src='{{item}}'></image>
+    <image class='browseDetail' src='../../commonImgs/shenglue.png'></image>
+    <view class='font10 color153'>{{browseCount}}次浏览</view>
+    <view class='help font10 color153 tc'>
+      <!-- 未点过赞 -->
+      <view wx:if="{{praiseStatus == '0'}}">
+        <image class='fingerIcon' src='../../commonImgs/zan1.png' wx:if='{{noColorZan}}' bindtap='zan'></image>
+        <image class='smallfingerIcon'  src='../../commonImgs/zan2.png' wx:if='{{colorZan}}' animation="{{animationData}}"></image>
+      </view>
+      <!-- 已点过赞 -->
+      <image class='fingerIcon' src='../../commonImgs/zan2.png' wx:if="{{praiseStatus == '1'}}"></image>
+      <text style='display:block;margin-top:4px;'>{{praisedCount}}</text>
+    </view>
+  </view>  
+    <!-- 信息展示和收起 -->
+    <view class='itemGroup bgW'>
+       <view wx:if='{{!isHide}}' data-show='hide' class='moreMsg tc font11 color153' bindtap='switchDetail'>隐藏信息<image class='arrow' src='../../commonImgs/arrowTop.png'></image> </view>
+      <view wx:if='{{isHide}}' data-show='show' class='moreMsg tc font11 color153' bindtap='switchDetail'>显示更多信息<image class='arrow' src='../../commonImgs/arrowBottom.png'></image></view>
+       <view class="{{isHide?'hidea':'showa'}}">
+        <view class='item'>
+          <view class='left font13'>电话</view>
+          <view class='center font13 color51'>{{brokerTel}}</view>
+          <text class='right font13' data-tel='{{brokerTel}}' bindtap='call'>拨打</text>
+        </view>
+        <view class='item'>
+          <view class='left font13'>微信</view>
+          <view class='center font13 color51'>{{wxNo}}</view>
+          <text class='right font13' data-msg='{{wxNo}}' bindtap='copy'>复制</text>
+        </view>
+        <view class='item'>
+          <view class='left font13'>邮箱</view>
+          <view class='center font13 color51'>{{mail}}</view>
+          <text class='right font13' data-msg='{{mail}}' bindtap='copy'>复制</text>
+        </view>
+        <view class='item'>
+          <view class='left font13'>公司</view>
+          <view class='center font13 color51'>{{company}}</view>
+          <text class='right font13' data-msg='{{company}}' bindtap='copy'>复制</text>
+        </view>
+        <view class='item'>
+          <view class='left font13'>地址</view>
+          <view class='center font13 color51'>{{address}}</view>
+          <text class='right font13' data-msg='{{address}}' bindtap='copy'>复制</text>
+        </view> 
+      </view>
+    </view>   
+    <!-- 个人简介 -->
+    <view class='ipGroup bgW'>
+      <view class='introduce fontBlod'>个人简介</view>
+      <view wx:if="{{introduction == ''}}" class='introDetail font13 color102' style='margin-bottom:20px;text-indent:2em;text-aline:left'>
+        暂无个人简介，请点击下方的设置进行设定（为增加客户信任度，建议您根据您的既往履历和保险理念来撰写这部分内容）
+      </view>
+      <view wx:else class='introDetail font13 color102' style='margin-bottom:20px;'>{{introduction}}</view>
+      <!-- <view class='introDetail font13 color102'>激发来看接口打几分安静了反馈接口就看接口接口 几点开奖</view> -->
+    </view>  
+    <!-- 照片墙 -->
+    <view class='ipGroup bgW' style='margin-bottom:0'>
+      <view class='introduce fontBlod'>照片墙</view>
+      <!-- 用户上传列表 -->
+      <view class='photoList' wx:for='{{brokerPhotoWall}}' wx:key='{{index}}'>
+        <image class='photeItem' src='{{item.photoUrl}}' mode='aspectFit'></image>
+        <image class='photoDel' src='../../commonImgs/ipDelet.png' data-id='{{item.photoId}}' bindtap='deletPhoto'></image>
+      </view>
+      <view class='uploadImg'>
+        <view class='uploadBack'></view>
+        <image src='../../1-register/3-idCheck/images/add.png' class='addBtn' bindtap='uploadImg'></image>
+        <view class='uploadMsg font12 color102 tc'>上传图片</view>
+        <view class='uploadMsg font12 color102 tc' style='margin-top:20px'>(建议上传个人证书、获奖证明、培训照片、生活照等)</view>
+      </view>
+    </view>       
+    <!-- 底部 -->
+  <view class='ipBottom bgW tc'>
+    <!-- <view class='bottomBtn font15 colorWhite backColorJu' bindtap='shareIP'><image class='bottomIcon' src='../../commonImgs/ipChareIcon.png'></image>分享名片</view> -->
+    <button open-type='share' class='bottomBtn' plain='true' style='font-size:15px;color:white;background: rgb(246,161,34);border-radius:0;'><image class='bottomIcon' src='../../commonImgs/ipChareIcon.png'></image>分享名片</button>
+    <view class='bottomBtn font15 colorJu' bindtap='goSettinng'><image class='bottomIcon' src='../../commonImgs/ipsetIcon.png'></image>设置</view>
+  </view>    
+</view>

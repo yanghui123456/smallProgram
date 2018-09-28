@@ -1,0 +1,51 @@
+/* pages/pyq/buy-success/buy-success.wxss */
+page,.buySuc{
+  width:100%;
+  height:100%;
+  background: black;
+  position: relative;
+}
+.butImgbox{
+    width:92%;
+  height:85%;
+  margin:2.4% 0 0 4%;
+  border-radius: 10px;
+}
+.buyImg{
+  width:100%;
+  height:100%;
+  /* width:92%;
+  height:85%;
+  margin:2.4% 0 0 4%;
+  border-radius: 10px; */
+}
+.btnGroup{
+  width:100%;
+  height:12.6%;
+}
+.item{
+  width:50%;
+  height:100%;
+  position: relative;
+  float: left;
+}
+.imgBox{
+  width:40px;
+  height:40px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top:50%;
+  left:50%;
+  margin:-20px 0 0 -20px;
+}
+.img{
+  width:40px;
+  height:40px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top:50%;
+  left:50%;
+  margin:-20px 0 0 -20px;
+}

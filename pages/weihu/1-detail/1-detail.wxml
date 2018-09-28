@@ -1,0 +1,158 @@
+<!--客户维护-详情-->
+<view class='wh-detail'>
+  <view class='content'>
+  <!-- 头部信息 -->
+    <view class='head'>
+      <image class='head-img' src='{{detailImgUrl}}'></image>
+      <!-- <image class='head-wx' src='../../commonImgs/border-wx .png'></image> -->
+      <image class='head-hb' src='../../commonImgs/border-hb.png' data-url='../3-red-paket/3-red-paket' bindtap='redPaket'></image>
+      <image class='head-call' src='../../trusteeship/images/call.png' data-tel='{{detailTel}}' bindtap='call'></image>
+      <view class='name fontBlod'>{{nickname}}</view>
+      <view class='wh-record font12' data-url='../2-wh-notes/2-wh-notes' bindtap='goWHNotes'>客户维护记录></view>
+    </view>
+    <!--三种分类  -->
+    <view class='classify bgW'>
+      <view class='classify-item tc font12'>
+        <view class='classify-num'>
+          <text class='num-top' style='vertical-align:middle'>{{detailBx}}</text>
+          <text class='float-left' style='vertical-align:middle'>个</text>
+        </view>
+        <view class='color153'>保险</view>
+      </view>
+      <view class='classify-item tc font12'>
+        <view class='classify-num'>
+          <text class='num-top' style='vertical-align:middle'>{{detailBf}}</text>
+          <text class='float-left' style='vertical-align:middle'>元</text>
+        </view>
+        <view class='color153'>保费</view>    
+      </view>
+      <view class='classify-item tc font12'>
+        <view class='classify-num'>
+          <text class='num-top' style='vertical-align:middle'>{{detailBe}}</text>
+          <text class='float-left' style='vertical-align:middle'>万元</text>
+        </view>
+        <view class='color153'>保额</view>    
+      </view>
+    </view>
+    <!--家庭成员  -->
+    <view class='family-member'>
+      <view class='member-head font13'>
+        <view class='line'></view>
+        家庭成员
+        <view class='add font12' wx:if='{{!hasFamilyMember}}' bindtap='checkFamilyMask'>+添加</view>
+      </view>
+      <!--无家庭成员  -->
+      <view class='member-add tc' wx:if='{{hasFamilyMember}}'>
+        <text class='add-btn font12' bindtap='checkFamilyMask'>+添加家庭成员</text>
+      </view>
+      <!--有家庭成员  -->
+      <view class='menber-list'>
+        <view class='rightLine bgW'></view>
+        <view class='bottomLine'></view>
+        <view class='member-item' wx:for='{{familyMenmberList}}' wx:key='id'>
+          <view class='allSpan'  data-id='{{item.id}}' bindtap='goMemberDetail'></view>
+         <image class='member-img' src='http://oss.baoxian.xujinkeji.com/broker/insured_father.png' wx:if="{{item.role == '爸爸'}}"></image>
+          <image class='member-img' src='http://oss.baoxian.xujinkeji.com/broker/insured_mather.png'  wx:if="{{item.role == '妈妈'}}"></image>
+          <image class='member-img' src='http://oss.baoxian.xujinkeji.com/broker/insured_son.png'  wx:if="{{item.role == '儿子'}}"></image>
+          <image class='member-img' src='http://oss.baoxian.xujinkeji.com/broker/insured_daughter.png'  wx:if="{{item.role == '女儿'}}"></image>
+          <image class='member-img' src='http://oss.baoxian.xujinkeji.com/broker/insured_other.png'  wx:if="{{item.role == '其他'}}"></image>
+          <image class='member-img' src='http://oss.baoxian.xujinkeji.com/broker/insured_self.png'  wx:if="{{item.role == '本人'}}"></image>
+          <image class='member-img' src='http://oss.baoxian.xujinkeji.com/broker/insured_wife.png'  wx:if="{{item.role == '配偶'}}"></image>
+          <image class='member-img' src='http://oss.baoxian.xujinkeji.com/broker/insured_father.png'  wx:if="{{item.role == '配偶爸爸'}}"></image>
+          <image class='member-img' src='http://oss.baoxian.xujinkeji.com/broker/insured_mather.png'  wx:if="{{item.role == '配偶妈妈'}}"></image>
+          <view class='member-name font15 color51'>
+            <text class='name-width'>{{item.name}}</text>
+            <text class='relation colorWhite font10'>{{item.role}}</text>
+          </view>
+          <view class='member-sex font12'>{{item.sex == 0? '女':'男'}} / {{item.age}}岁 / {{item.region === null? '未知':item.region}}</view></view>
+      </view>
+    </view>
+    <!--保单列表  -->
+    <view class='insurance-list'>
+      <view class='member-head font13'>
+        <view class='line'></view>
+        保单列表
+        <view class='add font12' wx:if='{{!hasPolicy}}' bindtap='chooseImg'>+添加</view>
+      </view>
+      <!--无保单列表  -->
+      <view class='member-add tc' wx:if='{{hasPolicy}}'>
+        <view class='add-insurance-btn font12'  bindtap='chooseImg'>+上传保单</view>
+      </view>
+      <!--有保单列表  -->
+      <view class='policy-list bgW'>
+        <!--正在维护中保单  -->
+         <view class='policy-item tc' wx:for='{{customerUploadBillModels}}' wx:key='fileId'>
+          <view class='allDetail' data-id='{{item.fileId}}' data-url='{{item.policyPictureUrl}}' bindtap='editState'></view>
+          <view class='policy-detail'>
+            <image class='insurance-img' src='{{item.policyPictureUrl}}'></image>
+            <image class='insurance-mask'></image>
+            <text class='edit colorWhite font12' bindtap='checkWhMask'>编辑保单</text>
+          </view>
+             <view class='policy-style font12'></view>  
+        </view> 
+        <!--正常保单  -->
+        <view class='policy-item tc' wx:for='{{insurancrList}}' wx:key='billId'>
+          <view class='allDetail' data-id='{{item.billId}}' bindtap='goInsuranceDetail'></view>
+          <view class='policy-detail'>
+            <image class='insurance-company' src='{{item.companyLogoUrl}}'></image>
+            <view class='insurance-name font12 colorWhite'>{{item.billName}}</view>
+            <view class='insurance-period font10 colorWhite'>[{{item.billGuaranteeStatus}}]</view>
+            <view class='insurance-unit font10 colorWhite'>保额(万元）</view>
+            <view class='insurance-money colorWhite fontBlod'>{{item.coverage}}</view>
+            <view class='insured-name font11 colorWhite'>{{item.applicantName}}</view>
+          </view>
+          <!-- <view class='policy-style font10'>车险财产</view>  -->
+          <view class='policy-style font12 color153'>每期保费￥{{item.premium}}</view>
+        </view>
+      </view>
+    </view>
+  </view>  
+  <!--生成保障方案  -->
+  <!-- <view class='programme font15 colorJu tc bgW' bindtap='guaranteePlan'>生成保障方案</view> -->
+  <!--添加家庭成员  -->
+  <view class='member-list' wx:if='{{showRealMask}}'>
+    <view class='mask' bindtap='checkFamilyMask'></view>
+    <view class='real-name bg245'>
+      <view class='real-head tc font15 color51 bgW'>
+        添加家庭成员
+        <image class='close' src='../../commonImgs/mask_close.png' bindtap='checkFamilyMask'></image>
+      </view>
+      <view class='userList bgW'>
+        <view class='family_group'>
+          <view class='group-div' wx:for='{{familyMenber}}'>
+            <view class='group-span' data-index='{{index}}' bindtap='checkRelation'></view>
+            <view class='group-p tc font12 color51'>{{item.relation}}</view>
+            <image class='group-user' src='{{item.src}}'></image>
+            <image src='../../commonImgs/family_analysis_selected.png' class='select' wx:if='{{index === showSelect}}'></image>
+          </view>
+        </view>
+      </view>                                   
+      <view class='groupList'>
+        <view class='real-item bgW'>
+          <view class='real-span font15 color51'>姓名</view>
+          <input class='real-input font15 color51' placeholder='请输入姓名' type='text'  bindinput ="userNameInput"></input>
+        </view>
+        <view class='real-item bgW'>
+          <view class='real-span font15 color51'>身份证</view>
+          <input class='real-input font15 color51' placeholder='请输入身份证号码' type='idcard' bindinput="passWdInput"></input>
+        </view>
+      </view>
+      <view class='real-bottom colorWhite font15 backColorJu tc' bindtap='addMember'>确定</view>
+    </view>
+  </view>
+  <!--正在维护提示  -->
+    <view class='text-mask' wx:if='{{showMask}}'>
+    <view class='mask' bindtap='checkWhMask'></view>
+    <view class='box'>
+      <view class='box-head colorWhite'>
+        <image class='box-head-img' src='http://oss.baoxian.xujinkeji.com/broker/wh-mask-head.png'></image> 
+        <image class='box-head-colse' src='../../commonImgs/wh-mask-close.png' bindtap='checkWhMask'></image>
+        <view class='box-text tc'>正在维护中...</view>
+      </view>
+      <view class='box-conten font13 color102 bgW'>您好目前正有其他经纪人为该保单服务，请稍后在尝试访问服务</view>
+      <view class='box-bottom font16 tc bg245 color102' bindtap='checkWhMask'>
+        确定
+      </view>
+    </view>  
+  </view>
+</view>

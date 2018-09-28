@@ -1,0 +1,97 @@
+<!--保单详情-->
+<view class='ins-detail tc'>
+  <view class='ins-details'>
+    <image class='insurance-img' src='{{companyLogoWhiteX2}}'></image>
+    <view class='detail'>
+      <view class='detail-name fontBlod' bindtap='showInsuranceImg'>{{detailInsuranceName}}</view>
+      <view class='insured-name font12 color102'>保单号:{{detailInsuranceNum}} 被保人:{{detailInsuredName}}</view>
+      <view class='font12 moreGive'>保险金最高赔付</view>
+      <view class='giveMoney colorJu fontBlod'>{{maxLimit}}<text class='font10'>万</text></view>
+      <view class='duty-list'>
+        <view class='duty-item' wx:for='{{dutyList4}}' wx:key='name'>
+          <view class='duty-left font12 color153'>{{item.name}}</view>
+          <view class='duty-right font13'>{{item.value}}万</view>
+        </view>
+      </view>
+      <view class='moreBtn font13' bindtap='showList' wx:if='{{showMore}}'>更多</view>
+    </view>
+  </view>
+  <!--为一次性缴清的时候只显示paymentTime  -->
+  <view class='pay-record font12 bgW'><text wx:if="{{paymentTime !=='趸交'}}">每</text>{{paymentTime}}<text wx:if="{{paymentTime !=='趸交'}}">缴费共{{allTerm}}期；已交{{paidTerm}}期</text></view>
+  <!--已交保费、待交保费  -->
+  <view class='pay-premium bgW'>
+    <view class='premium-item'>
+      <view class='premium-num font12 color51'>{{paid}}</view>
+      <view class='premium-text font11 color153'>已交保费(元)</view>
+    </view>
+    <view class='premium-item'>
+      <view class='premium-num font12 color51'>{{unpaid}}</view>
+      <view class='premium-text font11 color153'>待交保费(元)</view>
+    </view>
+  </view>
+  <!--投保人、被保人信息  -->
+  <view class='info-list'>
+    <view class='info-item bgW' data-type='投保人' bindtap='seeDetail'>
+      <text class='font15 color51 info-left'>投保人</text>
+      <text class='font13 info-right color102'>{{tbr}}</text>
+      <image class='join' src='../../commonImgs/join.png'></image>
+    </view>
+    <view class='info-item bgW' data-type='被保人' bindtap='seeDetail'>
+      <text class='font15 color51 info-left'>被保人</text>
+      <text class='font13 info-right color102'>{{bbr}}</text>
+      <image class='join' src='../../commonImgs/join.png'></image>
+    </view>    
+  </view>
+  <view class='info-list'>
+    <view class='info-item bgW'>
+      <text class='font15 color51 info-left'>受益人</text>
+      <text class='font13 info-right color102'>{{beneficiaryName}}</text>
+    </view>  
+  </view>
+  <view class='info-list mt0'>
+    <view class='info-item bgW'>
+      <text class='font15 color51 info-left'>申请理赔/退款</text>
+      <text class='font13 info-right phoneNum' data-tel='{{companyTelephone}}' bindtap='call'>{{companyTelephone}}</text>
+    </view>  
+  </view>
+  <!--更多列表弹层  -->
+  <view class='more-duty' wx:if='{{showDutyList}}'>
+    <view class='mask'>
+        <view class="safe-item tc" wx:for='{{dutyList}}' wx:key='name'>
+          <text class="safe-style font14">{{item.name}}</text>
+          <text class="safe-detail font14">{{item.val}}万</text>
+        </view>    
+    </view>
+    <image class='close-duty' src='../../commonImgs/mask_close.png' bindtap='closeList'></image>
+  </view>
+  <!--被保人和投保人弹层  -->
+    <view class='more-duty' wx:if='{{showInfo}}'>
+    <view class='mask'>
+        <view class="safe-item tc">
+          <text class="safe-style font14">姓名</text>
+          <text class="safe-detail font14" wx:if="{{whitchOne === '被'}}">{{commonInfo.applicantName}}</text>
+          <text class="safe-detail font14" wx:else>{{commonInfo.policyHolderName}}</text>
+        </view>    
+        <view class="safe-item tc">
+          <text class="safe-style font14">性别</text>
+          <text class="safe-detail font14" wx:if="{{whitchOne === '被'}}">{{commonInfo.applicantSex == 0?'女':'男'}}</text>
+          <text class="safe-detail font14" wx:else>{{commonInfo.policyHolderSex == 0?'女':'男'}}</text>
+        </view>
+        <view class="safe-item tc">
+          <text class="safe-style font14">出生日期</text>
+          <text class="safe-detail font14" wx:if="{{whitchOne === '被'}}">{{commonInfo.applicantInfoBirthday}}</text>
+          <text class="safe-detail font14" wx:else>{{commonInfo.policyHolderBirthday}}</text>
+        </view>
+        <view class="safe-item tc">
+          <text class="safe-style font14">证件号码</text>
+          <text class="safe-detail font14" wx:if="{{whitchOne === '被'}}">{{commonInfo.applicantCardNo}}</text>
+          <text class="safe-detail font14" wx:else>{{commonInfo.policyHolderCertificateNo}}</text>
+        </view>                        
+    </view>
+    <image class='close-duty' src='../../commonImgs/mask_close.png' bindtap='closeDetail'></image>
+  </view>
+  <!--原始保单  -->
+  <view class='more-duty' wx:if='{{showInsuranceImg}}'>
+    <image class='ins-detail-img' src='{{billImageUrl}}' bindtap='showInsuranceImg'></image>
+  </view>
+</view>

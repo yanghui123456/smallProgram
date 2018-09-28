@@ -1,0 +1,5 @@
+<!--个人头像-->
+<view class='modifyImg'>
+  <image class='more' bindtap='uploadHeadImg' src='../../commonImgs/more.png'></image>
+  <image class='modifyHeadImg' src='{{headImg}}'></image>
+</view>

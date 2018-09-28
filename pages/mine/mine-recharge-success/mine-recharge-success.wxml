@@ -1,0 +1,22 @@
+<!--我的-充值成功页面-->
+<view class='recharge-success'>
+  <view class='success-tips font12 tc'> <image class='succecss-icon' src='../../commonImgs/cz-ok.png'></image>充值成功</view>
+  <view class='number fontBlod tc'>{{htb}}</view>
+  <view class='text tc font12 color153'>海豚币</view>
+  <view class='recharge-info'>
+    <view class='left font12 color153'>付款金额</view>
+    <view class='right font12 color51'>{{money}}元</view>
+  </view>
+  <view class='recharge-info'>
+    <view class='left font12 color153'>付款时间</view>
+    <view class='right font12 color51'>{{payTime}}</view>
+  </view>
+  <view class='recharge-info'>
+    <view class='left font12 color153'>支付方式</view>
+    <view class='right font12 color51'>在线支付</view>
+  </view>
+  <view class='recharge-info'>
+    <view class='left font12 color153'>订单号</view>
+    <view class='right font12 color51'>{{orderNumber}}</view>
+  </view>    
+</view>

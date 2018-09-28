@@ -1,0 +1,44 @@
+<!--pages/mine/mine-team-no/mine-team-no.wxml-->
+<view class='noTeam'>
+  <view class='noTeamTop'>
+    <view class='teamHead tc'>
+      <image class='teamImg' src='http://oss.baoxian.xujinkeji.com/broker/teamNo6.png'></image>
+      <view class='colorWhite fontBlod noJoin'>您暂未加入任何团队</view>
+    </view>
+    <view class='creatTeam color51 tc'>马上创建团队拥有特权功能</view>
+    <view class='steps tc'>
+      <view class='stepItem'>
+        <image class='stepImg' src='../../commonImgs/teamNo1.png'></image>
+        <view class='font12 color153'>功能折扣</view>
+      </view>
+      <view class='stepItem'>
+        <image class='stepImg' src='../../commonImgs/teamNo3.png'></image>
+        <view class='font12 color153'>数据管理</view>
+      </view>
+      <view class='stepItem'>
+        <image class='stepImg' src='../../commonImgs/teamNo2.png'></image>
+        <view class='font12 color153'>客户画像</view>
+      </view>
+      <view class='stepItem'>
+        <image class='stepImg' src='../../commonImgs/teamNo4.png'></image>
+        <view class='font12 color153'>协作管理</view>
+      </view>
+      <view class='stepItem'>
+        <image class='stepImg' src='../../commonImgs/teamNo5.png'></image>
+        <view class='font12 color153'>业务排名</view>
+      </view>                  
+    </view>
+    <view class='tipsTitle color51 font13'>BOSS高效便捷管理团队和用户。</view>
+    <view class='tipsItem font13 color102'>1.为团队成员团购高级功能特权(3-8)折</view>
+    <view class='tipsItem font13 color102'>2.方便的数据化管理团队，包括团队的整体数据和每个成员的客户维护记录。</view>
+    <view class='tipsItem font13 color102'>3.成员离职后保留客户数据，移交给其他成员。</view>
+    <view class='tipsTitle color51 font13'>团队成员享有特权功能</view>
+    <view class='tipsItem font13 color102'>1.可以免费使用特权内的高级功能。</view>
+    <view class='tipsItem font13 color102'>2.可以看到自己的团队中排名。</view>
+    <view class='tipsItem font13 color102' style='margin-bottom:30px;'>3.可以更好的和BOSS及其他小伙伴协作。</view>  
+  </view>
+  <view class='noTeamBottom backColorJu font13 tc'>
+    <view class='left colorWhite font13' bindtap='creatTeam'>创建团队</view>
+    <button open-type='share' plain="true" class='right bgW color102 font13'style='background:white;border-radius:0;height:45px;line-height:45px;'>推荐给BOSS</button>
+  </view>
+</view>

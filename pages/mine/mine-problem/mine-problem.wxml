@@ -1,0 +1,30 @@
+<!--pages/mine/mine-problem/mine-problem.wxml-->
+<view class='m-problem'>
+<view class='m-head'>
+    <image class='head-back' src='http://oss.baoxian.xujinkeji.com/broker/service_headback.png'></image>
+    <image class='head-girl' src='http://oss.baoxian.xujinkeji.com/broker/service_girl.png'></image>
+    <view class='head-text colorWhite'>您好，您可以查看列表信息解决您的疑问。</view>
+  </view>
+  <view class='m-about bgW'>
+    <view class='about-us bgW font16 fontBlod tc color51'>关于我们</view>
+    <view class='us-text bgW font12 color102'>海豚智保是旭金科技（北京）有限公司开发的智能保险管理产品，旭金科技（北京）有限公司是东旭集团下属的全资子公司。
+东旭集团（TUNGHSU GROUP）成立于1997年，总部位于北京。东旭集团以振兴民族产业为己任，立志成为受人尊敬的中国实体产业先锋。公司旗下拥有东旭光电（000413）、东旭蓝天（000040）、嘉麟杰（002486）三家上市公司、两百余家全资及控股公司，业务遍及北京、上海、广东、西藏等20余个省、直辖市、自治区。</view>
+  </view>
+  <!--问题列表  -->
+  <view class='pro-list bgW color51' data-type='1' bindtap='tab'>海豚保管是什么？</view>
+  <view class='list-detail' wx:if="{{list1}}">
+    <!-- <view class='title color51'>海豚保管是什么？</view> -->
+    <view class='paragraph font13'>海豚保管小程序，以保单托管为切入点，简单、方便为保险顾问提供客户生命周期管理工具。</view>
+  </view>
+  <view class='pro-list bgW color51' data-type='2' bindtap='tab'>用户会看到什么？</view>
+  <view class='list-detail'  wx:if="{{list2}}">
+    <!-- <view class='title color51'>用户会看到什么？</view> -->
+    <view class='paragraph font13'>海豚智保APP，提供自助式的智能保险管家服务。对保单进行诊断后会生成符合自身的个性化家庭保障方案，支持和专属保险顾问进行咨询等。同时可获得场景化的保障提醒服务。</view>
+  </view>
+  <view class='pro-list bgW color51' data-type='3' bindtap='tab'>海豚币是什么？</view>
+  <view class='list-detail' wx:if="{{list3}}">
+    <!-- <view class='title color51'>海豚币是什么？</view> -->
+    <view class='paragraph font13'>海豚币是海豚智保的通证，可以用于海豚城堡中的消费。
+您在海豚保管中做的任务将转化为海豚币，您可以将海豚币赠送给您的用户</view>
+  </view> 
+</view>

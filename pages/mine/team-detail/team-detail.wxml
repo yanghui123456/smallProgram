@@ -1,0 +1,48 @@
+<!--客户维护-->
+<view class='weihu tc'>
+  <!--有数据  -->
+  <view class='list bg245'>
+    <!-- 头部 -->
+    <view class='infoGroup bgW'>
+      <view class='infoTop bg245'>
+        <view class='infoBack tc'>
+        <image class='avater' src='{{imgUrl}}'></image>
+        <image class='avaterCall' src='../../commonImgs/memberCall.png' data-tel='{{tel}}' bindtap='callPhone'></image>
+        <view class='infoName tc colorWhite fontBlod'>{{name}}</view>
+        <view class='infoBd tc colorWhite'>
+          <view class='infoHalf'>
+            <view class='font16 fontBlod'>{{kh}}<text style='font-size:10px;'>人</text></view>
+            <view style='font-size:10px;margin-top:4px;'>托管客户</view>
+          </view>
+          <view class='infoHalf'>
+            <view class='font16 fontBlod'>{{bd}}<text style='font-size:10px;'>个</text></view>
+            <view style='font-size:10px;margin-top:4px;'>托管保单</view>            
+          </view>
+          <view class='infoHalf'>
+            <view class='font16 fontBlod'>{{cd}}<text style='font-size:10px;'>个</text></view>
+            <view style='font-size:10px;margin-top:4px;'>用户触达度</view>
+          </view>          
+        </view>
+        </view>
+      </view>
+    </view>     
+    <view class='bgW' style='padding:30px 0 6px 4%;text-align:left;'>客户列表</view>
+    <!-- 有数据 -->
+    <view class='item bgW'  wx:if='{{!showList}}' wx:for='{{list}}' wx:key='{{index}}'>
+      <view class='cover'></view>
+      <image class='headImg' src='{{item.headImageUrl}}'></image>
+      <image class='call' src='../../trusteeship/images/call.png' data-tel='{{item.phoneNo}}' catchtap='callPhone'></image>
+      <view class='info font12'>
+        <text class='info-name fontBolod color51 overHide'>{{item.nickname}}</text> 
+        {{item.sex === 1? '男': '女'}} / {{item.age}}岁 / {{item.region}}
+      </view>
+      <view class='down font12' wx:if='{{item.billNum === 0}}' data-tel='{{item.phoneNo}}' data-nickname='{{item.nickname}}' bindtap='downApp'>该客户暂无保单</view>
+      <view wx:else class='detail font12'>保险{{item.billNum}}个,  保费{{premium}}元, 保额{{coverage}}万元</view>
+    </view>
+     <!--无数据  -->
+    <view wx:if='{{showList}}'>
+      <image class='nothing' src='http://oss.baoxian.xujinkeji.com/broker/no-invit.png'></image>
+      <view class='no-text font13'>暂无客户列表</view>
+    </view>
+  </view>
+</view>

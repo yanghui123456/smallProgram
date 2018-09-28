@@ -1,0 +1,77 @@
+<!--客户维护-->
+<view class='weihu tc'>
+  <view class='list bg245'>
+    <!-- tab -->
+    <view class='weihuTab bgW'>
+      <view class=" {{activeTab == '1'? 'activeTab1':'weihuItem1'}}" data-tab='1' bindtap='tabClick'>托管用户</view>
+      <view class=" {{activeTab == '2'? 'activeTab2':'weihuItem2'}}" data-tab='2' bindtap='tabClick'>意向客户</view>
+    </view>
+    <!-- 托管客户列表 -->
+    <view wx:if='{{activeTab == 1}}'>
+      <!-- 托管客户有数据 -->
+      <view wx:if='{{!showList}}'>
+        <view class='item bgW' wx:for='{{weihuList}}' wx:key="userId" >
+          <view class='cover' data-billnum = '{{item.billNum}}' data-userid='{{item.userId}}' data-tel='{{item.phoneNo}}' data-nickname='{{item.nickname}}' bindtap='seeDetail'></view>
+          <image class='headImg' src='{{item.headImageUrl}}'></image>
+          <image class='call' src='../../trusteeship/images/call.png' data-userid='{{item.userId}}' data-tel='{{item.phoneNo}}' catchtap='callPhone'></image>
+          <view class='info font12'>
+          <!-- 性别：1男 2女 0位置 -->
+            <text class='info-name fontBolod color51 overHide'>{{item.nickname}}</text> 
+            {{item.sex === 1? '男': item.sex == 2?'女':'未知'}} / {{item.age}}岁 / {{item.region}} 
+          </view>
+          <view class='down font12' wx:if='{{item.billNum === 0}}' data-tel='{{item.phoneNo}}' data-nickname='{{item.nickname}}' bindtap='downApp'>邀请客户下载海豚智保，+1海豚币></view>
+          <view class='detail font12' wx:else>保险{{item.billNum}}个,  保费{{item.premium}}元, 保额{{item.coverage}}万元</view>
+        </view>  
+        <view class='no-people font13' bindtap='invitationPerson' bindtap='yaoqingYh1'>没有更多了,去邀请 ></view>    
+      </view>
+      <!--托管客户无数据  -->
+      <view wx:if='{{showList}}'>
+        <image class='nothing' src='http://oss.baoxian.xujinkeji.com/broker/no-invit.png'></image>
+        <view class='no-text font13'>暂无托管用户</view>
+        <text class='colorWhite backColorJu font13 invit' bindtap='yaoqingYh1'>立刻邀请</text>
+      </view>    
+    </view>
+    <!--意向客户列表  -->
+    <view wx:if='{{activeTab == 2}}'>
+      <!-- 托管客户有数据 -->
+      <view wx:if='{{!showYxList}}'>
+        <view class='item bgW' wx:for='{{yixiangList}}' wx:key="{{index}}" >
+          <view class='cover'></view>
+          <image class='headImg' src='{{item.headUrl}}'></image>
+          <view wx:if='{{item.formStatus == 0}}' class='tgInvit backColorJu colorWhite font12' bindtap='yaoqingYh' data-openid='{{item.openId}}' data-formid='{{item.formId}}'>托管邀请</view>
+          <view wx:if='{{item.formStatus == 1}}' class='tgInvit backColorJu colorWhite font12' bindtap='hasSend' data-openid='{{item.openId}}' data-formid='{{item.formId}}'>已发送</view>
+          <view class='info font12'>
+            <text class='info-name fontBolod color51 overHide' style='margin-right:0px'>{{item.nickName}}</text> 
+            {{item.sex === 1? '男': '女'}}  / {{item.city}}
+          </view>
+          <view class='detail font12'>名片访问{{item.browseCount}}次</view>
+        </view>  
+        <!-- <view class='no-people font13' bindtap='invitationPerson' bindtap='yaoqingYh'>没有更多了,去邀请 ></view>     -->
+      </view>
+      <!--托管客户无数据  -->
+      <view wx:if='{{showYxList}}'>
+        <image class='nothing' src='http://oss.baoxian.xujinkeji.com/broker/no-invit.png'></image>
+        <view class='no-text font13'>暂无意向客户</view>
+        <!-- <text class='colorWhite backColorJu font13 invit' bindtap='yaoqingYh'>立刻邀请</text> -->
+      </view>     
+    </view>
+    <!-- 意向客户有数据 -->
+  </view>
+  <!--向用户发送文本信息  -->
+  <view class='text-mask' wx:if='{{showMask}}'>
+    <view class='mask' bindtap='closeMask'></view>
+    <view class='box'>
+      <view class='box-head colorWhite'>
+        <image class='box-head-img' src='http://oss.baoxian.xujinkeji.com/broker/wh-mask-head.png'></image> 
+        <image class='box-head-colse' src='../../commonImgs/wh-mask-close.png' bindtap='closeMask'></image>
+        <view class='box-text'>将内容发送给客户</view>
+      </view>
+      <view class='box-conten font13 color102 bgW'>亲爱的客户，我是您的保险管家“{{brokerName}}”。请下载海豚智保APP让我为您进行保单年检、投保、 理赔等一对一贴心服务。马上下载还可抢创世大礼包哦http://baoxian.xujinkeji.com/#/
+      </view>
+      <view class='box-bottom font16 colorJu'>
+        <view class='bottom-btn'>复制内容<text class='copyText' bindtap='copyContent'>亲爱的客户，我是您的保险管家“微信名称”。请 下载海豚智保APP让我为您进行保单年检、投保、 理赔等一对一贴心服务。马上下载还可抢创世大礼包哦http://baoxian.xujinkeji.com/#/</text></view>
+        <view class='bottom-btn color102' bindtap='sendMsg'>发送短信</view>
+      </view>
+    </view>  
+  </view>
+</view>

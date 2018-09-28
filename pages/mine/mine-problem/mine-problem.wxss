@@ -1,0 +1,73 @@
+page,.m-problem{
+  width:100%;
+  height:100%;
+  background: rgb(245,245,245);
+}
+.m-head{
+  width:100%;
+  height:140px;
+  position: relative;
+}
+.head-back{
+  width:100%;
+  height:140px;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.head-girl{
+  width:22%;
+  height:94%;
+  position: absolute;
+  bottom:0;
+  left:4%;
+}
+.head-text{
+  font-size:17px;
+  width:100%;
+  padding: 0 12% 0 32%;
+  box-sizing: border-box;
+  position: absolute;
+  bottom:70px;
+  left: 0;
+}
+.m-about{
+  padding:20px 0 20px 0;
+  margin-bottom:10px;
+}
+.m-about,.about-us,.us-text{
+  width:100%;
+}
+.about-us{
+  margin:0px 0 15px 0;
+}
+.us-text{
+  padding:0 4%;
+  text-indent: 2em;
+  box-sizing: border-box;
+}
+.pro-list{
+  width:100%;
+  padding:0 4%;
+  height:56px;
+  line-height: 56px;
+  font-size:16px;
+  border-bottom:1px solid rgb(245,245,245);
+  box-sizing: border-box;
+}
+.list-detail{
+  width:100%;
+  padding:0 4%;
+  box-sizing: border-box;
+}
+.title{
+  width:100%;
+  font-size:17px;
+  margin-top:18px;
+}
+.paragraph{
+  width:100%;
+  color:rgb(139,139,139);
+  text-indent: 2em;
+  padding: 10px 0 20px 0;
+}

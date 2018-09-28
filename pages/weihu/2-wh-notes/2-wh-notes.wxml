@@ -1,0 +1,22 @@
+<!--客户维护记录-->
+<view class='wh-notes tc'>
+  <!--无维护记录  -->
+  <view wx:if='{{hasData}}'>
+    <image class='nothing' src='http://oss.baoxian.xujinkeji.com/broker/nothing-whjl.png'></image>
+    <view class='no-text font13'>亲，你太冷落客户了</view>  
+  </view>
+  <!--有维护记录  -->
+  <view wx:if='{{!hasData}}'>
+    <view class='item bgW' wx:for='{{whList}}' wx:key='type'>
+      <image class='item-img' src='../../commonImgs/jl-bz.png' wx:if='{{item.type === 1}}'></image>
+      <text class='item-text font13 color51'  wx:if='{{item.type === 1}}'>微信沟通</text>
+      <image class='item-img' src='../../commonImgs/jl-call.png'  wx:if='{{item.type === 2}}'></image>
+      <text class='item-text font13 color51'  wx:if='{{item.type === 2}}'>电话</text>
+      <image class='item-img' src='../../trusteeship/images/redPaket.png'  wx:if='{{item.type === 3}}'></image>
+      <text class='item-text font13 color51'  wx:if='{{item.type === 3}}'>发送礼物</text>   
+      <image class='item-img' src='../../commonImgs/jl-bz.png'  wx:if='{{item.type === 4}}'></image>
+      <text class='item-text font13 color51'  wx:if='{{item.type === 4}}'>生成保障方案</text>         
+      <text class='item-time font10 color102'>{{item.vindicateTime}}</text>
+    </view>    
+  </view>
+</view>

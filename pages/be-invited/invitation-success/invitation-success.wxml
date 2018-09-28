@@ -1,0 +1,23 @@
+<!--无红包-邀请成功-->
+<view class='invitation-success'>
+   <view class='success-head backColorJu'> 
+    <view class='user-info'>
+      <image class='user-head-img' src="{{headImg}}" ></image> 
+      <view class='user-base-info colorWhite'> 
+        {{realName}}   
+        <text class='company font11'>{{company}}  从业{{year}}年</text> 
+        <view class='user-communication'> 
+          <!-- <view class='tel font10 colorWhite'>中国人寿保险公司</view> 
+          <view class='tel font10 colorWhite'>从业10年</view>   -->
+        </view>
+      </view> 
+      <view class='success-tips font14 color153 bgW'>
+        我已成为您的专属保险托管顾问,您以及您家庭的保险相关问题都可以得到一对一的服务。
+        <view class='trangle bgW'></view>
+      </view>
+    </view> 
+   </view> 
+  <view>
+      <app-download></app-download>  
+   </view> 
+</view>

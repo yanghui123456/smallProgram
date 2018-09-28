@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "邀请函",
+  "navigationBarBackgroundColor": "#F6A122",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "app-download": "/pages/custom-component/app-download/app-download"
+  }
+}

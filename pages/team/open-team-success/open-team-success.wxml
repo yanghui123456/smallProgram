@@ -1,0 +1,10 @@
+<!--pages/team/open-team-success/open-team-success.wxml-->
+<view class='teamAuthor'>
+  <view class='teamAuthorHead backColorJu tc'>
+    <image class='authorHeadImg' src='../../commonImgs/butAuthorSuccess.png'></image>
+    <view class='colorWhite fontBlod font16'>恭喜您成功开通海豚保管团队版</view>
+    <view class='font13 colorWhite' style='margin-top:6px'>尊享智能品牌IP名片、保单托管等12个使用特权</view>
+  </view>
+  <view class='color153 font11 tc defaultManager'>您已经被默认为BOSS(团队管理员)</view>
+  <view class='invitTeamMember backColorJu colorWhite font14 tc' bindtap='invitMember'>邀请团队成员</view>
+</view>

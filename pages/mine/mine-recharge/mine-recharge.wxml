@@ -1,0 +1,41 @@
+<!--我的=充值页面-->
+<view class='recharge'>
+  <view class='title color51 fontBlod'>充值中心</view>
+  <view class='title2 font12 color102'>充的越多,折扣越大</view>
+  <view class='recharge-list'>
+    <view class='list-group'>
+      <view class='item'>
+        <view class='span' data-money='5' data-htb='5' bindtap='rechargeMoney'></view>
+        <view class='htb colorJu font13 tc'><text class='fontBlod font16'>5</text>个海豚币</view>
+        <view class='price colorJu font12 tc'>售价5元</view>
+      </view>
+      <view class='item item2'>
+        <view class='span' data-money='10' data-htb='12' bindtap='rechargeMoney'></view>
+        <view class='htb colorJu font13 tc'><text class='fontBlod font16'>12</text>个海豚币</view>
+        <view class='price colorJu font12 tc'>售价10元</view>
+      </view>
+      <view class='item'>
+        <view class='span' data-money='20' data-htb='25' bindtap='rechargeMoney'></view>
+        <view class='htb colorJu font13 tc'><text class='fontBlod font16'>25</text>个海豚币</view>
+        <view class='price colorJu font12 tc'>售价20元</view>
+      </view>
+    </view>
+    <view class='list-group'>
+      <view class='item'>
+        <view class='span' data-money='50' data-htb='75' bindtap='rechargeMoney'></view>
+        <view class='htb colorJu font13 tc'><text class='fontBlod font16'>75</text>个海豚币</view>
+        <view class='price colorJu font12 tc'>售价50元</view>
+      </view>
+      <view class='item item2'>
+        <view class='span' data-money='100' data-htb='150' bindtap='rechargeMoney'></view>
+        <view class='htb colorJu font13 tc'><text class='fontBlod font16'>150</text>个海豚币</view>
+        <view class='price colorJu font12 tc'>售价100元</view>
+      </view>
+    </view>
+  </view>
+  <view class='record'>
+    <view class='line'></view>
+    <view class='left font12' data-id='1' data-url='../mine-recharge-notes/mine-recharge-notes' bindtap='goRechargeNotes'>充值记录</view>
+    <view class='right font12' data-id='2' data-url='../mine-xf-notes/mine-xf-notes' bindtap='goRechargeNotes'>消费记录</view>
+  </view>
+</view>

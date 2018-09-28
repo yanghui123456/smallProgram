@@ -1,0 +1,13 @@
+<!--我的-充值记录-->
+<view class='recharge-notes'>
+  <view class='item' wx:for='{{rechargeLists}}' wx:key='costTime'  wx:if='{{isNothing}}'>
+    <view class='left font14 color51 fontBlod' wx:if='{{item.rechargeType == 1}}'>海豚币充值:{{item.realPayMoney}}元</view>
+    <view class='left font14 color51 fontBlod' wx:if='{{item.rechargeType == 2}}'>购买团队授权:{{item.realPayMoney}}元</view>
+    <view class='right font12'>{{item.payTime}}</view>
+  </view>
+  <view class='no-record tc' wx:if='{{!isNothing}}'>
+    <image class='nothing' src='http://oss.baoxian.xujinkeji.com/broker/no-cz.png'></image> 
+    <view class='no-text font13 tc'>暂无充值记录</view> 
+     <text class='czBtn font12' bindtap='ljRecharge'>立即充值</text> 
+  </view>
+</view>

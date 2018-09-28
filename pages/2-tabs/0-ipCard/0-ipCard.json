@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "海豚保管",
+  "navigationBarBackgroundColor": "white",
+  "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark"
+}

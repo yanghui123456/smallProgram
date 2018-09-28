@@ -1,0 +1,13 @@
+  <!--海豚币说明下载--组件  -->
+  <view class='htb-explain'>海豚币说明<view class='left-line'></view><view class='right-line'></view></view>
+  <view class='explain-list'>1.海豚币是“海豚智保”平台的通证，是各类活动的价值体现，可    以用于“海豚智保”中的各种消费。</view>
+  <view class='explain-list'>2.您可以下载海豚智保APP，使用海豚币兑换礼物。</view>
+  <view class='explain-list'>3.将保单托管给专属顾问。
+    <view class='list-item mt'>方式一: 海豚智保APP，保单拍照上传</view>
+    <view class='list-item'>方式二: 加专属顾问微信，保单拍照，发送给顾问</view>
+  </view>
+  <view class='explain-list'>4.请使用上一步输入的手机号进行注册登录。</view>
+  <view class='downList'>
+    <!-- <image class='ios' src='../../commonImgs/iosDown.png'></image>
+    <image class='android' src='../../commonImgs/androidDown.png'></image> -->
+  </view>

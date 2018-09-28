@@ -1,0 +1,70 @@
+<!--生成邀请函-->
+<view class='invitation'>
+  <view class='invitatin-content'>
+    <!--上  -->
+    <view class='content-top'>
+      <view class='jjrText colorWhite font13 tc'>{{userTalk}}</view>
+      <view class='content-wxh colorWhite font10'>
+        <image class='content-wx-img' src='../../2-tabs/1-tuoguan/images/wx.png'></image>
+        {{wxName}}
+      </view>
+    </view>
+    <view class='agent-info'>
+      <image class='info-head-img' src='{{headImg}}'></image>
+      <image class='call' src='../images/call.png' data-tel='{{tel}}' bindtap='callPhone'></image>
+       <!-- <view class='info-name color51 font16 fontBlod'>发动机号</view>  -->
+        <view class='info-name color51 font16 fontBlod'>{{realName}}</view>  
+      <view class='info-company font12 color153'><text class='first'>{{company}}</text>从业{{year}}年</view>
+      <view class='info-company font12 color153'><text class='second'>客户托管<text class='color'>{{customerCount}}</text>人</text>托管保险<text class='color'>{{insuranceCount}}</text>份</view>
+    </view>
+    <view class='red-paket'>
+    <!--无红包  -->
+      <view class='packet-box tc bgW font12'  wx:if='{{hasMoney}}' bindtap='goRedPaket'>
+        <image class='add-red-paket-img' src='../images/redPaket.png'></image>
+        添加红包
+      </view>
+      <!--有红包  -->
+      <view class='send-money font12 color51' wx:if='{{noMoney}}'>发送红包:</view>
+       <view class='packet-box tc bgW font12' wx:if='{{noMoney}}'>
+        <view class='paket-success tc color153 font12'>
+          <image class='success-img' src='../images/redPaket.png'></image>
+          红包个数
+          <text class='amount font14 fontBlod'>{{redPaketNumber}}</text>
+        </view>
+         <view class='paket-success tc color153 font12'>
+          <image class='success-img' src='../../commonImgs/htb.png'></image>
+          海豚币
+          <text class='amount amount-red font14 fontBlod'>{{htNumber}}</text>
+         </view>
+      </view>
+      <!--被邀请人-打开红包  -->
+      <view class='give-red-paket font12 tc' wx:if='{{openPaket}}'>送您个红包</view>
+      <view class='packet-box tc bgW font12' wx:if='{{openPaket}}'>
+        <image class='open-red-paket-img' src='http://oss.baoxian.xujinkeji.com/broker/openPaket.png'></image>
+      </view>
+    </view>
+    <view class='share'>
+      <view class='share-style tc font13 colorWhite' bindtap='shareYh'>
+       <image class='share-img' src='../images/friends.png'></image>
+       转发客户
+      </view>
+      <view class='share-style tc font13 colorWhite' bindtap='sharePyq'>
+       <image class='share-img' src='../images/friend.png'></image>
+        分享到朋友圈
+      </view>
+    </view>
+    <!--画布  -->
+    <canvas canvas-id="myCanvas" style="border: 1px solid red; width:300px;height:300px;" class='canvas'/>
+    <view class='shareModel tc' wx:if='{{showModel}}'>
+      <view class='modelMash' bindtap='cancelShare'></view>
+      <view class='modelConten'>
+        <view class='modelText font16 fontBlod' style='color:rgb(153,153,153)'>是否确认转发给好友?</view>
+        <view class='modelButton'>
+          <view class='modelCancel font15' bindtap='cancelShare'>取消</view>
+          <!-- <view class='modelEnsure' bindtap='aaa'>确认</view> -->
+          <button open-type="share" class='modelEnsure font15' plain="true" style='color:rgb(255,166,28)'>确认</button> 
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

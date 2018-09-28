@@ -1,0 +1,18 @@
+<!--pages/mine/insurance-company/insurance-company.wxml-->
+ <view class='list-groups'>
+    <view class='drop-list'>
+      <view class='group' style='height:100%'>
+        <view class='search'>
+          <input class='searchInput overHide font13' placeholder='请输入关键词' placeholder-class='placeHolder' bindinput='searchInput' type='text' confirm-type='done' bindconfirm='search'></input>
+        </view>
+        <view class='list'>
+            <view wx:for='{{listCompany}}' wx:key='id' class="{{item.id === catalogSelect ? 'companyactive' : 'companyitems'}}" >
+              {{item.brokerCompanyName}}
+              <view class='allBack' data-id="{{item.id}}" data-text="{{item.brokerCompanyName}}" bindtap="clickItem"></view>
+              <image class='img' src='../../commonImgs/select.png'  wx:if="{{item.id === catalogSelect}}"></image>
+          </view>
+              <view class='items tc' bindtap='moreCompany' style='background:rgb(153,153,153); color:white'>获取更多保险公司...</view>
+        </view>
+    </view>
+  </view> 
+  </view>

@@ -1,0 +1,58 @@
+//index.js
+//获取应用实例
+const app = getApp();
+const util = require('../../../utils/util.js');
+Page({
+  data: {
+    isNothing: false,
+    rechargeLists:[]
+  },
+  // 页面加载
+  onLoad: function (res) {
+   // 海豚币充值记录
+   wx.showLoading({
+     title: '加载中...',
+   })
+    var that = this;
+    wx.request({
+      url: app.globalData.severIp + '/insurance/broker/api/v1.0.0/brokerDolphinCoinRechargeRecord/query/' + app.globalData.agentInfo.id,
+      method: 'GET',
+      header: {'openid': app.globalData.openId },
+      success: function (res) {
+        if (res.data.businessCode === '0000') {
+          // 记录数组长度是否为0
+          if (res.data.data === null) {
+            that.setData({
+              rechargeLists: res.data.data,
+              isNothing: false
+            })
+          } else {
+            // 时间格式化
+            for (var i = 0; i < res.data.data.length; i++) {
+              res.data.data[i].costTime = util.formatTime(new Date(res.data.data[i].costTime));
+            }
+            // rechargeType = 1 充值 2=购买授权
+            that.setData({
+              rechargeLists: res.data.data,
+              isNothing: true
+            })
+          }
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 2000
+          })
+          return;
+        }
+        wx.hideLoading();
+      }
+    })
+  },
+  ljRecharge:function() {
+    // 返回上一个页面
+    wx.navigateBack({
+      delta: 1
+    })
+  }
+})

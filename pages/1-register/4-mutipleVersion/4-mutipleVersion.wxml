@@ -1,0 +1,98 @@
+<!--个人版，团队版，专项班开通-->
+<view class='version'>
+  <!--swiper  -->
+  <view class='swiper tc'>
+    <view class='title1 colorWhite font13'>百万保险顾问都在用的</view>
+    <view class='title2 colorWhite fontBlod'>智能保顾裂变名片</view>
+    <view class='partFour'>
+      <view class='fourItem tc'>
+        <image class='fourImg' src='../../commonImgs/f-khwh.png'></image>
+        <view class='fourText font10 colorWhite'>客户维护</view>
+      </view>
+      <view class='fourItem tc'>
+        <image class='fourImg' src='http://oss.baoxian.xujinkeji.com/broker/f-ld.png'></image>
+        <view class='fourText font10 colorWhite'>AI雷达</view>
+      </view>
+      <view class='fourItem tc'>
+        <image class='fourImg' src='../../commonImgs/f-lb.png'></image>
+        <view class='fourText font10 colorWhite'>微信裂变</view>
+      </view>
+      <view class='fourItem tc'>
+        <image class='fourImg' src='../../commonImgs/f-sj.png'></image>
+        <view class='fourText font10 colorWhite'>BOSS视角</view>
+      </view>            
+    </view>
+    <!-- 轮播图片 -->
+    <swiper class='swiperGpup' previous-margin='70px' next-margin='70px' current='index' indicator-dots="{{indicatorDots}}"
+      autoplay="{{autoplay}}" bindchange='swiperChange' circular='{{circular}}' interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{imgUrls}}" wx:key='{{item}}'>
+        <swiper-item>
+          <image src="{{item}}" class="slide-image swaiperImg"/>
+          <!-- 模拟按钮，跟按钮大小一致，授权按钮 -->
+          <!-- <view class='swaiperbtn' bindtap='clickImg'></view> -->
+          <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='open-up colorWhite font16 swaiperbtn'></button> 
+          <block wx:else> 
+            <button bindtap='go_check_tel2' class='open-up colorWhite font16 swaiperbtn'></button>
+          </block>
+        </swiper-item>
+      </block>
+    </swiper>    
+  </view>
+  <!-- 全生命周期 -->
+  <view class='cycleTitle fontBlod font16 tc bgW'>全生命周期客户维护</view>
+  <view class='imgBox bgW'>
+    <image class='cycleimg bgW' src='http://oss.baoxian.xujinkeji.com/broker/cycle.png'></image>
+  </view>
+  <!-- 微信裂变、AI客户雷达、BOSS视角 -->
+  <view class='cycleDetail bgW'>
+    <view class='font16 color51 fontBlod tc'>微信裂变</view>
+    <view class='threePart'>
+      <view class='partItem overHide'>
+        <view><image class='partImg partLeft' src='http://oss.baoxian.xujinkeji.com/broker/kehuOneByOne.png'></image></view>
+        <view class='font12 color153'>客户一对一</view>
+      </view>
+      <view class='partItem tc overHide'>
+        <view><image class='partImg' src='http://oss.baoxian.xujinkeji.com/broker/wxFenx.png'></image></view>
+        <view class='font12 color153'>微信群分享</view>
+      </view>  
+      <view class='partItem overHide' style='text-align:right'>
+        <view><image class='partImg partRight' src='http://oss.baoxian.xujinkeji.com/broker/syPyq.png'></image></view>
+        <view class='font12 color153'>闪耀朋友圈</view>
+      </view>        
+    </view>
+  </view>
+  <view class='cycleDetail bgW'>
+    <view class='font16 color51 fontBlod tc'>AI客户雷达</view>
+    <view class='threePart'>
+      <view class='partItem overHide'>
+        <view><image class='partImg' src='http://oss.baoxian.xujinkeji.com/broker/khhx.png' style='margin-left:3%'></image></view>
+        <view class='font12 color153'>客户画像</view>
+      </view>
+      <view class='partItem tc overHide'>
+        <view><image class='partImg' src='http://oss.baoxian.xujinkeji.com/broker/xwdc.png'></image></view>
+        <view class='font12 color153'>客户行为洞察</view>
+      </view>  
+      <view class='partItem overHide' style='text-align:right'>
+        <view><image class='partImg' src='http://oss.baoxian.xujinkeji.com/broker/zhld.png' style='margin-right:15%'></image></view>
+        <view class='font12 color153'>客户转化漏斗</view>
+      </view>        
+    </view>
+  </view>
+  <view class='cycleDetail bgW mb10'>
+    <view class='font16 color51 fontBlod tc'>BOSS视角</view>
+    <view class='threePart'>
+      <view class='partItem overHide'>
+        <view><image class='partImg' src='http://oss.baoxian.xujinkeji.com/broker/tdcyjz.png' style='margin-left:21%'></image></view>
+        <view class='font12 color153'>量化团队成员价值</view>
+      </view>
+      <view class='partItem tc overHide'>
+        <view><image class='partImg' src='http://oss.baoxian.xujinkeji.com/broker/zyhlfp.png'></image></view>
+        <view class='font12 color153'>客户资源合理分配</view>
+      </view>  
+      <view class='partItem overHide' style='text-align:right'>
+        <view><image class='partImg' src='http://oss.baoxian.xujinkeji.com/broker/lzyjjj.png' style='margin-right:34%'></image></view>
+        <view class='font12 color153 partRight'>成员离职一键交接</view>
+      </view>        
+    </view>
+  </view>    
+</view>

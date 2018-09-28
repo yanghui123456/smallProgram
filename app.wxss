@@ -1,0 +1,586 @@
+/**app.wxss**/
+/*三种分类  开始  */
+.classify{
+  width:100%;
+  height:60px;
+  margin-bottom:10px;
+}
+.classify-item{
+  width:33.33%;
+  height:100%;
+  float: left;
+}
+.classify-num{
+  color:rgb(214,214,214);
+  margin:12px 0 4px 0;
+}
+.num-top{
+  display: inline-block;
+  max-width:64%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/*三种分类 结束  */
+/*保单列表 开始  */
+.add-insurance-btn{
+  display: inline-block;
+  color:rgb(0,150,255);
+  border:1px dashed rgb(0,150,255);
+  border-radius: 5px;
+  padding:95px 53px;
+}
+.policy-list{
+  width:100%;
+  overflow: hidden;
+}
+.policy-item{
+  width:50%;
+  height:255px;
+  float: left;
+  padding: 10px 0;
+  position: relative;
+}
+.allDetail{
+  width:100%;
+  height:100%;
+  position: absolute;
+  top:0;
+  left:0;
+  z-index:999;
+}
+.policy-detail{
+  width:84%;
+  height:202px;
+  background: url('https://dev-haitun-public-read.oss-cn-hangzhou.aliyuncs.com/small_routine/20180718093812.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  margin-left:8%;
+  position: relative;
+}
+.insurance-img,.insurance-mask{
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+}
+.insurance-mask{
+  background: black;
+  opacity: 0.5
+}
+.edit{
+  position: absolute;
+  border:1px solid white;
+  padding:4px 10px;
+  border-radius: 5px;
+  top:40%;
+  left:29%;
+}
+.insurance-company{
+  width:70%;
+  height:20px;
+  margin-top:12px;
+}
+.insurance-name,.insurance-period,.insurance-unit,.insurance-money,.insured-name,.policy-style{
+  width:100%;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.insurance-name{
+  margin-bottom:6px;
+  text-shadow: 0 1px 0px #dea248;
+  width:80%;
+  margin-left:10%;
+}
+.insurance-period{
+  opacity: 0.7;
+}
+.insurance-unit{
+  margin:18px 0 6px 0;
+  opacity: 0.7;
+}
+.insurance-money{
+  font-size:18px;
+  margin-bottom:15px;
+  text-shadow: 0 1px 0px #dea248;
+}
+.policy-style{
+  color:rgb(232,168,96);
+  margin:0 0 3px 0;
+}
+.policy-bf{
+  color:rgb(103,104,135);
+  margin-top:10px;
+}
+.insured-name{
+  opacity: 0.8;
+}
+/*保单列表 结束  */
+/*正在维护的提示 开始 */
+.text-mask,.mask,.box-head-img,.box-text{
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  overflow: hidden;
+}
+.text-mask{
+  position: fixed;
+}
+.mask{
+  background: black;
+  opacity: 0.5;
+}
+.box{
+  width:88%;
+  margin-left:6%;
+  border-radius: 10px;
+  overflow: hidden;
+  position: absolute;
+  top:50%;
+  margin-top:-124px;
+}
+.box-bottom,.box-head,.box-conten{
+  width:100%;
+}
+.box-head{
+  height:72px;
+  line-height: 72px;
+  font-size:19px;
+  position: relative;
+}
+.box-head-colse{
+  width:14px;
+  height:14px;
+  position: absolute;
+  top:20px;
+  right:18px;
+  padding:10px;
+  z-index:99;
+}
+.box-conten{
+  padding:30px 20px;
+  box-sizing: border-box;
+  text-align: left;
+}
+.box-bottom{
+  height:46px;
+  line-height: 46px;
+  border-top:1px solid rgb(238,238,238);
+  box-sizing: border-box;
+}
+/*正在维护的提示 结束 */
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+.mb10{
+  margin-bottom:10px;
+}
+.mt10{
+  margin-top:10px;
+}
+.font10{
+  font-size:10px;
+}
+.font11{
+  font-size:11px;
+}
+.font12{
+  font-size:12px;
+}
+.font13{
+  font-size:13px;
+}
+.font14{
+  font-size:14px;
+}
+.font15{
+  font-size:15px;
+}
+.font16{
+  font-size: 16px;
+}
+.fontBlod{
+  font-weight: 700;
+}
+.font-c153{
+   font-size:12px;
+   color:rgb(153,153,153);
+   font-weight: normal;
+}
+.color51{
+  color:rgb(51,51,51);
+}
+.color153{
+  color:rgb(153,153,153);
+}
+.colorWhite{
+  color:white;
+}
+.backColorJu{
+  background: rgb(246,161,34);
+}
+.colorJu{
+  color: rgb(246,161,34);
+}
+.color102{
+  color:rgb(102,102,102);
+}
+.tc{
+  text-align: center;
+}
+.bgW{
+  background: white;
+}
+.bg245{
+  background: rgb(245,245,245);
+}
+.overHide{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/*保险公司下拉列表  */
+/*保险公司列表  */
+.list-groups{
+  width:100%;
+  height:100%;
+  position: absolute;
+  top:0;
+  left:0;
+}
+/*下拉列表样子  */
+page,.drop-list,.mask{
+  width:100%;
+  height:100%;
+}
+.drop-list{
+  position: relative;
+}
+.mask{
+ position: absolute;
+ top:0;
+ left:0;
+ background: black;
+ opacity: 0.5;
+}
+.group{
+  width:100%;
+  z-index:99;
+  position: fixed;
+  bottom:0;
+  left:0;
+}
+.head{
+  width:100%;
+  height:55px;
+  line-height: 55px;
+  text-align: center;
+  font-size:15px;
+  color:rgb(50,50,50);
+  background: rgb(245,245,245);
+  position: relative;
+}
+.close{
+  width:15px;
+  height:15px;
+  position: absolute;
+  top:10px;
+  right:4%;
+  padding:10px;
+}
+.closeMask{
+  width:25px;
+  height:25px;
+  position: absolute;
+  top:15px;
+  right:4%;
+  border: 1px solid red;
+}
+/*6条  */
+.list{
+  width:100%;
+  height:306px;
+  background: white;
+  overflow: auto;
+  -webkit-overflow-scrolling:touch;
+}
+.items,.active{
+  width:100%;
+  height:51px;
+  line-height: 51px;
+  padding:0 4%;
+  border-bottom:1px solid rgb(245,245,245);
+  font-size:14px;
+  color:rgb(51,51,51);
+  box-sizing: border-box;
+  position: relative;
+}
+.active{
+  background: rgb(255,250,244);
+}
+.allBack{
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0;
+  left:0;
+}
+.img{
+  width:20px;
+  height:25px;
+  position:absolute;
+  top:13px;
+  right:4%;
+}
+ button[plain]{ border:0 } 
+ /*分享模态框=开始  */
+ .shareModel{
+   width:100%;
+   height:100%;
+   position: absolute;
+   top:0;
+   left:0;
+ }
+ .modelMash{
+   width:100%;
+   height:100%;
+   background: black;
+   opacity: 0.8;
+   position: absolute;
+   top:0;
+   left:0;
+ }
+ .modelConten{
+    width:80%;
+    height:120px;
+    background: white;
+    position: absolute;
+    top:50%;
+    left:10%;
+    border-radius: 15px;
+    margin-top:-75px;
+ }
+ .modelText{
+   width:100%;
+   height:80px;
+   line-height: 80px;
+   border-bottom:1px solid rgb(230,230,230);
+   box-sizing: border-box;
+ }
+ .modelButton{
+   width:100%;
+   height:50px;
+ }
+ .modelCancel,.modelEnsure{
+   width:50%;
+   height:40px;
+   line-height:40px;
+   float: left;
+ }
+ .modelCancel{
+   border-right:1px solid rgb(230,230,230);
+   box-sizing: border-box;
+ }
+ .modelEnsure{
+   color:rgb(255,166,28);
+ }
+ /*分享模态框=结束  */
+
+ /*购买弹窗  */
+ /*购买弹窗  */
+.buyToast{
+  width:100%;
+  height:100%;
+  position: fixed;
+  top:0;
+  left:0;
+  z-index:99;
+}
+.buyMask{
+  width:100%;
+  height:100%;
+  position: absolute;
+  top:0;
+  left:0;
+  background:black;
+  opacity: 0.8;
+}
+.buyContent{
+  width:100%;
+  height:56%;
+  background: white;
+  position: absolute;
+  bottom:0;
+  left:0;
+}
+.buyTop{
+  width:100%;
+  height:85%;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.buyClose{
+  width:15px;
+  height:16px;
+  position: absolute;
+  top:2.3%;
+  right:4%;
+  padding:6px;
+}
+.buyItem{
+  width:30%;
+  height:65%;
+  margin-left:35%;
+  background: white;
+  margin-top:7.5%;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  padding-bottom:46px;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 0px 0px #FEF0E3;
+}
+.buyBottom{
+  width:100%;
+  height:15%;
+  padding-left:3%;
+  position: absolute;
+  bottom:0;
+  left:0;
+  text-align: left;
+  display:flex;
+  align-items:center;
+  border-top:1px solid rgb(213,213,213);
+  box-sizing: border-box;
+}
+.buy{
+  height:100%;
+  position: absolute;
+  right:0;
+  top:0;
+  background: rgb(253,135,25);
+  display:flex;
+  align-items:center;
+  padding:0 12.5%;
+}
+.buyPrice{
+  height:28px;
+  line-height:28px;
+  padding:0 10px;
+  position:absolute;
+  bottom:46px;
+  right:0;
+  border-top-left-radius:15px
+}
+.buyText{
+  width:100%;
+  height:46px;
+  position:absolute;
+  bottom:0;
+  left:0;
+  background:white;
+  padding:7px 8px;
+  box-sizing:border-box;
+  text-overflow:-o-ellipsis-lastline;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+  line-height:18px;
+}
+/*购买弹窗结束  */
+/*分享步骤  */
+.howShare{
+  position: absolute;
+  top:6%;
+  left:0;
+  width:100%;
+}
+.shareStep{
+  width:76%;
+  height:72%;
+  border-radius: 10px;
+  position: absolute;
+  top:13%;
+  left:12%;
+}
+.closeShare{
+  width:33px;
+  height:33px;
+  position: absolute;
+  top:88%;
+  left:50%;
+  margin-left:-15px;
+}
+/*分享步骤结束  */
+
+/* 续费提醒弹窗样式 */
+.publicToast,.publicMask{
+  width:100%;
+  height:100%;
+  position: absolute;
+  top:0;
+  left:0;
+  z-index:1000;
+}
+.publicMask{
+  background: black;
+  opacity: 0.8;
+}
+.publicContent{
+  width:92%;
+  background: white;
+  z-index:2000;
+  position: absolute;
+  left:4%;
+  top:50%;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top:-150px;
+}
+.publicText{
+  width:100%;
+  padding:25px 6.8% 45px 6.8%;
+  box-sizing: border-box;
+}
+.publicBtoom{
+  width:100%;
+  border-top:1px solid rgb(240,240,240);
+}
+.publicBtn{
+  width:50%;
+  float: left;
+  height:48px;
+  line-height: 48px;
+  background: rgb(248,248,248);
+  box-sizing: border-box; 
+}
+.publicTop{
+  width:100%;
+  height:75px;
+  line-height: 75px;
+  background-image: url('http://oss.baoxian.xujinkeji.com/broker/wh-mask-head.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  font-size:20px;
+}
+.jjrImg{
+  width:80px;
+  height:80px;
+  border-radius: 50%;
+  margin-bottom:30px;
+}

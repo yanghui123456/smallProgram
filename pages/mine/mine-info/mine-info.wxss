@@ -1,0 +1,88 @@
+page,.user-info{
+  width:100%;
+  height:100%;
+  background: rgb(245,245,245);
+  position: relative;
+
+}
+.user-info{
+  /* position: fixed;
+  top:0;
+  left:0; */
+}
+.userInfoConten{
+  width:100%;
+  height:100%;
+  position: absolute;
+  top:0;
+  left:0;
+  padding-bottom:45px;
+  box-sizing: border-box;
+  overflow: auto;
+  -webkit-overflow-scrolling:touch;
+}
+.userInfoBottom{
+  width:100%;
+  height:45px;
+  line-height: 45px;
+  position: fixed;
+  bottom:0;
+  left:0;
+  z-index:999;
+}
+.info-item{
+  width:100%;
+  height:51px;
+  padding:0 8% 0 4%;
+  line-height: 51px;
+  border-bottom:1px solid rgb(245,245,245);
+  box-sizing: border-box;
+}
+.info-area{
+  width:100%;
+  height:300px;
+  padding:0 8% 0 4%;
+  border-bottom:1px solid rgb(245,245,245);
+  box-sizing: border-box;
+  position: relative;
+}
+.left,.right{
+  height:51px;
+  float: left;
+}
+.left{
+  width:20%;
+}
+.right{
+  float: right;
+  width:80%;
+  text-align: right;
+}
+.rightInput{
+  height:100%;
+  width:80%;
+}
+.rightTextarea{
+  width:80%;
+  height:300px;
+  overflow: auto;
+  padding:18px 10px 10px 0px;
+  float: left;
+  box-sizing: border-box;
+}
+.user-head{
+  width:30px;
+  height:30px;
+  border:1px solid white;
+  box-sizing: border-box;
+  border-radius: 50%;
+  float: right;
+  margin-top:10px;
+}
+.join{
+  width:24px;
+  height:24px;
+  position: absolute;
+  right:2%;
+  top:13px;
+}

@@ -1,0 +1,89 @@
+/* pages/weihu/5-insurance-upload/5-insurance-upload.wxss */
+page,.ins-upload{
+  width:100%;
+  height:100%;
+  position: fixed;
+  background: rgb(245,245,245);
+}
+/*照片  */
+.img-box{
+  width:100%;
+  height:100%;
+  position: absolute;
+  top:0;
+  left:0;
+  padding-bottom:70px;
+  box-sizing: border-box;
+}
+.scrollView{
+  height:100%;
+  overflow: scroll;
+  position: relative;
+}
+.insurance-img{
+  position: absolute;
+  top:0;
+  left:0;
+}
+/*底部  */
+.bottom{
+  width:100%;
+  height:70px;
+  line-height: 70px;
+  position: absolute;
+  bottom:0;
+  left:0;
+}
+.questionItem,.ensure{
+  height:70px;
+  float: left;
+  font-size:16px;
+}
+.questionItem{
+  width:82%;
+}
+.spanList,.spanItem{
+  height:3px;
+  position: absolute;
+  bottom:0;
+  left:0;
+}
+.spanItem{
+  background: #FFA61C;
+}
+.ensure{
+  width:18%;
+  background:#cccccc;
+}
+.questionText{
+  color: rgb(255, 166, 28);
+}
+/*顶部按钮组  */
+.btn-group{
+  width:100%;
+  height:40px;
+  position: fixed;
+  top:0;
+  left:0;
+  z-index:99;
+}
+.prevImg,.closeImg,.jump{
+  height:40px;
+  position: absolute;
+  top:10px;
+}
+.prevImg,.closeImg{
+  width:40px;
+  left:16px;
+}
+.closeImg{
+  left:72px;
+}
+.jump{
+  right:16px;
+  background:black;
+  border-radius:20px;
+  opacity: 0.6;
+  line-height:40px;
+  padding:0 15px;
+}

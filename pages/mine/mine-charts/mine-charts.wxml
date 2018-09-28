@@ -1,0 +1,3 @@
+<!--pages/mine/mine-charts/mine-charts.wxml-->
+<canvas class='saaaa' canvas-id="canvas1"></canvas>
+<canvas class='saaaa' canvas-id="canvas2"></canvas>

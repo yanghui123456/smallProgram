@@ -1,0 +1,299 @@
+<!--pages/mine/mine-team/mine-team.wxml-->
+<view class='team'>
+  <view class='teamTop'>
+    <!--角色=成员顶部  -->
+    <view wx:if="{{teamRole == '成员'}}" class='teamBack'>
+      <text class='identity colorWhite fonot13'>{{teamRole}}</text>
+    </view>
+    <!-- 角色=管理员顶部 -->
+    <view wx:if="{{teamRole == '管理员'}}" class='teamBack colorWhite'>
+      {{teamRole}} 
+      <text class='font10' style='color:rgb(208,203,209);'>到期  {{expireDate}}</text>
+      <image class='managerSetting' bindtap='manageSetting' style='display:none'></image>
+    </view>
+    <!-- 第二部分 -->
+    <view class='authorMember bg245 font13 color153'>
+      <text class='font14 color102'>{{authMember}}</text>
+      / {{totalMember}}位已授权成员
+      <!-- 图片 -->
+      <view class='memberImgList'>
+        <image class='imgItem' wx:if='{{img1}}' src='{{imgUrl1}}'></image>
+        <image class='imgItem aa' wx:if='{{img2}}' src='{{imgUrl2}}'></image>
+        <image class='imgItem bb' wx:if='{{img3}}' src='{{imgUrl3}}'></image>
+        <image class='imgItem cc' wx:if='{{img4}}' src='{{imgUrl4}}'></image>
+        <image class='imgItem dd' wx:if='{{img5}}' src='{{imgUrl5}}'></image>
+      </view>
+      <!-- 管理员权限 -->
+      <view wx:if="{{teamRole == '管理员'}}" class='buyAuthor color153 font12' bindtap='buyAuthor'>购买授权</view>
+      <view wx:if="{{teamRole == '管理员'}}" class='invitMember colorWhite font12' bindtap='invitMember'><image class='invitIcon' src='../../commonImgs/invitAdd.png'></image>邀请成员</view>
+      <!-- 成员排名 -->
+      <view wx:if="{{teamRole == '成员'}}" class='rank bgW tc'>
+        <text class='fontBlod rankNum'>{{ranks}}</text>
+        <text class='font10 color153 rankText'>我的排名</text>
+        <image src='./images/crown.png' class='crown'></image>
+      </view>
+    </view>
+    <!-- 家庭成员 -->
+    <view class='familyMember bgW'>
+      <!-- title -->
+      <view class='title fontBlod color51'>
+        成员列表
+        <view wx:if='{{!sort}}' class='touch font12 color102' data-sotr='1' bindtap='sortChuda'>
+          用户触达度
+          <image class='sort' src='../../commonImgs/arrowBottom.png'></image>
+        </view>
+        <view wx:if='{{sort}}' class='touch font12 color102' data-sotr='0' bindtap='sortChuda'>
+          用户触达度
+          <image class='sort' src='../../commonImgs/arrowTop.png'></image> 
+        </view>        
+      </view>
+      <!-- 1：已加入团队，3=待管理员同意  -->
+      <view class="{{teamRole == '成员' && index==0?'teamList':'teamList teamListNo'}}" wx:for='{{brokerTeamListModels}}' data-index='{{index}}' wx:key='{{index}}'>
+        <!--只有管理员才可以查看  -->
+        <view  wx:if="{{teamRole == '管理员'}}" class='teamListAll' data-img='{{item.brokerUrl}}' data-name='{{item.realName}}' data-tel='{{item.phoneNo}}'  data-kh='{{item.customerNum}}' data-bd='{{item.billNum}}' data-cd='{{item.touches}}' data-id='{{item.brokerId}}' bindtap='brokerUserDetail'></view>
+        <view class="{{teamRole == '成员' && index==0?'listTop font13 color51':'listTop font13 color51 listTopNo'}}">
+          {{item.realName}}
+          <image class='listImg' src='{{item.brokerUrl}}'></image>
+          <!-- 管理员-待管理员审核 -->
+          <view class='mingci font13 join' wx:if="{{teamRole == '管理员' && item.status==3}}">
+            <view class='refuse bgW' data-type='1' data-brokerid='{{item.brokerId}}' bindtap='shenhe'>拒绝</view>
+            <text class='backColorJu colorWhite adopt' data-type='0' data-brokerid='{{item.brokerId}}' bindtap='shenhe'>通过</text>
+          </view>
+          <!-- 管理员--已加入 -->
+          <image wx:if="{{teamRole == '管理员' && item.status==1}}" data-tel='{{item.phoneNo}}' class='mingciCall' src='../../commonImgs/grayMemberCall.png' bindtap='call'></image>
+          <!-- 成员 -->
+          <view  class="mingci font13"  wx:if="{{teamRole == '成员'}}">第<text class="{{index ==0?'':'mingciBig'}}">{{item.ranging}}</text>名</view>
+        </view>
+        <view class="{{teamRole == '成员' && index==0?'listBottom':'listBottom listBottomNo'}}" >
+          <view class='classify-item tc font12'>
+            <view class='classify-num'>
+              <!--管理员角色  -->
+              <text wx:if='{{item.status==3}}' class='num-top font16'>-</text>
+              <text wx:if='{{item.status==1}}' class='num-top font16 hasColorFont'>{{item.customerNum}}</text>
+              <!--成员角色  -->
+              <text wx:if="{{teamRole == '成员'}}" class='num-top font16 hasColorFont'>{{item.customerNum}}</text>
+              <text class='float-left hasColorFont'>人</text>
+            </view>
+            <view class="{{teamRole == '成员' && index==0?'oneThird':'oneThird oneThirdNo'}}">客户</view>
+          </view>
+          <view class='classify-item tc font12'>
+            <view class='classify-num'>
+              <text wx:if='{{item.status==3}}' class='num-top font16'>-</text>
+              <text wx:if='{{item.status==1}}' class='num-top font16 hasColorFont'>{{item.billNum}}</text>
+              <text wx:if="{{teamRole == '成员'}}" class='num-top font16 hasColorFont'>{{item.billNum}}</text>
+              <text class='float-left hasColorFont'>个</text>
+            </view>
+            <view class="{{teamRole == '成员' && index==0?'oneThird':'oneThird oneThirdNo'}}">保单</view>    
+          </view>
+          <view class='classify-item tc font12'>
+            <view class='classify-num'>
+              <text wx:if='{{item.status==3}}' class='num-top font16'>-</text>
+              <text wx:if='{{item.status==1}}' class='num-top font16 hasColorFont'>{{item.touches}}</text>
+              <text wx:if="{{teamRole == '成员'}}" class='num-top font16 hasColorFont'>{{item.touches}}</text>
+              <text class='float-left hasColorFont'>次</text>
+            </view>
+            <view class="{{teamRole == '成员' && index==0?'oneThird':'oneThird oneThirdNo'}}">用户触达度</view>    
+          </view>
+        </view>
+      </view>   
+      <view class='teamList' style='display:none'>
+        <view class='teamListAll' bindtap='detail'></view>
+        <view class='listTop font13 color51'>
+          杨慧啊
+          <image class='listImg'></image>
+          <view class='mingci font13'>第五名</view>
+        </view>
+        <view class='listBottom'>
+          <view class='classify-item tc font12'>
+            <view class='classify-num'>
+              <text class='num-top font16 hasColorFont'>100</text>
+              <text class='float-left hasColorFont'>人</text>
+            </view>
+            <view class='oneThird'>客户</view>
+          </view>
+          <view class='classify-item tc font12'>
+            <view class='classify-num'>
+              <text class='num-top font16 hasColorFont'>100</text>
+              <text class='float-left hasColorFont'>个</text>
+            </view>
+            <view class='oneThird'>保单</view>    
+          </view>
+          <view class='classify-item tc font12'>
+            <view class='classify-num'>
+              <text class='num-top font16 hasColorFont'>100</text>
+              <text class='float-left hasColorFont'>次</text>
+            </view>
+            <view class='oneThird'>用户触达度</view>    
+          </view>
+        </view>
+      </view>
+      <!-- 成员视角（他人）的样式 teamListNo  listTopNo listBottomNo oneThirdNo-->
+      <view class='teamList teamListNo' style='display:none'>
+        <view class='teamListAll'></view>
+        <view class='listTop font13 color51 listTopNo'>
+          杨慧啊
+          <image class='listImg'></image>
+          <view class='mingci font13'>第<text class='mingciBig'>1</text>名</view>
+        </view>
+        <view class='listBottom listBottomNo'>
+          <view class='classify-item tc font12'>
+            <view class='classify-num'>
+              <text class='num-top font16 hasColorFont'>100</text>
+              <text class='float-left hasColorFont'>人</text>
+            </view>
+            <view class='oneThird oneThirdNo'>客户</view>
+          </view>
+          <view class='classify-item tc font12'>
+            <view class='classify-num'>
+              <text class='num-top font16 hasColorFont'>100</text>
+              <text class='float-left hasColorFont'>个</text>
+            </view>
+            <view class='oneThird oneThirdNo'>保单</view>    
+          </view>
+          <view class='classify-item tc font12'>
+            <view class='classify-num'>
+              <text class='num-top font16 hasColorFont'>100</text>
+              <text class='float-left hasColorFont'>次</text>
+            </view>
+            <view class='oneThird oneThirdNo'>用户触达度</view>    
+          </view>
+        </view>
+      </view> 
+      <!--管理员视角 mingciCall -->
+      <view class='teamList teamListNo' style='display:none'>
+        <view class='teamListAll'></view>
+        <view class='listTop font13 color51 listTopNo'>
+          杨慧啊
+          <image class='listImg'></image>
+          <image class='mingciCall' src='../../commonImgs/grayMemberCall.png' bindtap='call'></image>
+        </view>
+        <view class='listBottom listBottomNo'>
+          <view class='classify-item tc font12'>
+            <view class='classify-num'>
+              <text class='num-top font16 hasColorFont'>100</text>
+              <text class='float-left hasColorFont'>人</text>
+            </view>
+            <view class='oneThird oneThirdNo'>客户</view>
+          </view>
+          <view class='classify-item tc font12'>
+            <view class='classify-num'>
+              <text class='num-top font16 hasColorFont'>100</text>
+              <text class='float-left hasColorFont'>个</text>
+            </view>
+            <view class='oneThird oneThirdNo'>保单</view>    
+          </view>
+          <view class='classify-item tc font12'>
+            <view class='classify-num'>
+              <text class='num-top font16 hasColorFont'>100</text>
+              <text class='float-left hasColorFont'>次</text>
+            </view>
+            <view class='oneThird oneThirdNo'>用户触达度</view>    
+          </view>
+        </view>
+      </view>  
+      <!-- 管理员视角 等待用户加入 去掉hasColorFont 加 join-->
+      <view class='teamList teamListNo' style='display:none'>
+        <view class='teamListAll'></view>
+        <view class='listTop font13 color51 listTopNo'>
+          杨慧啊
+          <image class='listImg'></image>
+          <view class='mingci font13 join'>正在申请加入团队</view>
+        </view>
+        <view class='listBottom listBottomNo'>
+          <view class='classify-item tc font12'>
+            <view class='classify-num'>
+              <text class='num-top font16'>-</text>
+            </view>
+            <view class='oneThird oneThirdNo'>客户</view>
+          </view>
+          <view class='classify-item tc font12'>
+            <view class='classify-num'>
+              <text class='num-top font16'>-</text>
+            </view>
+            <view class='oneThird oneThirdNo'>保单</view>    
+          </view>
+          <view class='classify-item tc font12'>
+            <view class='classify-num'>
+              <text class='num-top font16'>-</text>
+            </view>
+            <view class='oneThird oneThirdNo'>用户触达度</view>    
+          </view>
+        </view>
+      </view> 
+       <!--管理员视角 用户同意加入，等待自己审核  -->
+      <view class='teamList teamListNo' style='display:none'>
+        <view class='teamListAll'></view>
+        <view class='listTop font13 color51 listTopNo'>
+          杨慧啊
+          <image class='listImg'></image>
+          <!-- 等待管理员审核 -->
+          <view class='mingci font13 join'>
+            <view class='refuse bgW'>拒绝</view>
+            <text class='backColorJu colorWhite adopt'>通过</text>
+          </view>
+        </view>
+        <view class='listBottom listBottomNo'>
+          <view class='classify-item tc font12'>
+            <view class='classify-num'>
+              <text class='num-top font16'>-</text>
+            </view>
+            <view class='oneThird oneThirdNo'>客户</view>
+          </view>
+          <view class='classify-item tc font12'>
+            <view class='classify-num'>
+              <text class='num-top font16'>-</text>
+            </view>
+            <view class='oneThird oneThirdNo'>保单</view>    
+          </view>
+          <view class='classify-item tc font12'>
+            <view class='classify-num'>
+              <text class='num-top font16'>-</text>
+            </view>
+            <view class='oneThird oneThirdNo'>用户触达度</view>    
+          </view>
+        </view>
+      </view>        
+    </view>
+  </view>
+  <!-- 管理员角色才可以看到团队数据入口 -->
+  <view class='teamBottom tc font15 colorJu bgW' bindtap='teamChartData'  wx:if="{{teamRole == '管理员'}}">
+    <image class='bottomIcon' src='./images/teamIcon.png'></image> 团队数据
+  </view>
+  <!-- 邀请成员弹窗 -->
+  <view class='addToast' wx:if="{{showAddMask}}">
+    <view class='mask'></view>
+    <view class='addContent'>
+      <view class='addHead'>
+        <image class='addClose' src='../../commonImgs/wh-mask-close.png' bindtap='invitMember'></image>
+        <image class='brokerImg' src='{{brokerImg}}'></image>
+      </view>
+      <view class='addName tc fontBlod'>{{brokerName}}的邀请</view>
+      <view class='hello font15 color51'>hi,小伙伴：</view>
+      <view class='hello font15 color51' style='text-indent:2em'>邀请您开通“海豚保管”：百万保险顾问都在用的用户全生命周期管理神器。</view>
+      <view class='hello font15 color51'>为客户提供专业的保险顾问服务，打造永久个人IP品牌。</view>
+      <!-- <view class='addInvit tc backColorJu colorWhite font15' bindtap='managerInvit'>立刻邀请</view> -->
+        <button open-type="share" bindgetuserinfo="getUserInfo" plain='true' class='addInvit tc' style=' background: rgb(246,161,34);color:white; font-size:15px'>立刻邀请</button>
+    </view>
+  </view>
+  <!-- 管理员设置弹窗 -->
+  <view class='addToast' wx:if='{{showSetting}}'>
+    <view class='mask'  bindtap='manageSetting'></view>
+    <view class='manageSetContent tc font13'>
+      <view class='teamSet bg245' style='color:rgb(161,161,161)'>团队设置</view>
+      <view class='teamSet bgW color51' style='border-bottom:1px solid rgb(245,245,245);box-sizing:border-box'>管理成员</view>
+      <view class='teamSet bgW' style='color:rgb(240,83,78)'>删除团队</view>
+    </view>
+  </view>
+  <!-- 成员视角的=团队授权到期提醒 -->
+  <view class='publicToast' wx:if='{{showTips}}'>
+    <view class='publicMask'></view>
+    <view class='publicContent'>
+      <view class='publicTop tc colorWhite fontBlod'>续费提醒</view>
+      <view class='publicText font14 color102'>亲爱的223你好，你的海豚保管团队于(2018.9.7)到期。若您还需要本服务，请续费购买</view>
+      <view class='publicBtoom tc font16'>
+        <view class='publicBtn colorJu' style='border-right:1px solid rgb(240,240,240)'>购买</view>
+        <view class='publicBtn color102'>取消</view>
+      </view>
+    </view>
+  </view>
+</view>

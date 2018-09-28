@@ -1,0 +1,116 @@
+<view class='teamData'>
+  <!-- 头部切换 -->
+  <view class='dataHead tc'>
+    <view class="{{activeTab == 1? 'activeTab':'dataTab'}}" data-tab='1' bindtap='tab'>今日趋势</view>
+    <view class="{{activeTab == 2? 'activeTab':'dataTab'}}" data-tab='2' bindtap='tab'>历史总计</view>
+    <view class="{{activeTab == 3? 'activeTab':'dataTab'}}" data-tab='3' bindtap='tab' style='border-right:1px solid rgb(246,161,34)'>用户画像</view>
+  </view>
+  <!-- 今日趋势 -->
+  <view wx:if='{{activeTab == 1}}'>
+    <view class='nowTime tc font12'>{{nowTime}}</view>
+    <view class='visitorsNum tc fontBlod colorJu'>{{visitorCountToday}}</view>
+    <view class='visitors tc font12 color153'>今日访客(人)</view>
+    <view class='lately'>
+      <view class="{{activeDays == 7? 'daysActive':'latelyItem'}}" data-days='7' bindtap='daysTab'>近7天</view>
+      <view class="{{activeDays == 15? 'daysActive':'latelyItem'}}" data-days='15' bindtap='daysTab'>近15天</view>
+    </view>
+    <canvas class='canvas1' canvas-id="areaCanvas" style='width:100%; height:200px;margin-top:50px;'></canvas>
+    <canvas class='canvas1' canvas-id="areaCanvas1" style='width:100%; height:200px;margin-top:50px;'></canvas>
+  </view>
+  <!-- 历史总计 -->
+  <view wx:if='{{activeTab == 2}}'>
+    <view class='visitorsNum tc fontBlod colorJu' style='margin-top:34px'>{{customerCount}}</view>
+    <view class='visitors tc font12 color153' style='border:none'>累计客户(人)</view>
+    <view class='statisGroup tc' style='border:1px solid rgb(245,245,245);display:none'>
+      <view class='statisTitle font12 color153'><image class='statisIcon' src='../../commonImgs/statisIcon4.png'></image> 访客统计</view>
+      <view class='statisItem' style='border:none'>
+        <view class='statisPeople font14 color51 fontBlod'>{{visitCount}}</view>
+        <view class='statisPeople font12 color51 fontBlod'><text class='color102' style='font-weight:normal;margin-right:2px;'>人数</text></view>        
+      </view>
+      <view class='statisItem' style='border:none'>
+        <view class='statisPeople font14 color51 fontBlod'>{{visitNumber}}</view>
+        <view class='statisPeople font12 color51 fontBlod'><text class='color102' style='font-weight:normal;margin-right:2px;'>次数</text></view>        
+      </view>
+    </view>    
+    <view class='statisGroup tc'>
+      <view class='statisItem'>
+        <view class='statisTitle font12 color153'><image class='statisIcon' src='../../commonImgs/statisIcon4.png'></image> 名片分享统计</view>
+        <view class='statisPeople font12 color51 fontBlod'><text class='color102' style='font-weight:normal;margin-right:2px;'>分享次数:</text>{{ipVisitCount}}</view>
+        <view class='statisPeople font12 color51 fontBlod'><text class='color102' style='font-weight:normal;margin-right:2px;'>浏览次数:</text>{{ipVistitNumber}}</view>        
+      </view>
+      <view class='statisItem'>
+        <view class='statisTitle font12 color153'><image class='statisIcon' src='../../commonImgs/statisIcon2.png'></image> 托管分享统计</view>
+        <view class='statisPeople font12 color51 fontBlod'><text class='color102' style='font-weight:normal;margin-right:2px;'>同意邀请人数:</text>{{trusteeshipVistiCustomer}}</view>
+        <view class='statisPeople font12 color51 fontBlod'><text class='color102' style='font-weight:normal;margin-right:2px;'>打开邀请人数:</text>{{trusteeshipVisitNumber}}</view>        
+      </view>
+    </view>
+    <view class='statisGroup tc'>
+      <view class='statisItem'>
+        <view class='statisTitle font12 color153'><image class='statisIcon' src='../../commonImgs/statisIcon1.png'></image> 累计上传保单</view>
+        <view class='fontBlod color51 font13'>{{billCount}}</view>
+      </view>
+      <view class='statisItem'>
+        <view class='statisTitle font12 color153'><image class='statisIcon' src='../../commonImgs/statisIcon3.png'></image> 转化率</view>
+        <view class='fontBlod color51 font13'>{{percentConversion}}</view>
+      </view>
+    </view>    
+  </view>
+  <!-- 用户画像 -->
+  <view wx:if='{{activeTab == 3}}'>
+    <view class='portraitTitle color51 fontBlod'>性别分布</view>
+    <view class='canvasBox'>
+      <canvas class='canvas1' canvas-id="canvas3" style='width:50%; height:200px'></canvas>
+      <view class='right'>
+        <view class='sex1 font14 color51'>
+          <text class='circular1'></text>
+          <text style='color:rgb(27,150,254);margin-right:4px'>男性({{manPercentage}}%)</text>
+          {{man}}
+        </view>
+        <view class='sex2 font14 color51'>
+          <text class='circular2'></text>
+          <text style='color:rgb(255,123,136);margin-right:4px'>女性({{womanPercentage}}%)</text>
+          {{woman}}
+        </view>
+        <view class='sex3 font14 color51'>
+          <text class='circular3'></text>
+          <text style='color:rgb(197,197,197);margin-right:4px'>未知({{unknownPercentage}}%)</text>
+          {{unknown}}
+        </view>
+      </view>
+    </view>
+    <view class='portraitTitle color51 fontBlod'>
+      地区分布
+      <text class='font12 color153' style='font-weight:normal'>[全国]</text>
+      <view class='portraitRight font12' style='font-weight:normal' wx:if='{{showAreaBtn}}'>
+        <image class='switchPage' src='../../commonImgs/upPage.png' bindtap='pageAeduce'></image>
+        <text class='color51'> {{startPage}} </text><text class='color153'>/ {{endPage}} </text>
+        <image class='switchPage' src='../../commonImgs/downPage.png' bindtap='pageAdd'></image>
+      </view>
+    </view>
+    <!-- 地区分布图 有数据 -->
+    <view class='areaGroup' wx:if='{{showAreaBtn}}'>
+      <view class='areaItem' wx:for='{{mokeArea}}'>
+        <view class='cityName font14 color102'>{{item.regionName}}</view>
+        <view class='cityLength'>
+          <view class='cityLengthElse' style='width:{{item.number}}%'></view>
+        </view>
+        <view class='cityNum font11 color152'>{{item.count}}</view>
+      </view> 
+    </view>    
+    <!-- 地区分布无数据 -->
+    <view class='areaGroup' wx:if='{{!showAreaBtn}}'>
+      <view class='areaItem tc font13 color153'>暂无数据</view>
+    </view>      
+    <view class='portraitTitle color51 fontBlod'>保险数据</view>
+    <view class='statisGroup tc'>
+      <view class='statisItem'>
+        <view class='statisTitle font12 color153'><image class='statisIcon' src='../../commonImgs/statis1Gray.png'></image> 每人平均保单(份)</view>
+        <view class='fontBlod colorJu' style='font-size:20px;'>{{averageBill}}</view>
+      </view>
+      <view class='statisItem'>
+        <view class='statisTitle font12 color153'><image class='statisIcon' src='../../commonImgs/statisIcon5.png'></image> 每人平均保费(元)</view>
+        <view class='fontBlod colorJu' style='font-size:20px;'>{{averagePremium}}</view>
+      </view>
+    </view>     
+  </view>
+</view>

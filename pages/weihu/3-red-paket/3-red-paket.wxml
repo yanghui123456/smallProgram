@@ -1,0 +1,29 @@
+<!--客户维护-->
+<view class='red-paket'>
+  <image class='head-img' src='http://oss.baoxian.xujinkeji.com/broker/red-head.png'></image>
+  <view class='money-style bgW'>
+    <view class='style-text font14 color51'>海豚币</view>
+    <input placeholder-style='color:rgb(204,204,204); font-size:14px;' class='style-input color51 font14' placeholder='请填写海豚币个数' type='digit' value='{{htb}}' confirm-type='done' bindinput ="htbInput"></input>
+    <view class='unit font14 color51'>个</view>
+  </view>
+  <view class='ht-money font13 color153'>
+    可用海豚币<text class='ht-number'>{{allHtb}}</text>个，<text class='recharge' bindtap='recharge'>马上充值</text>
+  </view>
+  <view class='area bgW'>
+    <text wx:if='{{showPlaceholder}}' class='areaPlaceholder' style='color:rgb(204,204,204);font-size:14px;'>专属保险托管服务，专属祝福</text>
+    <textarea  wx:if='{{showArea}}' class='textarea' type='text' confirm-type='done' maxlength='150' style='color:rgb(204,204,204);font-size:14px;' bindinput ="contenInput"></textarea>  
+    <view wx:else class='textarea'></view>
+  </view>
+     <view wx:if='{{bigHtb}}' class='openShare give-money tc font16 colorWhite' data-htb='{{htb}}' bindtap='saiHtb'>塞进红包</view> 
+   <view wx:else class='openShare give-money tc font16 colorWhite' data-htb='{{htb}}' bindtap='bigHtb'>塞进红包</view> 
+    <view class='shareModel tc' wx:if='{{showModel}}'>
+      <view class='modelMash' bindtap='cancelShare'></view>
+      <view class='modelConten'>
+        <view class='modelText font16 fontBlod' style='color:rgb(153,153,153)'>是否确认转发给好友?</view>
+        <view class='modelButton'>
+          <view class='modelCancel font15' bindtap='cancelShare'>取消</view>
+          <button open-type="share" class='modelEnsure font15' plain="true" style='color:rgb(255,166,28)'>确认</button> 
+        </view>
+      </view>
+    </view>     
+</view>

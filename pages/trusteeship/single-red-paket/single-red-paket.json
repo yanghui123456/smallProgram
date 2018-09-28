@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "app-download": "/pages/custom-component/app-download/app-download"
+  },
+  "navigationBarTitleText": "领取红包",
+  "navigationBarBackgroundColor": "#D43220",
+  "navigationBarTextStyle": "white"
+}

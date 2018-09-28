@@ -1,0 +1,71 @@
+<!--我的-->
+<view class='mine'>
+   <scroll-view class='minecroll bgW' scroll-y='true' scroll-with-animation='true'>
+  <!--每项标题  -->
+    <view class='mine-list bgW  mb10 font14 color51 mt10' bindtap='goSelfInfo'>
+      <image class='htb rightEl' style='width:30px;height:30px;margin-top:10px;border-radius:50%' src='{{agenHeadImg}}'></image>
+      <image class='list-join' src='../../commonImgs/join.png'></image>
+      <image class='list-icon' src='./images/icon-team.png'></image>
+      基本信息
+    </view> 
+    <!-- <view class='mine-list bgW font14 color51' data-url='../../mine/mine-vip/mine-vip' bindtap='checkPage'>
+      <text class='htb rightEl font13'>剩余{{agentVipDay}}天</text>
+      <image class='list-join' src='../../commonImgs/join.png'></image>
+      <image class='list-icon' src='../../commonImgs/vip_icon.png'></image>
+      我的VIP会员
+    </view>      -->
+    <view class='mine-list bgW mb10 font14 color51'>
+      <view class='mineAll' data-url='../../mine/mine-recharge/mine-recharge'  bindtap='goChongzhi'></view>
+      <text class='recharge font12'>充值</text>
+      <text class='htb font13'>
+        <text class='number font15 fontBlod'>{{agentHTB}}</text>
+        <text class='htbUnit'>个</text>
+      </text>
+      <image class='list-join' src='../../commonImgs/join.png'></image>
+      <image class='list-icon' src='../../commonImgs/htb.png'></image>
+      海豚币
+    </view>
+    <view class='mine-list bgW font14 color51' data-url='../../mine/mine-trusteeship-notes/mine-trusteeship-notes' bindtap='checkPage'>
+      <text class='htb rightEl font13'>{{agentTuoguan}}次</text>
+      <image class='list-join' src='../../commonImgs/join.png'></image>
+      <image class='list-icon' src='../../commonImgs/tg.png'></image>
+      发起托管邀请
+    </view>
+    <view class='mine-list bgW font14 mb10 color51' bindtap='goTeam'>
+      <!-- <text class='htb rightEl font13'>{{termCount}}人</text> -->
+      <image class='list-join' src='../../commonImgs/join.png'></image>
+      <image class='list-icon' src='./images/icon-team.png'></image>
+      我的团队
+    </view>
+    <view class='mine-list bgW mb10 font14 color51' data-url='../../mine/mine-problem/mine-problem' bindtap='checkPage'>
+      <image class='list-join' src='../../commonImgs/join.png'></image>
+      <image class='list-icon' src='./images/icon-problem.png'></image>
+      常见问题
+    </view>
+      <!--广告  -->
+    <view class='advert'>
+      <image class='advert-img' src='http://oss.baoxian.xujinkeji.com/broker/ad.png' bindtap='yqjl'></image>
+    </view>   
+    <view class='success' wx:if='{{showMask}}'>
+      <view class='mask'></view>
+      <view class='mask-content bgW'>
+        <image src='http://oss.baoxian.xujinkeji.com/broker/vip-success.png' class='mask-head-img'></image>
+        <image src='../../1-register/3-idCheck/images/closeBtn.png' class='close-img'></image>
+        <view class='submit color51 fontBlod tc'>恭喜您开通<text class='colorJu'>半年VIP服务</text></view>
+        <view class='submit-tips font13 tc color102'>您已开通海豚云保VIP服务，专享5项会员特权</view>
+        <view class='complate colorWhite font16 tc'>立即使用</view>
+      </view>
+    </view>
+  <view class='publicToast' wx:if='{{showTips}}'>
+    <view class='publicMask'></view>
+    <view class='publicContent'>
+      <view class='publicTop tc colorWhite fontBlod'>续费提醒</view>
+      <view class='publicText font14 color102'>亲爱的223你好，你的海豚保管团队于(2018.9.7)到期。若您还需要本服务，请续费购买</view>
+      <view class='publicBtoom tc font16'>
+        <view class='publicBtn colorJu' style='border-right:1px solid rgb(240,240,240)'>购买</view>
+        <view class='publicBtn color102'>取消</view>
+      </view>
+    </view>
+  </view>    
+   </scroll-view>
+</view>

@@ -1,0 +1,61 @@
+<!--我的=充值页面-->
+<view class='recharge'>
+  <view class='title color51 fontBlod'>购买授权</view>
+  <view class='title2 font12 color102'><text class='activitPrice colorJu'>活动价</text>限额50名，活动价9.9=3个授权*2个月</view>
+  <view class='recharge-list'>
+    <view class='list-group'>
+      <view class='item'>
+        <!-- <view class='span' data-money='0.01' data-author='100' bindtap='rechargeMoney'></view> -->
+        <view class='span' data-money='9.9' data-author='3' bindtap='rechargeMoney'></view>
+        <view class='htb colorJu font13 tc'><text class='fontBlod font16'>3</text>个授权</view>
+        <view class='price colorJu font12 tc'>9.9元/2个月</view>
+      </view>
+      <view class='item item2'>
+        <view class='span' data-money='99' data-author='10'  bindtap='rechargeMoney'></view>
+        <view class='htb colorJu font13 tc'><text class='fontBlod font16'>10</text>个授权</view>
+        <view class='price colorJu font12 tc'>99元/2个月</view>
+        <!-- <image class='give' src='./images/2.png'></image> -->
+      </view>
+      <view class='item'>
+        <view class='span' data-money='180' data-author='20' bindtap='rechargeMoney'></view>
+        <view class='htb colorJu font13 tc'><text class='fontBlod font16'>20</text>个授权</view>
+        <view class='price colorJu font12 tc'>180元/2个月</view>
+        <!-- <image class='give' src='./images/5.png'></image> -->
+      </view>
+    </view>
+    <view class='list-group'>
+      <view class='item'>
+        <view class='span' data-money='495' data-author='50' bindtap='rechargeMoney'></view>
+        <view class='htb colorJu font13 tc'><text class='fontBlod font16'>50</text>个授权</view>
+        <view class='price colorJu font12 tc'>495元/2个月</view>
+        <!-- <image class='give' src='./images/10.png'></image> -->
+      </view>
+      <view class='item item2'>
+        <view class='span' data-money='990' data-author='100' bindtap='rechargeMoney'></view>
+        <view class='htb colorJu font13 tc'><text class='fontBlod font16'>100</text>个授权</view>
+        <view class='price colorJu font12 tc'>990元/2个月</view>
+        <!-- <image class='give' src='./images/50.png'></image> -->
+      </view>
+      <!-- <view class='item zdy tc font13 colorJu'>
+        <view class='span' bindtap='zdy'></view>
+        自定义
+      </view>       -->
+    </view>
+  </view>
+  <view class='record'>
+    <view class='left font12 tc' bindtap='goRechargeNotes'>充值记录</view>
+  </view>
+  <!-- 自定义 -->
+  <view class='zdyToast' wx:if='{{showToast}}'>
+    <view class='mask' bindtap='zdy'></view>
+    <view class='zdyConten bgW'>
+      <view class='zdyBuy font15 color51 tc'>自定义购买</view>
+      <view class='write'>
+        <!-- <input placeholder="请填写授权个数" placeholder-class='authorPlace' type='text'  confirm-type='down' class='authorInput overHide' bindinput="inputNum"/> -->
+        <input placeholder="请填写授权个数" placeholder-class='authorPlace' type='number' class='authorInput overHide' bindinput="inputNum"/>
+        <view class='giveNum font13 color153'>赠送{{zsNum}}个</view>
+      </view>
+      <view class='buyBtn backColorJu tc colorWhite font16' data-money='200' data-author='{{inputVal}}'  data-give='{{zsNum}}' bindtap='rechargeMoney'>立即购买</view>
+    </view>
+  </view>
+</view>

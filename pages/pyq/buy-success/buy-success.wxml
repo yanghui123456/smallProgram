@@ -1,0 +1,39 @@
+<!--pages/pyq/buy-success/buy-success.wxml-->
+<view class='buySuc'>
+  <view class='butImgbox'>
+    <image class='buyImg' mode='aspectFit' src='{{imgUrl}}'></image>
+  </view>
+  <view class='btnGroup'>
+    <view class='item' bindtap='back'>
+      <image class='img' src='../../commonImgs/upload-close.png'></image>
+    </view>
+    <view class='item' bindtap='authorization'>
+      <view class='imgBox'>
+       <image class='img' src='../../commonImgs/invit-1.png' style='width:25px;height:25px;position:absolute;top:27.5px;left:27.5px'></image>
+      </view>
+    </view>    
+  </view>
+   <view class='buyToast' wx:if='{{showSaveToast}}'>
+    <view class='buyMask'></view>
+    <view class='buyContent'>
+      <view class='buyTop'>
+        <image class='buyClose' src='../../commonImgs/mask_close.png' bindtap='saveSuccess'></image>
+        <view class='buyItem'>
+          <image src='{{imgUrl}}' style='width:100%;height:76%;position:absolute;top:0;left:0;'></image>
+          <text class='buyPrice backColorJu colorWhite font10'>{{imgType}}</text>
+           <view class='buyText font12'>{{imgText}}</view> 
+        </view>
+        <view class='font12 color153 tc' style='width:100%;position:absolute;bottom:8%;left:0;'><image src='../../commonImgs/down-icon.png' style='width:12px;height:12px;margin-right:3px;'></image>图片已保存到本地，马上去发朋友圈</view>
+        <view class='font12 color153 tc' style='width:100%;position:absolute;bottom:0%;left:0;'>文本内容已经复制，可以去粘贴哦！</view>
+        <view class='font12 tc' style='width:100%;position:absolute;bottom:-9%;left:0;color:rgb(46,165,255);padding:3px 0px;' bindtap='shareStep'>如何分享到微信朋友圈</view>  
+      </view>
+    </view>
+  </view>   
+  <!--分享步骤  -->
+   <view class='buyToast' wx:if='{{showShareStep}}' style='z-index:1000;'>
+    <view class='buyMask'></view>
+    <text class='howShare font13 colorWhite tc'>如何分享至微信朋友圈</text>
+    <image class='shareStep' src='http://oss.baoxian.xujinkeji.com/broker/shareStep.png'></image>
+    <image src='http://oss.baoxian.xujinkeji.com/broker/close-icon.png' class='closeShare' bindtap='coloseshareStep'></image>
+  </view> 
+</view>

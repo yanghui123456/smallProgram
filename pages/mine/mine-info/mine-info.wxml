@@ -1,0 +1,54 @@
+<!--个人信息-->
+<view class='user-info'>
+  <view class='userInfoConten'>
+    <view class='info-item bgW mt10' data-url='../mine-modify-headimg/mine-modify-headimg' bindtap='modifyHeadImg'>
+      <text class='left font13 color51'>个人头像</text>
+      <image class='user-head' src='{{infoImg}}'></image>
+      <image class='join' src='../../commonImgs/join.png' style='top:23px'></image>
+    </view>
+    <view class='info-item bgW'>
+      <text class='left font13 color153'>姓名</text>
+      <text class='right font13 color51'>{{infoName}}</text>
+    </view>
+    <view class='info-item bgW' bindtap='goSelectCompany'>
+      <text class='left font13 color51'>公司</text>
+      <text class='right font13 color51 overHide' style='display:inline-block;width:80%; text-align: right;'>{{infoCompany}}</text>
+    </view>
+    <view class='info-item bgW'>
+      <text class='left font13 color153'>从业经验</text>
+      <text class='right font13 color51'>{{infoYear}}年</text>
+    </view>
+    <view class='info-item bgW'>
+      <text class='left font13 color153'>身份证</text>
+      <text class='right font13 color51'>{{infoCardNum}}</text>
+    </view>  
+    <view class='info-item bgW mt10 mb10'>
+      <text class='left font13 color153'>电话</text>
+      <text class='right font13 color51'>{{infoTel}}</text>
+    </view>
+    <view class='info-item bgW'>
+      <text class='left font13 color51'>微信</text>
+      <input class='rightInput font13 color51 overHide' value='{{wxNo}}' placeholder='请输入微信号' bindinput ="wxInput"></input>
+    </view>
+    <view class='info-item bgW'>
+      <text class='left font13 color51'>邮箱</text>
+      <input class='rightInput font13 color51 overHide' value='{{mail}}' placeholder='请输入邮箱' bindinput ="mailInput"></input>
+    </view> 
+    <view class='info-area bgW' style='height:100px'>
+      <text class='left font13 color51' style='line-height:51px;'>地址</text>
+      <input wx:if='{{showAdressArea}}' focus='{{showAdressArea}}' class='font13 color51 rightTextarea'  maxlength='50' value='{{address}}' placeholder='请输入地址' bindinput ="addressInput" bindblur='addressBlur' style='height:50px;'></input>
+      <!-- <textarea wx:if='{{showAdressArea}}' maxlength='50' value='{{address}}' class='font13 color51 rightTextarea' placeholder="请输入地址" bindinput='addressInput' bindblur='addressBlur' style='height:80px;'/>   -->
+        <!--无值（请输入地址） 有值（具体值）  -->
+      <view  wx:if='{{showAdressVal}}'  bindtap='click' class='font13 color51 rightTextarea' style='height:100px'>{{address}}</view>
+      <view  wx:if='{{showAdressNo}}'  bindtap='click' class='font13 color153 rightTextarea' style='height:100px'>请输入地址</view>  
+    </view>
+    <view class='info-area bgW mb10'>
+      <text class='left font13 color51' style='line-height:51px;'>自我介绍</text>
+      <!-- <textarea maxlength='200' value='{{introduce}}' class='font13 color51 rightTextarea' placeholder="自我介绍" bindinput='introduceInput' /> -->
+      <input maxlength='200' wx:if='{{showIntArea}}' focus='{{showIntArea}}' class='font13 color51 rightTextarea'  maxlength='200' value='{{introduce}}' placeholder='自我介绍' bindinput ="introduceInput" bindblur='introduceBlur' style='height:50px;'></input>   
+      <view  wx:if='{{showIntVal}}'  bindtap='clicka' class='font13 color51 rightTextarea'>{{introduce}}</view>
+      <view  wx:if='{{showIntNo}}'  bindtap='clicka' class='font13 color153 rightTextarea'>自我介绍</view>         
+    </view>     
+  </view>
+  <view class='userInfoBottom colorWhite backColorJu tc font16' bindtap='upDate'>保存</view>
+</view>

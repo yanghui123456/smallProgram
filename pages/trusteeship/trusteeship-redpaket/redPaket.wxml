@@ -1,0 +1,19 @@
+<!--pages/trusteeship-redpaket/redPaket.wxml-->
+<view class='red-paket'>
+  <image class='head-img' src='http://oss.baoxian.xujinkeji.com/broker/red-head.png'></image>
+  <view class='money-style bgW'>
+    <view class='style-text font14 color51'>海豚币</view>
+    <input placeholder-style='color:rgb(204,204,204); font-size:14px;' class='style-input font14 color51' placeholder='请填写海豚币个数' type='digit' confirm-type='done' bindinput ="num1Input"></input>
+    <view class='unit font14 color51'>个</view>
+  </view>
+  <view class='ht-money font13 color153'>
+    可用海豚币<text class='ht-number'>{{allHtb}}</text>个，<text class='recharge' bindtap='recharge'>马上充值</text>
+  </view>
+  <view class='money-style mb bgW'>
+    <view class='style-text font14 color51'>红包个数</view>
+    <input placeholder-style='color:rgb(204,204,204); font-size:14px;' class='style-input font14 color51' placeholder='请填写红包个数' type='number' confirm-type='done' bindinput ="num2Input"></input>
+    <view class='unit font14 color51'>个</view>
+  </view>
+  <view class='text-tips font12 color153 tc'>拼手气，随机额度</view>
+  <view class='give-money tc font16 colorWhite' bindtap='goBack'>塞进红包</view>
+</view>

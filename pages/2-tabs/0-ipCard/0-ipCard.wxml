@@ -1,0 +1,38 @@
+<!--pages/2-tabs/0-ipCard/0-ipCard.wxml-->
+<view class='home'>
+  <!--头部  -->
+  <view class='homeTop bgW'>
+    <view class='topTime font12'>{{nowTime}}</view>
+    <view class='topNum colorJu fontBlod tc'>{{visitor}}</view>
+    <view class='topToday font12 color153 tc'>今日访客(人)</view>
+  </view>
+  <!-- ip名片 -->
+  <view class='homeIp bgW'>
+    <view class='ipCar'>
+      裂变名片
+      <!-- <button open-type='share' class='startInvit font13' plain='true' style='height:30px;line-height:30px;font-size:15px;color:white;border:1px solid rgb(246,161,34);border-radius:20px;color:rgb(246,161,34);box-sizing:border-box;font-size:13px;'>分享名片</button> -->
+    </view>    
+    <view class='card'>
+      <view class='ipAll' bindtap='goIp'></view>
+      <image class='cardHeadImg' src='{{headUrl}}'></image>
+      <view class='cardName colorWhite fontBlod'>{{brokerName}}</view>
+      <view class='cardName colorWhite' style='font-size:13px;margin-top:2px'>{{company}} {{year}}年</view>
+      <view class='cardName' style='margin-top:25px;padding-bottom:34px;'>
+        <view class='halfCard'>
+          <view class='overHide font15 fontBlod colorWhite'>{{browseCount}}<text class='font11'>次</text></view>
+          <view class='font11 colorWhite' style='margin-top:2px;'>浏览量</view>
+        </view>
+        <view class='halfCard'>
+          <view class='overHide font15 fontBlod colorWhite'>{{praisedCount}}<text class='font11'>人</text></view>
+          <view class='font11 colorWhite' style='margin-top:2px;'>点赞量</view>        
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 客户托管 -->
+  <view class='homeTg bgW'>
+    <view class='tgTitle color51'> <image class='tgImg' src='../../commonImgs/tg.png'></image> 客户托管</view>
+    <view class='font12 color102' style='padding-left:6.6%;box-sizing:border-box;'>已托管{{tuoguanCount}}人，{{insuranceCount}}份保险</view>
+    <view class='startInvit colorJu font13' bindtap='startInvit'>发起托管邀请</view>
+  </view>
+</view>

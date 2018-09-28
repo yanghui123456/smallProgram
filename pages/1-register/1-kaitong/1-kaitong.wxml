@@ -1,0 +1,14 @@
+<!--开通-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='open-up colorWhite font16'> 免费开通</button> 
+       <block wx:else> 
+       <!-- <button bindtap='go_check_tel' class='open-up colorWhite font16'>免费开通</button> 开通页-->
+       <!--空白页  -->
+        <button bindtap='go_check_tel2' class='open-up colorWhite font16'>免费开通</button>
+    </block>
+  </view>
+  <view class='indexContent'>
+    <image class="backImg" src="http://oss.baoxian.xujinkeji.com/broker/contentImg.jpg"></image>   
+  </view>     
+</view>

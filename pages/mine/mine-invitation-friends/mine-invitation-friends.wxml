@@ -1,0 +1,25 @@
+<!--我的-邀请好友-->
+<view class='mine-invitation'>
+  <view class='content'>
+    <image class='top' src='http://oss.baoxian.xujinkeji.com/broker/invit-top.png'></image>
+    <view class='center-list tc'>
+      <!-- <image class='center' src='http://oss.baoxian.xujinkeji.com/broker/invit-center.png'></image> -->
+      <view class='lists' wx:if='{{showList}}'>
+        <!--两个硬币  -->
+        <image class='money1' src='../../commonImgs/money-icon1.png'></image>
+        <image class='money2' src='http://oss.baoxian.xujinkeji.com/broker/money-icon2.png'></image>
+        <view class='in-group tc' wx:for='{{userList}}' wx:key='{{item.realName}}'>
+          <image class='item' src='{{item.headUrl}}'></image>
+          <view class='text font12 color51'>{{item.realName}}</view>
+        </view>
+      </view>
+      <image class='no-invit' src='http://oss.baoxian.xujinkeji.com/broker/no-invit.png' wx:if='{{!showList}}'></image> 
+      <view class='no-text font13' wx:if='{{!showList}}'>暂无邀请</view>
+    </view>
+    <image class='bottom' src='http://oss.baoxian.xujinkeji.com/broker/invit-bottom.png'></image>
+  </view>
+  <view class='bottom-group bgW'>
+      <button open-type="share" class='group-left tc font13 color102' plain="true"><image class='invit-icon' src='../../commonImgs/invit-2.png'></image>转发朋友</button>  
+    <view class='group-left tc font13 color102' bindtap='shareFriend'><image class='invit-icon' src='../../commonImgs/invit-1.png'></image>分享朋友圈</view>
+  </view>
+</view>

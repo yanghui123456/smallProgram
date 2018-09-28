@@ -1,0 +1,24 @@
+<!--有红包邀请成功-->
+<view class='has-success'>
+  <view class='single-paket-head'>
+    <image class='head-img' src='http://oss.baoxian.xujinkeji.com/broker/single-paket.png'></image> 
+    <view class='who-paket font13 tc'>恭喜获得</view>
+    <view class='sum fontBlod tc'>{{money}}</view>
+    <view class='bless font12 tc'>海豚币</view>
+  </view>
+  <view class='jjr-info'>
+    <image class='info-img' src='{{headImg}}'></image>
+    <view class='info-name font12 color102'>{{realName}} 
+      <text class='info-company'>{{company}}-从业{{year}}年</text>
+    </view> 
+    <view class='jjr-say'>
+      <view class='say-text font15 color51'>我已成为您的专属保险托顾问，您以及您家庭的保险相关问题都可以得到一对一的服务    </view>
+      <view class='triangle'></view>
+    </view>
+  </view>
+  <!--下载  -->
+  <view>
+    <app-download></app-download>
+  </view>
+</view>
+

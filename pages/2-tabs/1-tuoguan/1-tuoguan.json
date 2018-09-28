@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "智保托管",
+  "navigationBarBackgroundColor": "#0930D5",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "head-img-list": "/pages/custom-component/head-img-list/head-img-list"
+ }
+}

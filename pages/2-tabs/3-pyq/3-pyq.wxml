@@ -1,0 +1,149 @@
+<!--闪耀朋友圈-->
+<view class="pyq tc">
+   <!-- <text class='font14 color51 qidai'>敬请期待...</text>  -->
+  <!--tab栏切换  -->
+   <scroll-view class="tabscroll bgW" scroll-x='true' scroll-with-animation='true' scroll-into-view='{{tabId}}'>
+    <view class='headScroll color102 font15'>
+      <view wx:for='{{tabList}}' wx:key='item.item' id='{{item.item}}' class="scrollItem {{defaultTab == item.id?'colorJuBlod':''}}" bindtap='ontabClick' data-id='{{item.item}}' data-item='{{item.id}}'>
+        {{item.typeName}}
+        <view class='tabbottom backColorJu' wx:if='{{defaultTab == item.id}}'></view>
+      </view>
+    </view> 
+  </scroll-view> 
+  <!--内容开始--热门推荐  -->
+    <view class="tabContent" style='background:#eeeeee' wx:if='{{defaultTab == 1}}'> 
+      <view class='title font13 fontBlod'> 
+       励志经典
+        <view class='line'></view>
+        <text class='seeAll font12' bindtap='tjListAll'>查看全部</text>
+      </view> 
+      <!--内容  -->
+      <view class='imgContent'>
+        <view class='contentItem' wx:key='{{item.id}}' wx:for='{{tjList}}'>
+          <view style='width:100%;height:100%;position:absolute;top:0;left:0;z-index:99' data-type='{{item.chargeType}}' data-img='{{item.pictureUrl}}' data-text='{{item.content}}' data-id='{{item.id}}' bindtap='buyItem'></view>
+           <image class='img' src='{{item.pictureUrl}}'></image> 
+          <text class='price backColorJu colorWhite font10'>{{item.chargeType}}</text>
+          <view class='text font12'>{{item.content}}</view>
+          <view class='transmit font12 bg245'><image class='transmitIcon' src='../../commonImgs/share-icon.png'></image>{{item.count}}次</view>
+        </view>
+      </view>
+    </view> 
+  <!--理念  -->
+   <view class="tabContent" wx:if='{{defaultTab == 2}}'>
+      <view class='zyglItem' wx:for='{{tjList}}' wx:key='{{item.content}}'>
+        <view class='zyglText font16'>{{item.content}}</view>
+        <view class='zyglImgs'>
+          <image class='zyglImg' wx:for='{{item.pictureUrl}}' wx:key='{{item}}' src='{{item}}'></image>
+        </view>
+        <view class='zyglBot font12'>{{item.count}}次分享
+          <view class='sendPyq' data-id='{{item.id}}' data-text='{{item.content}}'  bindtap='zyglShare' data-imgList='{{item.pictureUrl}}'>
+            <image class='pyqIcon' src='../../commonImgs/invit-1.png'></image>
+            发朋友圈
+          </view>
+        </view>
+      </view> 
+   </view> 
+  <!--正能量  -->
+   <view class="tabContent" wx:if='{{defaultTab == 3}}'>
+         <view class='zyglItem' wx:for='{{tjList}}' wx:key='{{item.content}}'>
+        <view class='zyglText font16'>{{item.content}}</view>
+        <view class='zyglImgs'>
+          <image class='zyglImg' wx:for='{{item.pictureUrl}}' wx:key='{{item}}' src='{{item}}'></image>
+        </view>
+        <view class='zyglBot font12'>{{item.count}}次分享
+          <view class='sendPyq' data-id='{{item.id}}' data-text='{{item.content}}'  bindtap='zyglShare' data-imgList='{{item.pictureUrl}}'>
+            <image class='pyqIcon' src='../../commonImgs/invit-1.png'></image>
+            发朋友圈
+          </view>
+        </view>
+      </view> 
+   </view> 
+  <!--增员攻略  -->
+  <view class="tabContent" wx:if='{{defaultTab == 4}}'>
+      <view class='zyglItem' wx:for='{{tjList}}' wx:key='{{item.content}}'>
+        <view class='zyglText font16'>{{item.content}}</view>
+        <view class='zyglImgs'>
+          <image class='zyglImg' wx:for='{{item.pictureUrl}}' wx:key='{{item}}' src='{{item}}'></image>
+        </view>
+        <view class='zyglBot font12'>{{item.count}}次分享
+          <view class='sendPyq' data-id='{{item.id}}' data-text='{{item.content}}'  bindtap='zyglShare' data-imgList='{{item.pictureUrl}}'>
+            <image class='pyqIcon' src='../../commonImgs/invit-1.png'></image>
+            发朋友圈
+          </view>
+        </view>
+      </view>                  
+   </view> 
+  <!--热点  -->
+   <view class="tabContent" wx:if='{{defaultTab == 5}}'>
+         <view class='zyglItem' wx:for='{{tjList}}' wx:key='{{item.content}}'>
+        <view class='zyglText font16'>{{item.content}}</view>
+        <view class='zyglImgs'>
+          <image class='zyglImg' wx:for='{{item.pictureUrl}}' wx:key='{{item}}' src='{{item}}'></image>
+        </view>
+        <view class='zyglBot font12'>{{item.count}}次分享
+          <view class='sendPyq' data-id='{{item.id}}' data-text='{{item.content}}'  bindtap='zyglShare' data-imgList='{{item.pictureUrl}}'>
+            <image class='pyqIcon' src='../../commonImgs/invit-1.png'></image>
+            发朋友圈
+          </view>
+        </view>
+      </view> 
+   </view> 
+   <!--发现  -->
+      <view class="tabContent" wx:if='{{defaultTab == 6}}'>
+        <view class='zyglItem' wx:for='{{tjList}}' wx:key='{{item.content}}'>
+          <view class='zyglText font16'>{{item.content}}</view>
+          <view class='zyglImgs'>
+            <image class='zyglImg' wx:for='{{item.pictureUrl}}' wx:key='{{item}}' src='{{item}}'></image>
+          </view>
+          <view class='zyglBot font12'>{{item.count}}次分享
+            <view class='sendPyq' data-id='{{item.id}}' data-text='{{item.content}}'  bindtap='zyglShare' data-imgList='{{item.pictureUrl}}'>
+             <image class='pyqIcon' src='../../commonImgs/invit-1.png'></image>
+            发朋友圈
+            </view>
+          </view>
+        </view> 
+      </view> 
+  <!--气泡  -->
+  <!-- <view class='paopo backColorJu'>
+    <view class='font14 colorWhite'>创建朋友圈热文</view>
+    <view class='font11 colorWhite' style='color:rgb(252,202,143)'>获得1个海豚币</view>
+  </view>  
+  <view class="view" style=" top:{{top}}px;left:{{left}}px;" bindtouchmove="setTouchMove" bindtouchend='moveEnd'></view> -->
+  <!--购买弹出页面  -->
+  <view class='buyToast' wx:if='{{showBuy}}'>
+    <view class='buyMask'  bindtap='hideBuyItem'></view>
+    <view class='buyContent'>
+      <view class='buyTop'>
+        <image class='buyClose' src='../../commonImgs/mask_close.png'  bindtap='hideBuyItem'></image>
+        <view class='buyItem'>
+          <image src='{{buyToastImg}}' style='width:100%;height:76%;position:absolute;top:0;left:0;'></image>
+          <text class='buyPrice backColorJu colorWhite font10'>{{buyToastType}}</text>
+           <view class='buyText font12'>{{buyToastText}}</view> 
+        </view>
+        <view class='font12 color153' style='width:100%;position:absolute;bottom:8%;left:0;'>余额<text style='color:rgb(255,166,0);'>{{htb}}</text>海豚币<text style='color:rgb(2,156,245);margin-left:10px;' bindtap='recharge' data-url='../../mine/mine-recharge/mine-recharge'>充值</text></view>
+      </view>
+      <view class='buyBottom color153 font12'>总计：<text style='color:rgb(253,135,25);font-size:14px;'>{{buyToastType}}</text>海豚币<text class='buy colorWhite font14' data-url='../../pyq/buy-success/buy-success' bindtap='buy'>购买</text></view>
+    </view>
+  </view>
+  <!--增员攻略发朋友圈  -->
+  <view class='buyToast' wx:if='{{showZfgl}}'>
+    <view class='buyMask' bindtap='checkZygl'></view>
+    <view class='zyglToast'>
+        <image class='buyClose' src='../../commonImgs/mask_close.png' bindtap='checkZygl'></image>
+      <view class='zyglTText font14'>{{buyToastText}}</view>
+      <view class='ztglImgsGroup'>
+        <image class='zyglGroupItem' wx:for='{{pyqImgList}}' src='{{item}}' wx:key='{{item}}'></image>
+      </view>
+      <view class='zyglTDown font12'><image src='../../commonImgs/down-icon.png' style='width:12px;height:12px;margin-right:3px;'></image>图片已保存到本地，马上去发朋友圈</view>
+      <view class='zyglTDown font12'>文本内容已经复制，可以去粘贴哦！</view>
+      <view class='font12 zyglTShare' bindtap='zyglHowShare'>如何分享到微信朋友圈</view>
+    </view>
+  </view>  
+  <!--分享步骤  -->
+  <view class='buyToast' wx:if='{{showShareStep}}' style='z-index:1000;'>
+    <view class='buyMask'></view>
+    <text class='howShare font13 colorWhite tc'>如何分享至微信朋友圈</text>
+    <image class='shareStep' src='http://oss.baoxian.xujinkeji.com/broker/shareStep.png'></image>
+    <image src='http://oss.baoxian.xujinkeji.com/broker/close-icon.png' class='closeShare' bindtap='zyglHowShare'></image>
+  </view>  
+</view>

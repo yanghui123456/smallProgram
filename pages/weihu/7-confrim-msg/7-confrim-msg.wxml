@@ -1,0 +1,250 @@
+<!--信息确认页-->
+<view class='confrim'>
+<view class='aaa'>
+  <view class='complate colorWhite backColorJu tc' bindtap='complate'>完成</view>
+  <view class='seeImg colorWhite backColorJu tc' bindtap='seeOriginalImg'>查看原始保单</view>
+</view>
+<view class='bbb'>
+<!--被保人信息  -->
+  <view class='confrim-group'>
+    <image class='img-style' src='http://oss.baoxian.xujinkeji.com/broker/c-bbrInfo.png'></image>
+    <text class='text font12 color153 tc'>被保人信息</text>
+    <view class='noVal' bindtap='clickRelation' wx:if='{{hasRelation}}'>请选择家庭角色</view>
+    <view class='noVal hasVal' wx:else bindtap='clickRelation'>家庭角色:{{relationText}}</view>
+    <picker class="noVal hasVal" bindchange="insuredCardPickerChange" value="{{insuredCardIndex}}" range="{{insuredCardArr}}">
+      <view>
+        证件类型:{{insuredCardArr[insuredCardIndex]}}
+      </view>
+    </picker>
+    <view class="{{hasinsuredcadrVal === 0? 'noVal widthVal': 'noVal hasVal widthVal'}}">
+        <input class='insertInput' placeholder='请填写身份证号码' placeholder-class="phcolor" value='{{insuredCardNum}}' bindinput='insuredCardInput' bindblur='insuredCardBlur' type='idcard' maxlength='18'></input>
+        <image class='warning' src='../../commonImgs/wran.png' wx:if='{{checkCard === false}}'></image>
+    </view>
+    <input class="{{hasinsurednameVal === 0? 'noVal': 'noVal hasVal'}}"  placeholder='请填写被保人姓名' placeholder-class="phcolor" value='{{insuredName}}' bindinput='insuredNameInput'></input>
+    <picker class="noVal" wx:if="{{insuredSexId === ''}}" bindchange="insuredSexPickerChange" value="{{insuredSexIndex}}" range="{{insuredSexArr}}">
+      <view>请选择性别</view>
+    </picker>
+    <picker class="noVal hasVal" wx:else bindchange="insuredSexPickerChange" value="{{insuredSexIndex}}" range="{{insuredSexArr}}">
+      <view>性别:{{insuredSexArr[insuredSexIndex]}}</view>
+    </picker>
+    <picker class="noVal" wx:if="{{insuredDate == ''}}" mode="date" value="{{insuredDate}}" start="1970-01-01" end="{{currentDate}}" bindchange="insuredDateChange">
+      <view>请选择出生日期</view>
+    </picker>
+    <picker class="noVal hasVal" wx:else mode="date" value="{{insuredDate}}" start="1970-01-01" end="{{currentDate}}" bindchange="insuredDateChange">
+      <view>出生日期: {{insuredDate}}</view>
+    </picker>
+  </view>
+  <!--投保人信息  -->
+  <view class='confrim-group'>
+    <image class='img-style' src='http://oss.baoxian.xujinkeji.com/broker/c-tbrInfo.png'></image>
+    <text class='text font12 color153 tc'>投保人信息</text>
+    <picker class="noVal" wx:if="{{isSamePerson === ''}}" bindchange="samePickerChange" value="{{sameIndex}}" range="{{samePersonArr}}">
+      <view>与被保人是否为同一人</view>
+    </picker>
+    <picker class="noVal hasVal" wx:else bindchange="samePickerChange" value="{{sameIndex}}" range="{{samePersonArr}}">
+      <view>与被保人是否为同一人:{{samePersonArr[sameIndex]}} </view>
+    </picker>    
+    <view wx:if='{{!samePersonShow}}'>
+      <picker class="noVal hasVal" bindchange="holderCardPickerChange" value="{{holderCardIndex}}" range="{{holderCardArr}}">
+        <view>证件类型:{{holderCardArr[holderCardIndex]}}</view>
+      </picker>
+      <view class="{{hasholdercadrVal === 0? 'noVal widthVal': 'noVal hasVal widthVal'}}">
+        <input class='insertInput' placeholder='请填写身份证号码' placeholder-class="phcolor" value='{{holderCardNum}}' bindinput='holderCardInput' bindblur='holderCardBlur' type='idcard' maxlength='18'></input>
+        <image class='warning' src='../../commonImgs/wran.png' wx:if='{{checkCard1 === false}}'></image>
+      </view>                   
+      <input class="{{hasholderdnameVal === 0? 'noVal': 'noVal hasVal'}}"  placeholder='请填写投保人姓名' placeholder-class="phcolor" value='{{holderName}}' bindinput='holderNameInput'></input>
+      <picker class="noVal" wx:if="{{holderSexId === ''}}" bindchange="holderSexPickerChange" value="{{holderSexIndex}}" range="{{holderSexArr}}">
+        <view>请选择性别 </view>
+      </picker>
+      <picker class="noVal hasVal" wx:else bindchange="holderSexPickerChange" value="{{holderSexIndex}}" range="{{holderSexArr}}">
+        <view>性别:{{holderSexArr[holderSexIndex]}}</view>
+      </picker>    
+      <picker class="noVal" wx:if="{{holderDate === ''}}" mode="date" value="{{holderDate}}" start="1970-01-01" end="{{currentDate}}" bindchange="holderDateChange">
+        <view>请选择出生日期</view>
+      </picker>
+      <picker class="noVal hasVal" wx:else mode="date" value="{{holderDate}}" start="1970-01-01" end="{{currentDate}}" bindchange="holderDateChange">
+        <view>出生日期: {{holderDate}}</view>
+      </picker> 
+   </view>
+  <!--为同一人时的样式  -->
+    <view wx:if='{{samePersonShow}}'>
+      <view class="noVal disabledVal">证件类型:{{holderCardArr[holderCardIndex]}}</view>
+      <input class="noVal disabledVal" value='{{holderCardNum}}' placeholder='请填写身份证号码' disabled></input>
+      <input class="noVal disabledVal" value='{{holderName}}' placeholder='请填写投保人姓名' disabled></input>
+      <view class="noVal disabledVal">性别:{{holderSexArr[holderSexIndex]}}</view>
+      <view class="noVal disabledVal">出生日期:{{holderDate}}</view>  
+    </view>
+  </view>
+  <!--受益人姓名  -->
+  <view class='confrim-group'>
+    <image class='img-style' src='http://oss.baoxian.xujinkeji.com/broker/c-syrInfo.png'></image>
+    <text class='text font12 color153 tc'>受益人信息</text>
+    <input class="{{hasbenefitnameVal === 0? 'noVal': 'noVal hasVal'}}"  placeholder='请填写受益人姓名' placeholder-class="phcolor" value='{{beneficiaryName}}' bindinput='benefitNameInput'></input>
+  </view>
+  <!--保险基本信息  -->
+  <view class='confrim-group'>
+    <image class='img-style' src='http://oss.baoxian.xujinkeji.com/broker/c-baseInfo.png'></image>
+    <text class='text font12 color153 tc'>保险基本信息</text>
+    <view class='noVal' bindtap='openLogo' wx:if="{{insuredCompany === ''}}">请选择保险公司</view>
+    <view class='noVal hasVal' bindtap='openLogo' wx:else>保险公司:{{insuredCompany}}</view>
+    <input class="{{hasbddmcVal === 0? 'noVal': 'noVal hasVal widthVal'}}"  placeholder='请填写保单名称' placeholder-class="phcolor" value='{{insuranceName}}' bindinput='bdmcInput'></input>
+    <input class="{{hasbdhVal === 0? 'noVal': 'noVal hasVal widthVal'}}"  placeholder='请填写保单号' placeholder-class="phcolor" value='{{policyNum}}' bindinput='bdhInput'></input>
+    <picker class="noVal" wx:if="{{validDate === ''}}" mode="date" value="{{validDate}}" start="1970-01-01" end="2100-01-01" bindchange="validDateChange">
+      <view>请选择生效日</view>
+    </picker>
+    <picker class="noVal hasVal" wx:else mode="date" value="{{validDate}}" start="1970-01-01" end="2100-01-01" bindchange="validDateChange">
+      <view>生效日: {{validDate}}</view>
+    </picker>    
+    <view wx:if="{{insuredPerodVal === ''}}" class='noVal' bindtap='selectInsuredPeriod'>请选择保险期间</view>    
+    <view wx:else class='noVal hasVal' bindtap='selectInsuredPeriod'>保险期间:{{insuredPerodVal}}</view>  
+    <picker class="noVal" wx:if="{{payWayId === ''}}" bindchange="payWayPickerChange" value="{{payWayIndex}}" range="{{payWayArr}}">
+      <view>请选择缴费方式 </view>
+    </picker>
+    <picker class="noVal hasVal" wx:else bindchange="payWayPickerChange" value="{{payWayIndex}}" range="{{payWayArr}}">
+      <view>缴费方式:{{payWayArr[payWayIndex]}}</view>
+    </picker>     
+    <input class="{{hasmqbfVal === 0? 'noVal': 'noVal hasVal'}}"  placeholder='请填写每期保费(元)' placeholder-class="phcolor" value='{{periodMoney}}' bindinput='bfInput' type='number'></input> 
+    <picker class="noVal" wx:if="{{payStartDate === ''}}" mode="date" value="{{payStartDate}}" start="1970-01-01" end="2100-01-01" bindchange="payStartDateChange">
+      <view>请选择缴费开始日期</view>
+    </picker>
+    <picker class="noVal hasVal" wx:else mode="date" value="{{payStartDate}}" start="1970-01-01" end="2100-01-01" bindchange="payStartDateChange">
+      <view>缴费开始日期: {{payStartDate}}</view>
+    </picker> 
+    <!--缴费方式为一次性缴清==隐藏缴费终止日期  -->
+    <view wx:if="{{showPayEnd}}">
+        <picker class="noVal"  wx:if="{{payEndDate === ''}}" mode="date" value="{{payEndDate}}" start="1970-01-01" end="2100-01-01" bindchange="payEndDateChange">
+      <view>请选择缴费终止日期</view>
+    </picker>
+    <picker class="noVal hasVal" wx:else mode="date" value="{{payEndDate}}" start="1970-01-01" end="2100-01-01" bindchange="payEndDateChange">
+      <view>缴费终止日期: {{payEndDate}}</view>
+    </picker>
+    </view>   
+    <picker class="noVal" wx:if="{{waitIndex === ''}}" bindchange="waitDayPickerChange" value="{{waitIndex}}" range="{{waitArr}}">
+      <view>请选择等待期天数</view>
+    </picker>   
+    <picker class="noVal hasVal" wx:else bindchange="waitDayPickerChange" value="{{waitIndex}}" range="{{waitArr}}">
+      <view>等待期天数：{{waitArr[waitIndex]}}天</view>
+    </picker>           
+  </view> 
+  <!--保障详细信息  -->
+  <view class='confrim-group' style='border:none'>
+    <image class='img-style' src='http://oss.baoxian.xujinkeji.com/broker/c-detailInfo.png'></image>
+    <text class='text font12 color153 tc'>保障详细信息</text>
+    <view class="noVal" wx:if='{{!showAddItem}}'>
+        <input class='insertInput width100' placeholder='请输入保障责任' placeholder-class="phcolor" value='{{guaranteeDuty}}' bindinput='guarantInput' bindblur='guarantBlur' type='text'></input>
+    </view>
+    <view class='dutyGroup' wx:if='{{showAddItem}}'>
+      <view class='guaranDu'>责任:{{duty}}</view>
+      <input class='guaranNum' type='number' bindinput='addguarantInput' bindblur='addguarantBlur' placeholder='金额:万元' placeholder-class="phcolor"></input>
+      <image class='deletedDuty' src='../../commonImgs/deleted.png'></image>
+      <view class='whiteLine'></view>
+    </view> 
+    <view class='dutyGroup' wx:for='{{dutyList}}' wx:key='dutyId'>
+      <view class='guaranDu'>责任:{{item.dutyName}}</view>
+      <input class='guaranNum gutanhasVal' value='{{item.dutySum}}'></input>
+      <image class='deletedDuty' src='../../commonImgs/deleted.png' data-id='{{item.dutyId}}' bindtap='deletedDuty'></image>
+      <text class='unit'>万元</text>
+        <view class='whiteLine'></view>
+    </view> 
+  </view>
+</view>
+<!--查看原始保单  -->
+  <scroll-view scroll-y='true' scroll-x='true' class='scrollView' wx:if='{{showOriginalImg}}'>
+    <image class='originalImg' style='width:800px;height:1000px;' src='{{editImgurl}}'  bindtap='seeOriginalImg'></image>
+  </scroll-view>
+  <!--家庭角色的选择  -->
+  <view class='familyPop'wx:if='{{showRelationList}}'>
+    <view class='popMask' bindtap='clickRelation'></view>
+    <view class='pop'>
+      <view class='popHead'>
+        <text class='cancel' bindtap='clickRelation'>取消</text>
+        <text class='ensure' bindtap='ensureRelation'>确定</text>
+      </view>
+      <view class='pop_content'>
+        <view class='contents'>
+          <view class='content_group'>
+            <view class='groupItem' class="{{relationDefault === '5'? 'selectRelation':'groupItem'}}">
+              <view class='all' data-relation='5' data-relationtext='爸爸' bindtap='selecRelation' ></view>
+              <image class='groupImg' src='http://oss.baoxian.xujinkeji.com/broker/insured_father.png'></image>
+              <text class='groupText tc'>爸爸</text>
+            </view>
+            <view class='groupItem'  class="{{relationDefault === '6'? 'selectRelation':'groupItem'}}">
+              <view class='all' data-relation='6' data-relationtext='妈妈' bindtap='selecRelation'></view>
+              <image class='groupImg' src='http://oss.baoxian.xujinkeji.com/broker/insured_mather.png'></image>
+              <text class='groupText tc'>妈妈</text>
+            </view>  
+            <view class='groupItem'  class="{{relationDefault === '7'? 'selectRelation':'groupItem'}}">
+              <view class='all' data-relation='7' data-relationtext='儿子' bindtap='selecRelation'></view>
+              <image class='groupImg' src='http://oss.baoxian.xujinkeji.com/broker/insured_son.png'></image>
+              <text class='groupText tc'>儿子</text>
+            </view> 
+            <view class='groupItem'  class="{{relationDefault === '8'? 'selectRelation':'groupItem'}}">
+              <view class='all' data-relation='8' data-relationtext='女儿' bindtap='selecRelation'></view>
+              <image class='groupImg' src='http://oss.baoxian.xujinkeji.com/broker/insured_daughter.png'></image>
+              <text class='groupText tc'>女儿</text>
+            </view>
+            <view class='groupItem'  class="{{relationDefault === '9'? 'selectRelation':'groupItem'}}">
+              <view class='all' data-relation='9' data-relationtext='其他' bindtap='selecRelation'></view>
+              <image class='groupImg' src='http://oss.baoxian.xujinkeji.com/broker/insured_other.png'></image>
+              <text class='groupText tc'>其他</text>
+            </view>
+            <view class='groupItem'  class="{{relationDefault === '10'? 'selectRelation':'groupItem'}}">
+              <view class='all' data-relation='10' data-relationtext='本人' bindtap='selecRelation'></view>
+              <image class='groupImg' src='http://oss.baoxian.xujinkeji.com/broker/insured_self.png'></image>
+              <text class='groupText tc'>本人</text>
+            </view>
+            <view class='groupItem'  class="{{relationDefault === '11'? 'selectRelation':'groupItem'}}">
+              <view class='all' data-relation='11' data-relationtext='配偶' bindtap='selecRelation'></view>
+              <image class='groupImg' src='http://oss.baoxian.xujinkeji.com/broker/insured_wife.png'></image>
+              <text class='groupText tc'>配偶</text>
+            </view>
+            <view class='groupItem'  class="{{relationDefault === '12'? 'selectRelation':'groupItem'}}">
+              <view class='all' data-relation='12' data-relationtext='配偶爸爸' bindtap='selecRelation'></view>
+              <image class='groupImg' src='http://oss.baoxian.xujinkeji.com/broker/insured_father.png'></image>
+              <text class='groupText tc'>配偶爸爸</text>
+            </view>
+            <view class='groupItem'  class="{{relationDefault === '13'? 'selectRelation':'groupItem'}}">
+              <view class='all' data-relation='13' data-relationtext='配偶妈妈' bindtap='selecRelation'></view>
+              <image class='groupImg' src='http://oss.baoxian.xujinkeji.com/broker/insured_mather.png'></image>
+              <text class='groupText tc'>配偶妈妈</text>
+            </view>                                                                      
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+<!--保险期间  -->
+   <view class="period_mask" wx:if='{{showInsuredPeriod}}'> 
+       <view class="mask" bindtap='selectInsuredPeriod'></view> -->
+         <view class="content"> 
+        <view class="head color51 font16">保险期间<text class='headCancel' bindtap='selectInsuredPeriod'>取消</text></view>
+        <view class="selecte_list tc">
+          <view class='select_item bgW font15' bindtap='selectLifeLong'>保至终身</view>
+          <picker mode="date" value="{{periodDate}}" start="1970-01-01" end="2100-01-01" bindchange="periodDateChange">
+            <view class="select_item bgW font15"> 自定义保险期间</view>
+          </picker>
+        </view>
+      </view>  
+   </view>
+<!--保险公司列表  -->
+  <view class='familyPop' wx:if='{{showCompany}}'>
+    <view class='popMask' bindtap='openLogo'></view>
+    <view class="pop" style='height:230px'>
+      <view class="pop_head">
+        <text class='cancel' bindtap='openLogo'>取消</text>
+        <text class='ensure' bindtap='ensureCompany'>确定</text>
+      </view>
+      <view class="pop_content" style='height:230px'>
+        <view class="contents">
+          <view class="content_group">
+            <view class='groupItem' class="{{companyDefault === item.id? 'selectRelation':'groupItem'}}" wx:for='{{companyList}}' wx:key='id'>
+              <view class='all' data-id='{{item.id}}' data-text='{{item.companyName}}' bindtap='selectCompany'></view>
+              <image class='groupImg companyImg' src='{{item.companyLogoColor}}'></image>
+              <text class='groupText tc'>{{item.companyName}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+ </view>
+</view>

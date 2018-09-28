@@ -1,0 +1,57 @@
+<!-- 身份认证页面 -->
+<view class='id-check'>
+  <view class='id-content'> 
+    <view class='title color51 fontBlod'>身份认证</view>
+    <view class='title2 font11'>进行认证，提高客户信任，获得更多特权</view>
+    <view class='form-info bgW'>
+      <view class='item'>
+        <view class='text font14 color51'>姓名</view>
+        <input wx:if='{{!showmask}}' class='inputVal font13' type='text' placeholder="请输入姓名" bindinput ="nameInput" disabled='{{disabledEdit}}'/>
+        <input wx:else class='inputVal font13' disabled></input>
+      </view>
+      <view class='item'>
+        <view class='text font14 color51'>身 份 证</view>
+        <input wx:if='{{!showmask}}' class='inputVal font13 cardInput' type='idcard' maxlength="18" placeholder="请输入证件号码" bindinput ="idCardInput" disabled='{{disabledEdit}}'/>
+        <input wx:else class='inputVal font13 cardInput' disabled></input>
+        <image class='waring' src='./images/warn.png' catchtap='tipsWarn'></image>
+        <view class='waringText font11' animation="{{animationData}}">
+          系统将提交身份证信息到保监会实名系统进行认证
+          <view class='triangle'></view>
+        </view>
+      </view>
+    </view>
+    <view class='form-info bgW '>
+      <view class='item'>
+        <view class='text font14 color51'>公司名称</view>
+         <input wx:if='{{!showmask}}' class='inputVal font13 companyVal' disabled placeholder="请选择保险公司" data-type='保险公司' bindtap='goSelectCompany' value='{{companyName}}'/>
+        <!--解决input placeholder层级过高问题  -->
+         <input wx:else class='inputVal font13' disabled></input>
+      </view>
+      <view class='item'>
+      <view class='text font14 color51'>职 位</view>
+        <input wx:if='{{!showmask}}' class='inputVal font13' type='text' placeholder="请输入职位" disabled='{{disabledEdit}}' bindinput='jobInput'/>
+         <input wx:else class='inputVal font13' disabled></input>
+      </view>
+      <view class='item'>
+      <view class='text font14 color51'>年 限</view>
+        <input wx:if='{{!showmask}}' class='inputVal font13' type='number' placeholder="请输入年限" disabled='{{disabledEdit}}' bindinput='yearInput'/>
+         <input wx:else class='inputVal font13' disabled></input>
+      </view>
+    </view>
+    <!--从业证明  -->
+    <view class='job-prove bgW'>
+      <view class='job-title font14 color51'>上传从业资格证明</view>
+      <view class='job-content'>
+        <view class='job-in'>
+          <image class='add-btn' src="./images/add.png" bindtap='chooseImg'></image>
+          <!-- <image class='add-btn' src="./images/add.png" bindtap='chooseImg' wx:if='{{showUploadImg}}'></image> -->
+          <view class='job-tips tc font12 color102'>请上传与身份证相符的代理人资格证书/工作证/名片</view>
+          <image class='uploadImg' src='{{imgSrc}}'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+ <form bindsubmit="certification" report-submit='true'>
+   <button formType="submit" class="certification font16 colorWhite tc" style="{{isIpx?'margin-bottom:68rpx':''}}">申请认证</button> 
+</form> 
+</view>

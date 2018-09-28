@@ -1,0 +1,99 @@
+<!--生成邀请函-->
+<view class='invitation'>
+  <view class='invitatin-content bg245'>
+    <!--上  -->
+    <view class='content-top'>
+     <view class='jjrText colorWhite font13 tc'>{{userTalk}}</view>
+      <view class='content-wxh font10 colorWhite'>
+        <image class='content-wx-img' src='../../2-tabs/1-tuoguan/images/wx.png'></image>
+        {{nickName}}
+      </view>
+    </view>
+    <view class='agent-info'>
+      <image class='info-head-img' src='{{headImg}}'></image>
+      <image class='call' src='../../trusteeship/images/call.png' data-tel='{{tel}}' bindtap='callPhone'></image>
+       <view class='info-name font16 color51 fontBlod'>{{realName}}</view> 
+      <view class='info-company font12 color153'><text class='first'>{{company}}</text>从业{{year}}年</view>
+      <view class='info-company font12 color154'><text class='second'>客户托管<text class='color'>{{customerCount}}</text>人</text><text class='second'>托管保险<text class='color'>{{insuranceCount}}</text>份</text></view>
+    </view>
+    <!--用户与经纪人是否存在托管关系  -->
+    <view class='no-paket font15 color153 tc' wx:if='{{hasRelation}}'  style='margin: 30px 0;'>{{realName}}已经是您的托管经纪人了</view>
+    <!--被邀请用户未领取过红包  -->
+     <view class='give-red-paket tc font12' wx:if='{{noGetRedPaket}}'>送您个红包</view>
+      <view class='packet-box bgW' wx:if='{{noGetRedPaket}}'>
+        <image class='open-red-paket-img' src='http://oss.baoxian.xujinkeji.com/broker/openPaket.png'></image>
+        <button open-type="getUserInfo" data-type='1' lang='zh_CN' class='open-red-paket-img' bindgetuserinfo="onGotUserInfo"> </button>  
+      </view>
+    <!--红包已领取完毕  -->
+    <view class='no-paket font15 color153 tc' wx:if='{{noMoney}}'  style='margin: 30px 0;'>慢了一步，红包分完了</view>
+    <!--红包已过期  -->
+    <view class='no-paket font15 color153 tc' wx:if='{{hasOvertime}}' style='margin: 30px 0;'>抱歉，该红包超时未领取</view>
+     <!-- <button open-type="getUserInfo" class='agree-invite colorWhite font16 backColorJu tc' bindgetuserinfo="onGotUserInfo" data-type='2'>同意邀请</button>   -->
+     <!--已领取过红包了  -->
+   <view class='give-red-paket tc font12' wx:if='{{hasGetRedPaket}}'>{{realName}}的红包</view>
+      <view class='packet-box h-down bgW' wx:if='{{hasGetRedPaket}}'>
+        <view class='get-number tc font16 fontBlod'>{{hasGetHtb}}</view>
+        <view class='get-unit color153 font10 tc'>海豚币</view>
+        <view class='get-down font10 tc'>下载海豚智保APP></view>
+      </view>
+  </view>
+  <view class='invitationNum colorWhite font12 tc'>已有{{receiveNum}}/{{totalNum}}人领取红包，共{{receliveMoney}}/{{totalMoney}}海豚币</view>
+   <view class='img-list'>
+      <image class='img-item' src='{{item}}' wx:for='{{beInvitUserHeadList}}' wx:key='item'></image>
+    </view>
+  <!--绑定手机号  -->
+  <view class='bindTel' wx:if='{{invitationUser}}'>
+    <view class='mask' bindtap='hideMask'></view>
+    <view class='tel-box'>
+      <view class='box-head font13 tc bg245'>绑定手机号码，领取红包</view>
+       <view class='form-info bgW'>
+          <view class='item'>
+            <view class='text font14 color51'>手机号码</view>
+            <input class='inputVal font13' type='text' maxlength="11" placeholder="请输入手机号码" bindinput ="telNumInput"/>
+          </view>
+          <view class='item'>
+              <view class='text font14 color51'>验 证 码</view>
+              <input class='inputVal font13' type='number' maxlength="6" placeholder="请输入验证码" bindinput ="telCodeInput"/>
+              <view class='get-verification-code tc font11' wx:if='{{showTimer}}' bindtap='get_verification_code'>获取验证码</view>
+              <view class='get-verification-code second tc font11' wx:if='{{!showTimer}}' >重新获取{{count}}'</view>
+          </view>
+        </view>
+     <view class='agree tc font15 colorWhite' bindtap='agreeInvitation'>同意邀请领取红包</view>
+    </view>
+  </view>
+      <!--绑定未注册过APP  -->
+  <view class='bindTel' wx:if='{{hasRegister}}'>
+    <view class='mask'></view>
+    <view class='tel-box'>
+      <view class='box-head tc bg245 font13'>设置登录密码</view>
+       <view class='bgW h60'>
+          <view class='item'>
+            <view class='text font14 color51'>设置密码</view>
+            <input class='inputVal font13' type='text' placeholder="不少于6位字符包含字母" bindinput ="passWordInput"/>
+          </view>
+        </view>
+      <view class='agree tc font15 colorWhite' bindtap='register'>完成</view>
+    </view>
+  </view>
+  <!-- 获取授权 -->
+  <view class='publicToast' wx:if='{{showAuthor}}'  style='position:fixed'>
+    <view class='publicMask' style='background:white;opacity:1'></view>
+    <view class='publicContent'>
+      <image class='jjrImg' src='{{headImg}}'></image>
+     <button open-type="getUserInfo"  bindgetuserinfo="onGotUserInfo" style='background:rgb(246,161,34);color:white;font-size:16px;border-radius:10px;'>授权登录，查看保单托管信息</button>     
+    </view>
+  </view>  
+  <!-- 获取formid -->
+  <view class='shareModel tc' style='z-index:200;position:fixed' wx:if='{{showFormid}}'>
+    <view class='modelMash'></view>
+    <view style='width:88%;left:6%;background:white;position:absolute;top:50%;border-radius:15px;margin-top:-75px;'>
+      <view style='padding-top:20px;' class='font16'>保险服务邀请</view>
+      <view class='font12 tc' style='width:100%;height:96px;color:black;text-indent:2em;padding:20px;box-sizing:border-box'>你好{{userNickName}},我是{{realName}},邀请你享受我提供的保险管理服务。</view>
+      <view class='modelButton'>
+        <form bindsubmit="getFormId" report-submit='true'>
+          <button formType="submit" style='border-radius:15px;width:100%;height:100%;line-height:50px;font-size:16px;background:white;color:rgb(255,166,28)'>点击查看</button> 
+        </form>        
+      </view>
+    </view>
+  </view>   
+</view>

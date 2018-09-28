@@ -1,0 +1,71 @@
+<!--家庭成员信息-详情-->
+<view class='wh-detail'>
+  <view class='content tc' wx:if='{{noDetail}}'>
+    <image class='nothing' src='http://oss.baoxian.xujinkeji.com/broker/no-invit.png'></image>
+    <view class='font13 color51'>暂时没有家庭成员信息哦</view>
+  </view>
+  <view class='content' wx:if='{{!noDetail}}'>
+    <!--三种分类  -->
+    <view class='classify bgW'>
+      <view class='classify-item tc font12 half'>
+        <view class='classify-num'>
+          <text class='num-top' style='vertical-align:middle'>{{paidMoney}}</text>
+          <text class='float-left' style='vertical-align:middle'>元</text>
+        </view>
+        
+        <view class='color153'>已交保费</view>
+      </view>
+      <view class='classify-item tc font12 half'>
+        <view class='classify-num'>
+          <text class='num-top' style='vertical-align:middle'>{{unPaidMoney}}</text>
+          <text class='float-left' style='vertical-align:middle'>元</text>
+        </view>
+        <view class='color153'>代缴保费</view>    
+      </view>
+    </view>
+    <!--保单列表  -->
+    <view class='insurance-list'>
+      <view class='member-head font13'>
+        <view class='line'></view>
+        保单列表
+      </view>
+      <!--无保单列表  -->
+      <view class='member-add tc' wx:if='{{hasPolicy}}'>
+        <view class='add-insurance-btn font12'>暂无保单</view>
+      </view>
+      <!--有保单列表  -->
+      <view class='policy-list bgW' wx:if='{{!hasPolicy}}'>
+        <!--正在维护中保单  -->
+        <!--正常保单  -->
+        <view class='policy-item tc' wx:for='{{insuranceList}}' wx:key='billId'>
+          <view class='allDetail' data-id='{{item.billId}}' bindtap='goInsuranceDetail'></view>
+          <view class='policy-detail'>
+            <image class='insurance-company' src='{{item.companyLogoUrl}}'></image>
+            <view class='insurance-name font12 colorWhite'>{{item.billName}}</view>
+            <view class='insurance-period font10 colorWhite'>[{{item.billGuaranteeStatus}}]</view>
+            <view class='insurance-unit font10 colorWhite'>保额(万元）</view>
+            <view class='insurance-money colorWhite fontBlod'>{{item.coverage}}</view>
+            <view class='insured-name font11 colorWhite'>{{item.applicantName}}</view>
+          </view>
+          <view class='policy-style font12 color153'>总保费￥{{item.premium}}</view>
+          <!-- <view class='policy-bf font10'>总保费￥4546564</view> -->
+        </view>               
+      </view>
+    </view>
+  </view>  
+  <!--正在维护提示  -->
+    <view class='text-mask' wx:if='{{showMask}}'>
+    <view class='mask' bindtap='checkWhMask'></view>
+    <view class='box'>
+      <view class='box-head colorWhite'>
+        <image class='box-head-img' src='http://oss.baoxian.xujinkeji.com/broker/wh-mask-head.png'></image> 
+        <image class='box-head-colse' src='../../commonImgs/wh-mask-close.png' bindtap='checkWhMask'></image>
+        <view class='box-text tc'>正在维护中...</view>
+      </view>
+      <view class='box-conten font13 color102 bgW'>您好目前正有其他经纪人为"某某某"服务，请稍后在尝试访问服务</view>
+      <view class='box-bottom font16 tc bg245 color102' bindtap='checkWhMask'>
+        返回
+      </view>
+    </view>  
+  </view>
+</view>

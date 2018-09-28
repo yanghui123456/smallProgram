@@ -1,0 +1,84 @@
+/* pages/dropDownList/list.wxss */
+page,.drop-list,.mask{
+  width:100%;
+  height:100%;
+}
+.drop-list{
+  position: relative;
+}
+.mask{
+ position: absolute;
+ top:0;
+ left:0;
+ background: black;
+ opacity: 0.5;
+}
+.group{
+  width:100%;
+  z-index:99;
+  position: fixed;
+  bottom:0;
+  left:0;
+}
+.head{
+  width:100%;
+  height:55px;
+  line-height: 55px;
+  text-align: center;
+  font-size:15px;
+  color:rgb(50,50,50);
+  background: rgb(245,245,245);
+  position: relative;
+}
+.close{
+  width:15px;
+  height:15px;
+  position: absolute;
+  top:10px;
+  right:4%;
+  padding:10px;
+}
+.closeMask{
+  width:25px;
+  height:25px;
+  position: absolute;
+  top:15px;
+  right:4%;
+  border: 1px solid red;
+}
+/*6条  */
+.list{
+  width:100%;
+  height:306px;
+  background: white;
+  overflow: auto;
+  -webkit-overflow-scrolling:touch;
+}
+.item,.active{
+  width:100%;
+  height:51px;
+  line-height: 51px;
+  padding:0 4%;
+  border-bottom:1px solid rgb(245,245,245);
+  font-size:14px;
+  color:rgb(51,51,51);
+  box-sizing: border-box;
+  position: relative;
+}
+.active{
+  background: rgb(255,250,244);
+}
+.allBack{
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0;
+  left:0;
+}
+.img{
+  width:20px;
+  height:25px;
+  position:absolute;
+  top:13px;
+  right:4%;
+}

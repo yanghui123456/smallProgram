@@ -1,0 +1,52 @@
+page,.invitation-success{
+  width:100%;
+  height:100%;
+  background: rgb(245,245,245);
+}
+.user-info{
+  width:100%;
+  overflow: hidden;
+  position: relative;
+}
+.user-base-info{
+  width:100%;
+  padding-left:28%;
+  box-sizing: border-box;
+}
+.user-base-info{
+  font-size:17px;
+  margin-top:33px;
+}
+.user-head-img{
+  width:60px;
+  height:60px;
+  position: absolute;
+  top:22px;
+  left:5.7%;
+  border-radius: 50%;
+}
+.user-communication{
+  margin-top:-5px;
+  padding-left:0;
+}
+.tel{
+  position: relative;
+  margin-right:10px;
+  display: inline-block;
+}
+.success-tips{
+  width:92%;
+  margin:50px 4% 20px 4%;
+  padding:12px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  position: relative;
+}
+.trangle{
+  width:10px;
+  height:10px;
+  transform: rotate(45deg);
+  position: absolute;
+  top:-5px;
+  left:9%;
+}

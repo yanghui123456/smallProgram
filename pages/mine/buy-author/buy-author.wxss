@@ -1,0 +1,143 @@
+page,.recharge{
+  width:100%;
+  height:100%;
+}
+.recharge{
+  position: fixed;
+  top:0;
+  left:0;
+}
+.title,.title2,.recharge-list{
+  width:100%;
+  padding:0 4%;
+  box-sizing: border-box;
+}
+.title{
+  font-size:20px;
+  margin-top:30px;
+}
+.title2{
+  margin-top:8px;
+}
+.recharge-list{
+  margin-top:30px;
+}
+.list-group{
+  width:100%;
+  height:58px;
+  margin-bottom:8px;
+}
+.item{
+  height:58px;
+  width:32%;
+  float: left;
+  border-radius: 5px;
+  border:1px solid rgb(246,161,34);
+  box-sizing: border-box;
+  position: relative;
+}
+.zdy{
+  line-height: 58px;
+  color:;
+}
+.span{
+  width:100%;
+  height:100%;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.item2{
+  margin:0 2%;
+}
+.htb,.price{
+  width:100%;
+}
+.htb{
+  margin-top:12px;
+}
+.give{
+  position: absolute;
+  top:0;
+  right:0;
+  width:34px;
+  height:34px;
+}
+.record{
+  width:100%;
+  height:30px;
+  line-height: 30px;
+  position: absolute;
+  bottom:45px;
+  left:0;
+}
+.left{
+  width:100%;
+  height:30px;
+  color:rgb(1,149,249);
+  box-sizing: border-box;
+}
+.activitPrice{
+  padding:2px 4px;
+  background: rgb(255,244,206);
+  margin-right:6px;
+  border-radius: 3px;
+}
+/* 自定义 */
+.zdyToast,.mask{
+  width:100%;
+  height:100%;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.mask{
+  background: black;
+  opacity: 0.8;
+}
+.zdyConten{
+  position: absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  z-index: 999;
+}
+.zdyBuy{
+  padding:20px 0 30px 0;
+}
+.write{
+  width:82%;
+  height:64px;
+  border:1px solid rgb(204,204,204);
+  box-sizing: border-box;
+  margin:0 auto;
+  border-radius: 6px;
+  position: relative;
+}
+.giveNum{
+  height:100%;
+  line-height: 64px;
+  position: absolute;
+  top:0;
+  right:10px;
+}
+.authorInput{
+  height:100%;
+  line-height: 64px;
+  width:80%;
+  padding-left:10px;
+  box-sizing: border-box;
+}
+.authorPlace{
+  color:rgb(204,204,204);
+  font-size:16px;
+}
+.buyBtn{
+  width:82%;
+  height:45px;
+  line-height: 45px;
+  margin:0 auto;
+  border-radius: 3px;
+  margin-bottom:30px;
+  margin-top:40px;
+}

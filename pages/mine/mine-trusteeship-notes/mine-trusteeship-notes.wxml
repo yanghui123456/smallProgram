@@ -1,0 +1,13 @@
+<!--我的-托管记录-->
+<view class='tru-notes tc'>
+  <view class='tru-group tc' wx:if='{{showList}}' wx:for='{{trusteeshipLists}}' wx:key='giftIssueTime'>
+    <text class='time colorWhite font10'>{{item.giftIssueTime}}</text>
+    <view class='text font13 color51 bgW'>
+      <image class='start' src='../../commonImgs/start_icon.png'></image>
+      <image class='end' src='../../commonImgs/end_icon.png'></image>
+      {{item.content}}
+    </view>
+  </view>
+  <image class='nothing' src='http://oss.baoxian.xujinkeji.com/broker/no-invit.png' wx:if='{{!showList}}'></image>
+  <view class='no-text font13' wx:if='{{!showList}}'>暂无托管记录</view>
+</view>

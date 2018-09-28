@@ -1,0 +1,93 @@
+page,.tel-check{
+  width:100%;
+  height:100%;
+  overflow: hidden;
+  background: rgb(245,245,245);
+}  
+.tel-check{
+  position: fixed;
+  top:0;
+  left:0;
+}
+.user-info{
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin:45px 0;
+}
+/* 用户头像    1px = 2rpx  */
+.userinfo-avatar {
+  width: 64px;
+  height: 64px;
+  margin: 10px;
+  border-radius: 50%;
+}
+.userinfo-nickname{
+  font-size:19px;
+  font-weight: 700;
+}
+/*表单信息  */
+.form-info{
+  width:100%;
+  height:121px;
+  margin-bottom:20px;
+}
+.item{
+  width:100%;
+  height:61px;
+  padding: 0 4%;
+  border-bottom:1px solid rgb(245, 245, 245);
+  box-sizing: border-box;
+  position:relative;
+}
+.item:last-child{
+  border:none;
+  height:60px;
+}
+.text, .inputVal{
+  height:100%;
+  line-height: 61px;
+  float: left;
+}
+.text{
+  width:26%;
+  line-height: 61px;
+}
+.inputVal{
+  width:74%;
+}
+.codeVal{
+  width:50%;
+}
+.get-verification-code{
+  width:26%;
+  height:34px;
+  line-height: 34px;
+  border:1px solid rgb(253, 207, 145);
+  position: absolute;
+  top:13px;
+  right:4%;
+  color:rgb(246, 163, 35);
+  border-radius: 3px;
+  box-sizing:border-box;
+  z-index:99;
+}
+.second{
+  border:none;
+  color:rgb(179,179,179);
+}
+input::-webkit-input-placeholder{
+  color:rgb(203, 203, 203);
+}
+/*完成按钮  */
+.complete{
+  border:none;
+  color:white;
+  background: #F6A122;
+  width:92%;
+  height:45px;
+  line-height: 45px;
+  margin-left:4%;
+  border-radius: 5px;
+}

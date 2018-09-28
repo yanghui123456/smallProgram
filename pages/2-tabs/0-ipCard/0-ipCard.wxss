@@ -1,0 +1,106 @@
+/* pages/2-tabs/0-ipCard/0-ipCard.wxss */
+page,.home{
+  width:100%;
+  height:100%;
+  position: relative;
+  background: rgb(245,245,245);
+}
+.homeTop{
+  width:100%;
+  margin-top:5px;
+  padding:13px 0 24px 0;
+}
+.topTime{
+  width:100%;
+  padding:0 3.6%;
+  box-sizing: border-box;
+  color:rgb(189,189,189);
+}
+.topNum{
+  font-size:26px;
+  margin-bottom:5px;
+}
+/* ip名片 */
+.homeIp{
+  width:100%;
+  margin-top:2px;
+  position: relative;
+}
+.ipCar{
+  width:100%;
+  padding:28px 2.4% 20px 4%;
+  box-sizing: border-box;
+  position: relative;
+}
+.card{
+  width:97.4%;
+  padding-top:28px;
+  margin-left:1.3%;
+  border-radius: 8px;
+  position: relative;
+  background-image: url('http://oss.baoxian.xujinkeji.com/broker/ipCardback2.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.ipAll{
+  width:100%;
+  height:100%;
+  position: absolute;
+  top:0;
+  left:0;
+  z-index:99;
+}
+.cardHeadImg{
+  width:60px;
+  height:60px;
+  border:1px solid white;
+  box-sizing: border-box;
+  border-radius: 50%;
+  position: absolute;
+  top:22px;
+  left:2.5%;
+}
+.cardName{
+  width:100%;
+  padding-left:22%;
+  box-sizing: border-box;
+  font-size:19px;
+  overflow: hidden;
+}
+.halfCard{
+  width:50%;
+  float: left;
+}
+/* 客户托管 */
+.homeTg{
+  width:100%;
+  padding:15px 4%;
+  box-sizing:border-box;
+  margin-top:10px;
+  position: relative;
+}
+.tgTitle{
+  font-size:17px;
+}
+.tgImg{
+  width:15px;
+  height:15px;
+  margin-right:2px;
+}
+.startInvit{
+  height:30px;
+  line-height: 30px;
+  border:1px solid rgb(255,224,167);
+  box-sizing: border-box;
+  border-radius: 20px;
+  position: absolute;
+  top:19px;
+  right:2.4%;
+  padding:0 10px;
+}
+.shareIcon{
+  width:14px;
+  height:14px;
+  vertical-align: middle;
+  margin-right:3px;
+}

@@ -1,0 +1,30 @@
+<!--上传保单-问题选择-->
+<view class='ins-upload'>
+  <view class='img-box'>
+    <view class='btn-group'>
+      <image class='prevImg' src='../../commonImgs/upload-back.png' bindtap='goBack'></image>
+      <image class='closeImg' src='../../commonImgs/upload-close.png' bindtap='goPrev' wx:if='{{showClose}}'></image>
+      <view class='jump colorWhite font16' wx:if='{{showComplate}}' bindtap='jump'>找不到该信息，跳过</view>
+      <view class='jump colorWhite font16' wx:if='{{!showComplate}}' bindtap='complated'>完成</view>
+    </view>
+    <scroll-view scroll-y='true' scroll-x='true' class='scrollView'>
+      <!--图片  -->
+      <image id='imgId' class='insurance-img' src='{{imgSrc}}' style='width:{{imgWidth}}px;height:{{imgHeight}}px;'></image>
+      <!--识别出来的区域  -->
+      <block wx:for='{{coordinateList}}' wx:key='{{words}}'>
+        <!--选中样式  -->
+        <view data-index='{{index}}' data-text='{{item.words}}' wx:if='{{selectEl === index}}' style='width:{{item.location.width}}px;height:{{item.location.height}}px;top:{{item.location.top}}px; left:{{item.location.left}}px; background: #B4FADC; opacity:0.5;position:absolute; border: 1px solid #49A75D;'></view>
+        <!--未选中样式  -->
+        <view data-index='{{index}}' data-text='{{item.words}}' wx:else style='width:{{item.location.width}}px;height:{{item.location.height}}px;top:{{item.location.top}}px; left:{{item.location.left}}px; background: #FEEDD3; opacity:0.5;position:absolute; border: 1px solid #ECA958;' bindtap='clickbox'></view>
+      </block>
+    </scroll-view>
+  </view>  
+  <view class='bottom tc' animation="{{animationData}}">
+    <view class='questionItem bgW color51'>请选择<text class='questionText'>{{questionText}}</text></view>
+    <view class='spanList' style='width:82%;'>
+      <view class='spanItem' style='width:{{spanWidth}}%'></view>
+    </view>
+    <view class='ensure colorWhite' wx:if='{{ensureColor}}' bindtap="ensure">确定</view>
+    <view class='ensure colorWhite' wx:else style='background:#FFA61C' bindtap="ensure">确定</view>
+  </view>
+</view>

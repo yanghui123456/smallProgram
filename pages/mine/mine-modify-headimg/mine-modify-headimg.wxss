@@ -1,0 +1,21 @@
+/* pages/mine/mine-modify-headimg/mine-modify-headimg.wxss */
+page,.modifyImg{
+  width:100%;
+  height:100%;
+  background: black;
+  position: relative;
+}
+.modifyHeadImg{
+  width:100%;
+  height:50%;
+  position: absolute;
+  top:25%;
+  left:0;
+}
+.more{
+  width:30px;
+  height:30px;
+  position: absolute;
+  top:0;
+  right:4%;
+}

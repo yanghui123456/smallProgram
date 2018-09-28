@@ -1,0 +1,52 @@
+<!--智保托管-->
+<view class='trusteeship'>
+  <view class='content bgW'>
+    <view class='message'>
+      <!--用户信息  -->
+      <view class='user-info'>
+        <image class='user-head-img' src="{{headUrl}}" ></image>
+        <view class='user-base-info colorWhite'>
+          {{realName}}
+          <text class='company font11'>{{company}} 从业{{year}}年</text>
+        </view>
+        <view class='user-communication colorWhite'>
+          <view class='tel font10 colorWhite'>{{tel}}<image class='icon' src='./images/phone.png'></image></view>
+        </view>
+      </view>
+      <!--用户说的话  -->
+      <view class='talk bgW'>
+        <view class='talk-triangle bgW'></view>
+        <text class='talkUser font12' wx:if='{{showPlaceholder}}'>输入想对客户说的话</text>
+        <textarea class='talk-area font13 color153' maxlength='150' value='{{textContent}}' bindinput='areaInput'/>
+        <view class='text-number color153 font10'>{{textLength}}/150</view>
+      </view>
+      <!-- 梯形tab -->
+      <view class='tab-trapezoid'>
+        <view class='trapezoid-item trapezoid-active'>
+          <image class='trapezoid-icon' src='./images/letter-select.png'></image>
+          <view class='trapezoid-text font10 tc'>文字</view>
+        </view>
+        <view class='trapezoid-item' bindtap='clickVoice'>
+          <image class='trapezoid-icon' src='./images/talk-no-select.png'></image>
+          <view class='trapezoid-text font10 tc'>语音</view>
+        </view>
+        <view class='trapezoid-item' bindtap='clickVoice'>
+          <image class='trapezoid-icon' src='./images/viedo-no-select.png'></image>
+          <view class='trapezoid-text font10 tc'>视频</view>
+        </view>
+      </view>
+    </view>
+    <!--客户量  -->
+    <view class='user-number'>
+      <view class='number-item tc'>
+        <view class='number'>{{customerCount}}<text class='unit font14 color153'>人</text></view>
+        <view class='text font14 color153'>托管客户</view>
+      </view>
+      <view class='number-item tc'>
+        <view class='number'>{{insuranceCount}}<text class='unit font14 color153'>份</text></view>
+        <view class='text font14 color153'>托管保险</view>
+      </view>
+    </view>
+    <view class='trusteeship-btn font15 colorWhite tc' bindtap='creatInvitation'>生成托管邀请</view>
+  </view>
+</view>

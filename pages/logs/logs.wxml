@@ -1,0 +1,2 @@
+<!--logs.wxml-->
+<button bindtap='authorization'>请授权</button>

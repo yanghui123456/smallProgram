@@ -1,0 +1,94 @@
+page,.mine-invitation,.content,.center{
+  width:100%;
+  height:100%;
+}
+.mine-invitation{
+  position: relative;
+}
+.content{
+  width:100%;
+  height:100%;
+  padding-bottom:45px;
+  box-sizing: border-box;
+  overflow: auto;
+  -webkit-overflow-scrolling:touch;
+}
+.top{
+  width:100%;
+  height:50%;
+}
+/*粉色的地址为图片的线上地址，只需把我本地的图片给到后台后台给我地址即可  */
+.center-list{
+    position: relative;
+    background: url('https://dev-haitun-public-read.oss-cn-hangzhou.aliyuncs.com/small_routine/20180718094252.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-top:-6px;
+    min-height: 50%;
+    box-sizing: border-box;
+}
+.lists{
+  width:100%;
+  padding:0 5.5% 0 11.7%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.money1{
+  width:20px;
+  height:23px;
+  position: absolute;
+  top:10%;
+  left:0;
+}
+.money2{
+  width:40px;
+  height:42px;
+  position: absolute;
+  bottom:0;
+  right:0;
+}
+.in-group{
+  float: left;
+  margin:0 6.2% 28px 0;
+}
+.item{
+  width:40px; 
+  height:40px; 
+  border:1px solid white;
+  border-radius: 50%;
+  margin-bottom:6px;
+}
+.bottom{
+  width:100%;
+  height:5%;
+  margin-top:-6px;
+}
+.no-invit{
+  width:50px;
+  height:48px;
+  margin:24% 0 10px 0;
+}
+.no-text{
+  color:rgb(200,190,203);
+}
+/*底部固定栏  */
+.bottom-group{
+  width:100%;
+  height:45px;
+  line-height: 45px;
+  position: fixed;
+  bottom:0;
+  left:0;
+  box-shadow:0 0 10px 3px #eee; 
+}
+.group-left{
+  width:50%;
+  float: left;
+  line-height: 45px;
+}
+.invit-icon{
+  width:15px;
+  height:15px;
+  vertical-align: middle;
+  margin:-4px 4px 0 0;
+}

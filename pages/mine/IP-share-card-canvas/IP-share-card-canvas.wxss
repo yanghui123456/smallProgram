@@ -1,0 +1,196 @@
+/* pages/mine/aa/aa.wxss */
+page,.overNone{
+  width:100%;
+  height:100%;
+  overflow: hidden
+}
+page,.overVisible{
+  width:100%;
+  height:100%;
+  overflow:visible;
+}
+/* 画布 */
+.ipCanvasNone,.ipCanvasVisible{
+  width:100%;
+  height:280px;
+  border-radius:5px;
+}
+.ipCanvasNone{
+ display: none;
+}
+.ipCanvasVisible{
+  display: block;
+}
+/* 浏览 */
+.browse{
+  width:100%;
+  padding:20px 4%;
+  margin-bottom:10px;
+  box-sizing: border-box;
+  position: relative;
+}
+.browseDetail{
+  width:22px;
+  height:22px;
+  border-radius: 3px;
+  margin-right:3px;
+}
+.help{
+  height:100%;
+  position: absolute;
+  top:0;
+  right:5.3%;
+}
+.fingerIcon,.smallfingerIcon{
+  width:20px;
+  height:20px;
+  display: block;
+  margin:0 auto;
+  margin-top:20px;
+}
+.smallfingerIcon{
+  width:2px;
+  height:2px;
+}
+/* 信息展示和收起 */
+.itemGroup{
+  width:100%;
+  margin-bottom:10px;
+}
+.moreMsg{
+  width:100%;
+  height:40px;
+  line-height: 40px;
+}
+.arrow{
+  width:10px;
+  height:10px;
+  vertical-align: middle;
+  margin-left:4px;
+}
+.hidea{
+  display: none;
+  opacity: 0;
+}
+.showa{
+  display: inline;
+  opacity: 1;
+}
+.item{
+  width:100%;
+  border-top:1px solid rgb(245,245,245);
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+.left{
+  width:22%;
+  padding:20px 0 20px 0;
+  color:rgb(101,101,101);
+  float: left;
+  padding-left:4%;
+  box-sizing: border-box;
+}
+.center{
+  width:48%;
+  padding:20px 0 20px 0;
+  float: left;
+}
+.right{
+  height:20px;
+  line-height: 20px;
+  border:1px solid rgb(101,214,152);
+  color:rgb(101,214,152);
+  padding:3px 10px;
+  border-radius: 3px;
+  position: absolute;
+  right:4%;
+  top:50%;
+  margin-top:-13px;
+}
+/* 个人简介 */
+.ipGroup{
+  margin-bottom:10px;
+  width:100%;
+  padding:0 4% 46px 4%;
+  box-sizing: border-box;
+}
+.introduce{
+  width:100%;
+  font-size:17px;
+  padding:30px 0 10px 0;
+  box-sizing: border-box;
+}
+.introDetail{
+  letter-spacing: 1px;
+}
+/* 照片墙 */
+.uploadImg{
+  width:100%;
+  height:220px;
+  border:1px solid rgb(222,222,222);
+  border-radius: 5px;
+  position: relative;
+  margin-bottom:20px;
+}
+.photoList{
+  width:100%;
+  height:220px;
+  margin-bottom:10px;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+.photeItem{
+  width:100%;
+  height:100%;
+}
+.uploadBack{
+  width:97.4%;
+  height:185px;
+  background: rgb(242,242,242);
+  border-radius: 5px;
+  margin:4.5px 0 0 4.5px;
+}
+.addBtn,.photoDel{
+  width:44px;
+  height:44px;
+  position: absolute;
+  top:62px;
+  left:50%;
+  margin-left:-22px;
+  z-index:99;
+}
+.photoDel{
+  top:88px;
+}
+.uploadMsg{
+  width:100%;
+  position: absolute;
+  top:120px;
+  left:0;
+}
+/* 底部 */
+.ipBottom{
+  width:100%;
+  height:46px;
+  position: fixed;
+  bottom:0;
+  left:0;
+  border-top:1px solid rgb(241,241,241);
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index:200;
+}
+.bottomBtn{
+  width:50%;
+  height:46px;
+  line-height: 46px;
+  float: left;
+}
+.bottomIcon{
+  width:16px;
+  height:16px;
+  vertical-align: middle;
+  margin-right:5px;
+}

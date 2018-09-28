@@ -1,0 +1,188 @@
+/* pages/mine/team-data/team-data.wxss */
+page,.teamData{
+  width:100%;
+  height:100%;
+}
+.dataHead{
+  width:80.4%;
+  height:27px;
+  border-top:1px solid rgb(246,161,34);
+  border-bottom:1px solid rgb(246,161,34);
+  box-sizing: border-box;
+  margin:20px 0 0 9.8%;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.dataTab,.activeTab{
+  width:33.3%;
+  height:100%;
+  line-height: 27px;
+  float: left;
+  border-left:1px solid rgb(246,161,34);
+  box-sizing: border-box;
+  color:rgb(248,160,34);
+  font-size: 12px;
+}
+.activeTab{
+  background: rgb(248,160,34);
+  color:white;
+}
+/* 今日趋势 */
+.nowTime,.visitorsNum,.visitors{
+  width:100%;
+}
+.nowTime{
+  color:rgb(189,189,189);
+  margin:18px 0 10px 0;
+}
+.visitorsNum{
+  font-size:26px;
+  margin-bottom:5px;
+}
+.visitors{
+  padding-bottom:25px;
+  border-bottom:1px solid rgb(245,245,245);
+}
+.lately{
+  width:100%;
+  padding:0 4%;
+  box-sizing: border-box;
+}
+.latelyItem,.daysActive{
+  float: left;
+  border:1px solid rgb(182,182,182);
+  border-radius: 10px;
+  color:rgb(182,182,182);
+  padding:2px 8px;
+  margin:13px 20px 13px 0;
+  font-size:12px;
+}
+.daysActive{
+  border-color: rgb(246,161,36);
+  color:rgb(246,161,36);
+}
+/* 历史总计 */
+.statisGroup{
+  width:92%;
+  border-left:1px solid rgb(245,245,245);
+  border-top:1px solid rgb(245,245,245);
+  border-bottom:1px solid rgb(245,245,245);
+  border-radius: 5px;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin:0 0 5px 4%;
+}
+.statisItem{
+  width:50%;
+  float: left;
+  border-right:1px solid rgb(245,245,245);
+  box-sizing: border-box;
+  padding-bottom:38px;
+}
+.statisTitle{
+  margin:30px 0;
+}
+.statisIcon{
+  width:12px;
+  height:12px;
+  vertical-align: middle;
+}
+.statisPeople{
+  margin-bottom:4px;
+}
+/* 用户画像 */
+.portraitTitle{
+  width:100%;
+  padding:0 4%;
+  font-size:20px;
+  box-sizing: border-box;
+  margin:40px 0 30px 0;
+}
+.portraitRight{
+  float: right;
+}
+.switchPage{
+  width:24px;
+  height:24px;
+  vertical-align: middle;
+}
+/* 用户画像-饼图 */
+.canvasBox{
+  width:100%;
+  height:200px;
+  position: relative;
+  border-bottom:1px solid rgb(245,245,245);
+  box-sizing: border-box;
+}
+canvas1{
+  width:50%;
+  height:200px;
+}
+.right{
+  width:50%;
+  height:200px;
+  float: left;
+  position: absolute;
+  top:0;
+  right:0;
+}
+.sex1{
+  margin-top:35px;
+}
+.sex2{
+  margin-top:30px;
+}
+.sex3{
+  margin-top:30px;
+}
+.circular1,.circular2,.circular3{
+  display: inline-block;
+  width:8px;
+  height:8px;
+  background: rgb(197,197,197);
+  border-radius: 50%;
+  margin-right:10px;
+}
+.circular1{
+  background: rgb(27,150,254);
+}
+.circular2{
+  background: rgb(255,123,136);
+}
+.areaGroup{
+  width:100%;
+  padding:0 4%;
+  box-sizing: border-box;
+}
+.areaItem{
+  width:100%;
+  overflow: hidden;
+  margin-bottom:16px;
+}
+.cityName{
+  width:20%;
+  height:20px;
+  line-height: 20px;
+  float: left;
+  text-align: justify;
+  text-align-last: justify;
+  padding-right:2%;
+}
+.cityLength{
+  width:60%;
+  height:10px;
+  float: left;
+  margin-top:5px;
+}
+.cityLengthElse{
+  /* width:10%; */
+  height:10px;
+  background: rgb(249,205,70);
+}
+.cityNum{
+  width:18%;
+  height:20px;
+  line-height: 20px;
+  float: left;
+  text-align: right;
+}
